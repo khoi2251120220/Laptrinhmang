@@ -1,11 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": []
+    "net8.0": []
   },
   "packageFolders": {
     "/home/ndang/.nuget/packages/": {}
@@ -13,24 +13,24 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ndang/RiderProjects/Laptrinhmang/BTL TKM/daugia/daugia/daugia.csproj",
-      "projectName": "daugia",
-      "projectPath": "/home/ndang/RiderProjects/Laptrinhmang/BTL TKM/daugia/daugia/daugia.csproj",
+      "projectUniqueName": "/home/ndang/RiderProjects/Laptrinhmang/BTL TKM/daugia/ServerApp/ServerApp.csproj",
+      "projectName": "ServerApp",
+      "projectPath": "/home/ndang/RiderProjects/Laptrinhmang/BTL TKM/daugia/ServerApp/ServerApp.csproj",
       "packagesPath": "/home/ndang/.nuget/packages/",
-      "outputPath": "/home/ndang/RiderProjects/Laptrinhmang/BTL TKM/daugia/daugia/obj/",
+      "outputPath": "/home/ndang/RiderProjects/Laptrinhmang/BTL TKM/daugia/ServerApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ndang/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0-windows"
+        "net8.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0-windows7.0": {
-          "targetAlias": "net8.0-windows",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {}
         }
       },
@@ -46,8 +46,8 @@
       }
     },
     "frameworks": {
-      "net8.0-windows7.0": {
-        "targetAlias": "net8.0-windows",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "imports": [
           "net461",
           "net462",
@@ -59,12 +59,19 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.8, 8.0.8]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[8.0.8, 8.0.8]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
-          },
-          "Microsoft.WindowsDesktop.App.WindowsForms": {
-            "privateAssets": "none"
           }
         },
         "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
