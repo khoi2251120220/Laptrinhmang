@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("daugia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22dfb39395a0e6c3c8ba6d81982fb111762e0119")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ab811242fdb41eb4d63db17e4cd23125bb0bf86")]
 [assembly: System.Reflection.AssemblyProductAttribute("daugia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("daugia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

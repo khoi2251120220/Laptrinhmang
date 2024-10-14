@@ -1,39 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {
-      "NuGet.Frameworks/6.11.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {}
-        }
-      }
-    }
+    "net8.0-windows7.0": {}
   },
-  "libraries": {
-    "NuGet.Frameworks/6.11.1": {
-      "sha512": "plTZ3ariSWQVsFn2mk83SsdmSg1VpgIMTSZpP/eSE/NNQF02p+M9ItxAYeUZBMX+cQ2nFkSwxQRJ0/fkaV9Hbg==",
-      "type": "package",
-      "path": "nuget.frameworks/6.11.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "lib/net472/NuGet.Frameworks.dll",
-        "lib/netstandard2.0/NuGet.Frameworks.dll",
-        "nuget.frameworks.6.11.1.nupkg.sha512",
-        "nuget.frameworks.nuspec"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": [
-      "NuGet.Frameworks >= 6.11.1"
-    ]
+    "net8.0-windows7.0": []
   },
   "packageFolders": {
     "C:\\Users\\codon\\.nuget\\packages\\": {}
@@ -41,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BTL LTM\\daugia\\daugia\\daugia.csproj",
+      "projectUniqueName": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj",
       "projectName": "daugia",
-      "projectPath": "D:\\BTL LTM\\daugia\\daugia\\daugia.csproj",
+      "projectPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj",
       "packagesPath": "C:\\Users\\codon\\.nuget\\packages\\",
-      "outputPath": "D:\\BTL LTM\\daugia\\daugia\\obj\\",
+      "outputPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\codon\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,12 +51,6 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
-        "dependencies": {
-          "NuGet.Frameworks": {
-            "target": "Package",
-            "version": "[6.11.1, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

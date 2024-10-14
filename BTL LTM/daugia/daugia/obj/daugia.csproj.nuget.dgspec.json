@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BTL LTM\\daugia\\daugia\\daugia.csproj": {}
+    "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj": {}
   },
   "projects": {
-    "D:\\BTL LTM\\daugia\\daugia\\daugia.csproj": {
+    "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BTL LTM\\daugia\\daugia\\daugia.csproj",
+        "projectUniqueName": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj",
         "projectName": "daugia",
-        "projectPath": "D:\\BTL LTM\\daugia\\daugia\\daugia.csproj",
+        "projectPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj",
         "packagesPath": "C:\\Users\\codon\\.nuget\\packages\\",
-        "outputPath": "D:\\BTL LTM\\daugia\\daugia\\obj\\",
+        "outputPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\codon\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,12 +45,6 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "dependencies": {
-            "NuGet.Frameworks": {
-              "target": "Package",
-              "version": "[6.11.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
