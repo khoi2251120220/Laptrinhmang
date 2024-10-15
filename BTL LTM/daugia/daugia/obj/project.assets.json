@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj",
-      "projectName": "daugia",
-      "projectPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\daugia.csproj",
+      "projectUniqueName": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+      "projectName": "client",
+      "projectPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
       "packagesPath": "C:\\Users\\codon\\.nuget\\packages\\",
       "outputPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\",
       "projectStyle": "PackageReference",
