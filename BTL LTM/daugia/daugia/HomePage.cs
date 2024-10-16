@@ -16,5 +16,10 @@ namespace daugia
         {
             InitializeComponent();
         }
+
+        private void đánklsanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
