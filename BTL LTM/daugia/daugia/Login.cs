@@ -35,7 +35,7 @@ namespace daugia
             string userName = textBox1.Text;
             string password = textBox2.Text;
 
-            if (userName == "testUser" && password == "testPassword")
+            if (userName == "admin" && password == "123")
             {
                 MessageBox.Show("Login successful!");
                 HomePage homePage = new HomePage();
