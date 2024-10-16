@@ -42,7 +42,8 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.download;
+            pictureBox1.BackColor = SystemColors.ControlLightLight;
+            pictureBox1.Image = client.Properties.Resources.download;
             pictureBox1.Location = new Point(-1, -2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(405, 453);

@@ -8,3 +8,13 @@ D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.As
 D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.AssemblyInfo.cs
 D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.csproj.CoreCompileInputs.cache
 D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.sourcelink.json
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.exe
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.deps.json
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.runtimeconfig.json
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.dll
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.pdb
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.dll
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\refint\client.dll
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.pdb
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.genruntimeconfig.cache
+D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\ref\client.dll
