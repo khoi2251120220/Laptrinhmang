@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|d:\\btl ltm\\laptrinhmang\\btl ltm\\daugia\\daugia\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|solutionrelative:daugia\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|d:\\btl ltm\\laptrinhmang\\btl ltm\\daugia\\daugia\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|solutionrelative:daugia\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|d:\\btl ltm\\laptrinhmang\\btl ltm\\daugia\\daugia\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|solutionrelative:daugia\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|d:\\btl ltm\\laptrinhmang\\btl ltm\\daugia\\daugia\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|solutionrelative:daugia\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{01C95859-E5E8-4322-9739-93E7E7F553AF}|Server\\Server.csproj|d:\\btl ltm\\laptrinhmang\\btl ltm\\daugia\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01C95859-E5E8-4322-9739-93E7E7F553AF}|Server\\Server.csproj|solutionrelative:server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|d:\\btl ltm\\laptrinhmang\\btl ltm\\daugia\\daugia\\client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|solutionrelative:daugia\\client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|d:\\btl ltm\\laptrinhmang\\btl ltm\\daugia\\daugia\\signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}|daugia\\client.csproj|solutionrelative:daugia\\signup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +38,93 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomePage.cs",
+              "DocumentMoniker": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\HomePage.cs",
+              "RelativeDocumentMoniker": "daugia\\HomePage.cs",
+              "ToolTip": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\HomePage.cs",
+              "RelativeToolTip": "daugia\\HomePage.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T04:48:17.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HomePage.cs [Design]",
+              "DocumentMoniker": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\HomePage.cs",
+              "RelativeDocumentMoniker": "daugia\\HomePage.cs",
+              "ToolTip": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\HomePage.cs [Design]",
+              "RelativeToolTip": "daugia\\HomePage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T04:44:29.719Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "client.csproj",
+              "DocumentMoniker": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+              "RelativeDocumentMoniker": "daugia\\client.csproj",
+              "ToolTip": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+              "RelativeToolTip": "daugia\\client.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-15T07:29:14.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SignUp.Designer.cs",
+              "DocumentMoniker": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\SignUp.Designer.cs",
+              "RelativeDocumentMoniker": "daugia\\SignUp.Designer.cs",
+              "ToolTip": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\SignUp.Designer.cs",
+              "RelativeToolTip": "daugia\\SignUp.Designer.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAASwHcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T07:29:11.91Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.Designer.cs",
+              "DocumentMoniker": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\Login.Designer.cs",
+              "RelativeDocumentMoniker": "daugia\\Login.Designer.cs",
+              "ToolTip": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\Login.Designer.cs",
+              "RelativeToolTip": "daugia\\Login.Designer.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAADgvywAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T07:29:08.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\Program.cs",
               "RelativeDocumentMoniker": "daugia\\Program.cs",
               "ToolTip": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\Program.cs",
               "RelativeToolTip": "daugia\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-15T07:25:35.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\Server\\Program.cs",
               "RelativeDocumentMoniker": "Server\\Program.cs",
               "ToolTip": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\Server\\Program.cs",
               "RelativeToolTip": "Server\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:10:35.088Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T07:10:35.088Z"
             }
           ]
         }
