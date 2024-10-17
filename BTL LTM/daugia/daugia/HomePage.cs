@@ -71,5 +71,29 @@ namespace daugia
         {
 
         }
+
+        private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AuctionForm auctionForm = new AuctionForm();
+            auctionForm.Show();
+        }
+
+        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AccountForm accountForm = new AccountForm();
+            accountForm.Show();
+        }
+
+        private void đấuGiáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AuctionForm auctionForm = new AuctionForm();
+            auctionForm.Show();
+        }
+
+        private void lịchSửToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AuctionForm auctionForm = new AuctionForm();
+            auctionForm.Show();
+        }
     }
 }
