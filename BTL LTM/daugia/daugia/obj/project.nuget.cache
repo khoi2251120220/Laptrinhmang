@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ec0E0WeckVQ=",
+  "dgSpecHash": "If/hrSZRj7Y=",
   "success": true,
-  "projectFilePath": "D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+  "projectFilePath": "C:\\laptrinhmang\\BTL LTM\\daugia\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\BTL LTM\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
