@@ -6,9 +6,9 @@ AuctionApp là một ứng dụng đấu giá biển số xe sử dụng C# vớ
 
 Dự án bao gồm ba phần chính:
 
-1. `daugia/Server`: Phần backend của ứng dụng, xử lý logic đấu giá và tương tác với cơ sở dữ liệu.
-2. `daugia/Client`: Phần frontend của ứng dụng, giao diện người dùng để tham gia đấu giá.
-3. `daugia/Shared`: Chứa các model dùng chung giữa Client và Server.
+1. `Server`: Phần backend của ứng dụng, xử lý logic đấu giá và tương tác với cơ sở dữ liệu.
+2. `Client`: Phần frontend của ứng dụng, giao diện người dùng để tham gia đấu giá.
+3. `Shared`: Chứa các model dùng chung giữa Client và Server.
 
 ## Yêu cầu Hệ thống
 
@@ -19,9 +19,9 @@ Dự án bao gồm ba phần chính:
 
 1. Cấu hình cơ sở dữ liệu:
    - Tạo một cơ sở dữ liệu mới trong MySQL Server.
-   - Cập nhật thông tin kết nối trong file `.env` trong thư mục `daugia/Server`.
+   - Cập nhật thông tin kết nối trong file `.env` trong thư mục `Server`.
 
-2. Tạo file `.env` trong thư mục `AuctionApp.Server` với nội dung sau:
+2. Tạo file `.env` trong thư mục `Server` với nội dung sau:
    ```
    DB_USER=your_username
    DB_PASSWORD=your_password
@@ -33,14 +33,14 @@ Dự án bao gồm ba phần chính:
 
 1. Chạy Server:
    ```
-   cd daugia/Server
+   cd Server
    dotnet run
    ```
    Server sẽ tự động khởi tạo cơ sở dữ liệu và thêm dữ liệu mẫu nếu cần.
 
 2. Trong một terminal khác, chạy Client:
    ```
-   cd daugia/Client
+   cd Client
    dotnet run
    ```
 
