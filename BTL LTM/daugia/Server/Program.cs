@@ -41,7 +41,6 @@ namespace ConnectMySQL
                         string sql = "SELECT COUNT(*) FROM phpmyadmin.user WHERE username = @username AND password = @password";
                         using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                         {
-
                             cmd.Parameters.AddWithValue("@username", userName);
                             cmd.Parameters.AddWithValue("@password", password);
 
