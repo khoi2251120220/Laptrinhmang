@@ -14,28 +14,7 @@ namespace ConnectMySQL
 
         static void Main(string[] args)
         {
-            Console.WriteLine("C# MySQL");
-            string connStr = "server=localhost;user=root;database=phpmyadmin;port=3306";
-            using (MySqlConnection conn = new MySqlConnection(connStr))
-            {
-                try
-                {
-                    Console.WriteLine("Đang kết nối đến MySQL...");
-                    conn.Open();
-                    string sql = "SELECT * FROM phpmyadmin.user";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        Console.WriteLine(rdr[0] + " -- " + rdr[1]);
-                    }
-                    rdr.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-            }
+
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
             try
@@ -54,7 +33,9 @@ namespace ConnectMySQL
                     string userName = credentials[0];
                     string password = credentials[1];
 
-                    if (userName == "admin" && password == "123456")
+                    string storedPassword = getPassword(userName);
+
+                    if (storedPassword != null && password == storedPassword)
                     {
                         socket.Send(Encoding.UTF8.GetBytes("Login successful"));
                     }
@@ -67,8 +48,39 @@ namespace ConnectMySQL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi: " + ex);
+                Console.WriteLine("Lỗi: " + ex.Message);
             }
+        }
+
+        static String getPassword(String username)
+        {
+            string passwordReal = null;
+            Console.WriteLine("C# MySQL");
+            string connStr = "server=localhost;user=root;database=phpmyadmin;port=3306";
+            using (MySqlConnection conn = new MySqlConnection(connStr))
+            {
+                try
+                {
+                    Console.WriteLine("Đang kết nối đến MySQL...");
+                    conn.Open();
+                    string sql = "SELECT password FROM phpmyadmin.user WHERE username = @username";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    using (MySqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        if (rdr.Read()) 
+                        {
+                            passwordReal = rdr.GetString(0); 
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Lỗi: " + ex.Message);
+                }
+            }
+            return passwordReal;
         }
     }
 }
