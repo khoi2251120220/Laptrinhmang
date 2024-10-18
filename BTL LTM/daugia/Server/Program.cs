@@ -65,5 +65,36 @@ namespace ConnectMySQL
                 }
             }
         }
+
+        static String getPassword(String username)
+        {
+            string passwordReal = null;
+            Console.WriteLine("C# MySQL");
+            string connStr = "server=localhost;user=root;database=phpmyadmin;port=3306";
+            using (MySqlConnection conn = new MySqlConnection(connStr))
+            {
+                try
+                {
+                    Console.WriteLine("Đang kết nối đến MySQL...");
+                    conn.Open();
+                    string sql = "SELECT password FROM phpmyadmin.user WHERE username = @username";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    using (MySqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        if (rdr.Read()) 
+                        {
+                            passwordReal = rdr.GetString(0); 
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Lỗi: " + ex.Message);
+                }
+            }
+            return passwordReal;
+        }
     }
 }
