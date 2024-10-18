@@ -16,5 +16,10 @@ namespace client
         {
             InitializeComponent();
         }
+
+        private void textBoxInfomation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
