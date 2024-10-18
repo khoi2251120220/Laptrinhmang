@@ -8,24 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\biphi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ASUS TUF\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\laptrinhmang\\BTL LTM\\daugia\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+      "projectUniqueName": "D:\\Lam\\Hoc_ky_1_2024-2025\\Lập trình mạng\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
       "projectName": "client",
-      "projectPath": "C:\\laptrinhmang\\BTL LTM\\daugia\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
-      "packagesPath": "C:\\Users\\biphi\\.nuget\\packages\\",
-      "outputPath": "C:\\laptrinhmang\\BTL LTM\\daugia\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\",
+      "projectPath": "D:\\Lam\\Hoc_ky_1_2024-2025\\Lập trình mạng\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+      "packagesPath": "C:\\Users\\ASUS TUF\\.nuget\\packages\\",
+      "outputPath": "D:\\Lam\\Hoc_ky_1_2024-2025\\Lập trình mạng\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\biphi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ASUS TUF\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -50,9 +45,8 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+        "auditMode": "direct"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -76,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
