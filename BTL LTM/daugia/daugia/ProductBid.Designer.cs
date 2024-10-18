@@ -15,7 +15,6 @@
         private Label lblLichSuDauGia;
         private ListBox lstLichSuDauGia;
         private Panel mainPanel;
-        private MenuStrip menuStrip;
 
         protected override void Dispose(bool disposing)
         {
@@ -42,8 +41,15 @@
             btnDatGia = new Button();
             lblLichSuDauGia = new Label();
             lstLichSuDauGia = new ListBox();
-            menuStrip = new MenuStrip();
+            menuStrip1 = new MenuStrip();
+            trangChủToolStripMenuItem = new ToolStripMenuItem();
+            lịchSửToolStripMenuItem = new ToolStripMenuItem();
+            tàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
+            thôngTinTàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
+            logOutToolStripMenuItem = new ToolStripMenuItem();
+            trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             mainPanel.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // mainPanel
@@ -193,13 +199,51 @@
             lstLichSuDauGia.Size = new Size(400, 86);
             lstLichSuDauGia.TabIndex = 10;
             // 
-            // menuStrip
+            // menuStrip1
             // 
-            menuStrip.Location = new Point(0, 0);
-            menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(800, 24);
-            menuStrip.TabIndex = 11;
-            menuStrip.Text = "menuStrip";
+            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, lịchSửToolStripMenuItem, tàiKhoảnToolStripMenuItem, trợGiúpToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // trangChủToolStripMenuItem
+            // 
+            trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
+            trangChủToolStripMenuItem.Size = new Size(71, 20);
+            trangChủToolStripMenuItem.Text = "Trang chủ";
+            // 
+            // lịchSửToolStripMenuItem
+            // 
+            lịchSửToolStripMenuItem.Name = "lịchSửToolStripMenuItem";
+            lịchSửToolStripMenuItem.Size = new Size(56, 20);
+            lịchSửToolStripMenuItem.Text = "Lịch sử";
+            // 
+            // tàiKhoảnToolStripMenuItem
+            // 
+            tàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { thôngTinTàiKhoảnToolStripMenuItem, logOutToolStripMenuItem });
+            tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
+            tàiKhoảnToolStripMenuItem.Size = new Size(68, 20);
+            tàiKhoảnToolStripMenuItem.Text = "tài khoản";
+            // 
+            // thôngTinTàiKhoảnToolStripMenuItem
+            // 
+            thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
+            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(175, 22);
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "thông tin tài khoản";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            logOutToolStripMenuItem.Size = new Size(175, 22);
+            logOutToolStripMenuItem.Text = "log out";
+            // 
+            // trợGiúpToolStripMenuItem
+            // 
+            trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            trợGiúpToolStripMenuItem.Size = new Size(62, 20);
+            trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // ProductBid
             // 
@@ -207,16 +251,26 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 500);
-            Controls.Add(menuStrip);
+            Controls.Add(menuStrip1);
             Controls.Add(mainPanel);
             Name = "ProductBid";
             Text = "Đấu Giá Biển Số Xe";
             mainPanel.ResumeLayout(false);
             mainPanel.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem trangChủToolStripMenuItem;
+        private ToolStripMenuItem lịchSửToolStripMenuItem;
+        private ToolStripMenuItem tàiKhoảnToolStripMenuItem;
+        private ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
+        private ToolStripMenuItem logOutToolStripMenuItem;
+        private ToolStripMenuItem trợGiúpToolStripMenuItem;
     }
 }
