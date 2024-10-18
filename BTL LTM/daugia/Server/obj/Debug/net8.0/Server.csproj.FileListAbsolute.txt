@@ -3,3 +3,41 @@ D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.AssemblyIn
 D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.AssemblyInfo.cs
 D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.csproj.CoreCompileInputs.cache
 D:\BTL LTM\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.sourcelink.json
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\Server.exe
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\Server.deps.json
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\Server.runtimeconfig.json
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\Server.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\Server.pdb
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\MySql.Data.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\ZstdSharp.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.csproj.AssemblyReference.cache
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.AssemblyInfoInputs.cache
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.AssemblyInfo.cs
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.csproj.CoreCompileInputs.cache
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.sourcelink.json
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.csproj.Up2Date
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\refint\Server.dll
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.pdb
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.genruntimeconfig.cache
+C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\ref\Server.dll
