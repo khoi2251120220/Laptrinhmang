@@ -30,8 +30,17 @@
         {
             panel2 = new Panel();
             panel10 = new Panel();
-            label22 = new Label();
             label21 = new Label();
+            pictureBox12 = new PictureBox();
+            pictureBox11 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            pictureBox9 = new PictureBox();
+            label25 = new Label();
+            label24 = new Label();
+            label23 = new Label();
+            label16 = new Label();
+            linkLabel1 = new LinkLabel();
+            label22 = new Label();
             label20 = new Label();
             label19 = new Label();
             label18 = new Label();
@@ -44,11 +53,13 @@
             pictureBox3 = new PictureBox();
             label8 = new Label();
             panel5 = new Panel();
-            label17 = new Label();
-            label16 = new Label();
-            label15 = new Label();
-            panel7 = new Panel();
+            label28 = new Label();
             label14 = new Label();
+            pictureBox13 = new PictureBox();
+            label27 = new Label();
+            label26 = new Label();
+            label17 = new Label();
+            label15 = new Label();
             panel6 = new Panel();
             label13 = new Label();
             label12 = new Label();
@@ -57,6 +68,12 @@
             label9 = new Label();
             label7 = new Label();
             panel3 = new Panel();
+            label34 = new Label();
+            label33 = new Label();
+            label32 = new Label();
+            label31 = new Label();
+            label30 = new Label();
+            label29 = new Label();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -77,6 +94,10 @@
             trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             panel2.SuspendLayout();
             panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -85,7 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel5.SuspendLayout();
-            panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel8.SuspendLayout();
@@ -104,49 +125,148 @@
             panel2.Controls.Add(panel1);
             panel2.Location = new Point(0, 150);
             panel2.Name = "panel2";
-            panel2.Size = new Size(885, 426);
+            panel2.Size = new Size(885, 445);
             panel2.TabIndex = 3;
             panel2.Paint += panel2_Paint_1;
             // 
             // panel10
             // 
-            panel10.BackColor = Color.Gray;
-            panel10.Controls.Add(label22);
+            panel10.BackColor = Color.DarkGray;
             panel10.Controls.Add(label21);
+            panel10.Controls.Add(pictureBox12);
+            panel10.Controls.Add(pictureBox11);
+            panel10.Controls.Add(pictureBox10);
+            panel10.Controls.Add(pictureBox9);
+            panel10.Controls.Add(label25);
+            panel10.Controls.Add(label24);
+            panel10.Controls.Add(label23);
+            panel10.Controls.Add(label16);
+            panel10.Controls.Add(linkLabel1);
+            panel10.Controls.Add(label22);
             panel10.Controls.Add(label20);
             panel10.Controls.Add(label19);
             panel10.Controls.Add(label18);
-            panel10.Location = new Point(3, 332);
+            panel10.Location = new Point(3, 317);
             panel10.Name = "panel10";
-            panel10.Size = new Size(879, 91);
+            panel10.Size = new Size(895, 128);
             panel10.TabIndex = 6;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Arial", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label21.Location = new Point(676, 30);
+            label21.Name = "label21";
+            label21.Size = new Size(111, 15);
+            label21.TabIndex = 14;
+            label21.Text = "SV ĐẠI HỌC GTVT";
+            label21.Click += label21_Click;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = client.Properties.Resources.images;
+            pictureBox12.Location = new Point(670, 51);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(117, 68);
+            pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox12.TabIndex = 13;
+            pictureBox12.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.Image = client.Properties.Resources.Facebook_200x200;
+            pictureBox11.Location = new Point(525, 48);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(42, 39);
+            pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox11.TabIndex = 12;
+            pictureBox11.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = client.Properties.Resources.youtube;
+            pictureBox10.Location = new Point(436, 48);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(54, 39);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.TabIndex = 11;
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = client.Properties.Resources.apple;
+            pictureBox9.Location = new Point(348, 48);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(54, 39);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.TabIndex = 10;
+            pictureBox9.TabStop = false;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(152, 104);
+            label25.Name = "label25";
+            label25.Size = new Size(67, 15);
+            label25.TabIndex = 9;
+            label25.Text = "0123456789";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label24.Location = new Point(110, 104);
+            label24.Name = "label24";
+            label24.Size = new Size(31, 15);
+            label24.TabIndex = 8;
+            label24.Text = "SĐT:";
+            label24.Click += label24_Click;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(152, 48);
+            label23.Name = "label23";
+            label23.Size = new Size(127, 15);
+            label23.TabIndex = 7;
+            label23.Text = "Tô Ký, Sài Gòn,TPHCM ";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label16.Location = new Point(96, 72);
+            label16.Name = "label16";
+            label16.Size = new Size(45, 15);
+            label16.TabIndex = 6;
+            label16.Text = "GMAIL:";
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(152, 72);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(104, 15);
+            linkLabel1.TabIndex = 5;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Nhom3uth.edu.vn";
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label22.Location = new Point(344, 54);
+            label22.Location = new Point(635, 15);
             label22.Name = "label22";
-            label22.Size = new Size(220, 15);
+            label22.Size = new Size(203, 15);
             label22.TabIndex = 4;
-            label22.Text = "APP ĐƯỢC HOÀN THÀNH BỞI NHÓM 3";
+            label22.Text = "APP ĐƯỢC THỰC HIỆN BỞI NHÓM 3";
             label22.Click += label22_Click;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label21.Location = new Point(608, 17);
-            label21.Name = "label21";
-            label21.Size = new Size(78, 15);
-            label21.TabIndex = 3;
-            label21.Text = "NGÂN HÀNG";
             // 
             // label20
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label20.Location = new Point(477, 17);
+            label20.Location = new Point(140, 15);
             label20.Name = "label20";
             label20.Size = new Size(49, 15);
             label20.TabIndex = 2;
@@ -156,18 +276,18 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label19.Location = new Point(367, 17);
+            label19.Location = new Point(85, 48);
             label19.Name = "label19";
-            label19.Size = new Size(50, 15);
+            label19.Size = new Size(56, 15);
             label19.TabIndex = 1;
-            label19.Text = "ĐỊA CHỈ";
+            label19.Text = "ĐỊA CHỈ :";
             label19.Click += label19_Click;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label18.Location = new Point(239, 17);
+            label18.Location = new Point(437, 15);
             label18.Name = "label18";
             label18.Size = new Size(53, 15);
             label18.TabIndex = 0;
@@ -273,60 +393,83 @@
             // panel5
             // 
             panel5.BackColor = Color.Turquoise;
+            panel5.Controls.Add(label28);
+            panel5.Controls.Add(label14);
+            panel5.Controls.Add(pictureBox13);
+            panel5.Controls.Add(label27);
+            panel5.Controls.Add(label26);
             panel5.Controls.Add(label17);
-            panel5.Controls.Add(label16);
             panel5.Controls.Add(label15);
-            panel5.Controls.Add(panel7);
             panel5.Location = new Point(508, 9);
             panel5.Name = "panel5";
-            panel5.Size = new Size(161, 314);
+            panel5.Size = new Size(168, 299);
             panel5.TabIndex = 6;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label28.Location = new Point(7, 134);
+            label28.Name = "label28";
+            label28.Size = new Size(157, 20);
+            label28.TabIndex = 8;
+            label28.Text = "Tin tức hot hôm nay";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label14.Location = new Point(43, 18);
+            label14.Name = "label14";
+            label14.Size = new Size(85, 20);
+            label14.TabIndex = 7;
+            label14.Text = "Chức năng";
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = client.Properties.Resources.anhbienso;
+            pictureBox13.Location = new Point(11, 203);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(124, 79);
+            pictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox13.TabIndex = 6;
+            pictureBox13.TabStop = false;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(7, 180);
+            label27.Name = "label27";
+            label27.Size = new Size(54, 15);
+            label27.TabIndex = 5;
+            label27.Text = "đắt nhất:";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(7, 165);
+            label26.Name = "label26";
+            label26.Size = new Size(154, 15);
+            label26.TabIndex = 4;
+            label26.Text = "Các sản phẩm được đấu giá";
+            label26.Click += label26_Click;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(10, 187);
+            label17.Location = new Point(17, 51);
             label17.Name = "label17";
-            label17.Size = new Size(118, 15);
+            label17.Size = new Size(126, 15);
             label17.TabIndex = 3;
-            label17.Text = "Công nợ khách hàng";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(10, 130);
-            label16.Name = "label16";
-            label16.Size = new Size(142, 15);
-            label16.TabIndex = 2;
-            label16.Text = "Sản phẩm ít được đấu giá";
+            label17.Text = "- Công nợ khách hàng";
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Location = new Point(10, 73);
             label15.Name = "label15";
-            label15.Size = new Size(138, 15);
+            label15.Size = new Size(0, 15);
             label15.TabIndex = 1;
-            label15.Text = "Sản phẩm đấu giá nhiều ";
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.Gray;
-            panel7.Controls.Add(label14);
-            panel7.Location = new Point(10, 3);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(135, 36);
-            panel7.TabIndex = 0;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(26, 10);
-            label14.Name = "label14";
-            label14.Size = new Size(77, 15);
-            label14.TabIndex = 0;
-            label14.Text = "CHỨC NĂNG";
-            label14.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
@@ -349,9 +492,9 @@
             label12.AutoSize = true;
             label12.Location = new Point(201, 148);
             label12.Name = "label12";
-            label12.Size = new Size(122, 15);
+            label12.Size = new Size(132, 15);
             label12.TabIndex = 4;
-            label12.Text = "Quản lý đơn đặt hàng";
+            label12.Text = "Thông tin đơn đặt hàng";
             label12.Click += label12_Click;
             // 
             // label11
@@ -359,9 +502,9 @@
             label11.AutoSize = true;
             label11.Location = new Point(36, 148);
             label11.Name = "label11";
-            label11.Size = new Size(104, 15);
+            label11.Size = new Size(91, 15);
             label11.TabIndex = 3;
-            label11.Text = "Quản lý Sản phẩm";
+            label11.Text = "Trang sản phẩm";
             label11.Click += label11_Click;
             // 
             // label10
@@ -395,31 +538,91 @@
             // panel3
             // 
             panel3.BackColor = Color.Gainsboro;
+            panel3.Controls.Add(label34);
+            panel3.Controls.Add(label33);
+            panel3.Controls.Add(label32);
+            panel3.Controls.Add(label31);
+            panel3.Controls.Add(label30);
+            panel3.Controls.Add(label29);
             panel3.Controls.Add(label6);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(3, 166);
+            panel3.Location = new Point(3, 106);
             panel3.Name = "panel3";
-            panel3.Size = new Size(200, 145);
+            panel3.Size = new Size(200, 205);
             panel3.TabIndex = 4;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Location = new Point(34, 124);
+            label34.Name = "label34";
+            label34.Size = new Size(159, 15);
+            label34.TabIndex = 8;
+            label34.Text = "trang thanh toán và điền đầy";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Location = new Point(28, 173);
+            label33.Name = "label33";
+            label33.Size = new Size(153, 15);
+            label33.TabIndex = 7;
+            label33.Text = "sản phẩm được vận chuyển";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(17, 158);
+            label32.Name = "label32";
+            label32.Size = new Size(176, 15);
+            label32.TabIndex = 6;
+            label32.Text = "B4: xác nhận thanh toán và chờ ";
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(34, 139);
+            label31.Name = "label31";
+            label31.Size = new Size(122, 15);
+            label31.TabIndex = 5;
+            label31.Text = "đủ thông tin cần thiết";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(15, 109);
+            label30.Name = "label30";
+            label30.Size = new Size(174, 15);
+            label30.TabIndex = 4;
+            label30.Text = "B3: nếu đấu giá thành công vào";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(28, 86);
+            label29.Name = "label29";
+            label29.Size = new Size(165, 15);
+            label29.TabIndex = 3;
+            label29.Text = "  sản phẩm bạn muốn đấu giá";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(26, 78);
+            label6.Location = new Point(16, 71);
             label6.Name = "label6";
-            label6.Size = new Size(53, 15);
+            label6.Size = new Size(176, 15);
             label6.TabIndex = 2;
-            label6.Text = "- Liên hệ";
+            label6.Text = "B2: vào trang sản phẩm và chon";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(26, 49);
+            label5.Location = new Point(17, 45);
             label5.Name = "label5";
-            label5.Size = new Size(121, 15);
+            label5.Size = new Size(161, 15);
             label5.TabIndex = 1;
-            label5.Text = "- Hướng dẫn sử dụng";
+            label5.Text = "B1: Đăng ký ( nếu chưa có tk)";
             label5.Click += label5_Click;
             // 
             // label4
@@ -428,9 +631,9 @@
             label4.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             label4.Location = new Point(16, 11);
             label4.Name = "label4";
-            label4.Size = new Size(58, 20);
+            label4.Size = new Size(96, 20);
             label4.TabIndex = 0;
-            label4.Text = "Hỗ trợ";
+            label4.Text = "Hướng dẫn ";
             // 
             // panel1
             // 
@@ -440,7 +643,7 @@
             panel1.Controls.Add(label2);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 142);
+            panel1.Size = new Size(200, 97);
             panel1.TabIndex = 3;
             // 
             // label3
@@ -479,7 +682,7 @@
             panel8.Dock = DockStyle.Fill;
             panel8.Location = new Point(0, 0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(887, 578);
+            panel8.Size = new Size(887, 595);
             panel8.TabIndex = 4;
             panel8.Paint += panel8_Paint;
             // 
@@ -497,9 +700,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = client.Properties.Resources.anh3;
-            pictureBox2.Location = new Point(287, 25);
+            pictureBox2.Location = new Point(203, 25);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(598, 128);
+            pictureBox2.Size = new Size(682, 128);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
@@ -508,9 +711,9 @@
             // 
             pictureBox1.BackColor = Color.Silver;
             pictureBox1.Image = client.Properties.Resources.images;
-            pictureBox1.Location = new Point(0, 25);
+            pictureBox1.Location = new Point(9, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(292, 125);
+            pictureBox1.Size = new Size(197, 125);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -566,7 +769,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(887, 578);
+            ClientSize = new Size(887, 595);
             Controls.Add(panel8);
             Name = "HomePage";
             Text = "HomePage";
@@ -574,6 +777,10 @@
             panel2.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
@@ -584,8 +791,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
@@ -619,8 +825,6 @@
         private Panel panel5;
         private Label label13;
         private Label label12;
-        private Panel panel7;
-        private Label label14;
         private Panel panel6;
         private Panel panel8;
         private Panel panel9;
@@ -641,12 +845,31 @@
         private PictureBox pictureBox5;
         private Label label15;
         private Label label17;
-        private Label label16;
         private Panel panel10;
         private Label label22;
-        private Label label21;
         private Label label20;
         private Label label19;
         private Label label18;
+        private Label label23;
+        private Label label16;
+        private LinkLabel linkLabel1;
+        private Label label24;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox9;
+        private Label label25;
+        private Label label21;
+        private PictureBox pictureBox12;
+        private Label label26;
+        private Label label14;
+        private PictureBox pictureBox13;
+        private Label label27;
+        private Label label28;
+        private Label label31;
+        private Label label30;
+        private Label label29;
+        private Label label33;
+        private Label label32;
+        private Label label34;
     }
 }
