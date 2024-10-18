@@ -22,52 +22,47 @@ namespace ConnectMySQL
                 {
                     Console.WriteLine("Đang kết nối đến MySQL...");
                     conn.Open();
-                    string sql = "SELECT * FROM phpmyadmin.user";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
+
+                    IPAddress address = IPAddress.Parse("127.0.0.1");
+                    TcpListener listener = new TcpListener(address, PORT_NUMBER);
+                    listener.Start();
+                    Console.WriteLine($"Server đang lắng nghe trên port {PORT_NUMBER}...");
+
+                    using (Socket socket = listener.AcceptSocket())
                     {
-                        Console.WriteLine(rdr[0] + " -- " + rdr[1]);
+                        byte[] data = new byte[BUFFER_SIZE];
+                        int bytesReceived = socket.Receive(data);
+                        string receivedMessage = Encoding.UTF8.GetString(data, 0, bytesReceived);
+
+                        string[] credentials = receivedMessage.Split(':');
+                        string userName = credentials[0];
+                        string password = credentials[1];
+
+                        string sql = "SELECT COUNT(*) FROM phpmyadmin.user WHERE username = @username AND password = @password";
+                        using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                        {
+
+                            cmd.Parameters.AddWithValue("@username", userName);
+                            cmd.Parameters.AddWithValue("@password", password);
+
+                            int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                            if (count > 0)
+                            {
+                                socket.Send(Encoding.UTF8.GetBytes("Login successful"));
+                            }
+                            else
+                            {
+                                socket.Send(Encoding.UTF8.GetBytes("Invalid username or password."));
+                            }
+                        }
                     }
-                    rdr.Close();
+                    listener.Stop();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine("Lỗi: " + ex);
                 }
-            }
-            Console.OutputEncoding = Encoding.Unicode;
-            Console.InputEncoding = Encoding.Unicode;
-            try
-            {
-                IPAddress address = IPAddress.Parse("127.0.0.1");
-                TcpListener listener = new TcpListener(address, PORT_NUMBER);
-                listener.Start();
-
-                using (Socket socket = listener.AcceptSocket())
-                {
-                    byte[] data = new byte[BUFFER_SIZE];
-                    int bytesReceived = socket.Receive(data);
-                    string receivedMessage = Encoding.UTF8.GetString(data, 0, bytesReceived);
-
-                    string[] credentials = receivedMessage.Split(':');
-                    string userName = credentials[0];
-                    string password = credentials[1];
-
-                    if (userName == "admin" && password == "123456")
-                    {
-                        socket.Send(Encoding.UTF8.GetBytes("Login successful"));
-                    }
-                    else
-                    {
-                        socket.Send(Encoding.UTF8.GetBytes("Invalid username or password."));
-                    }
-                }
-                listener.Stop();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi: " + ex);
             }
         }
     }
