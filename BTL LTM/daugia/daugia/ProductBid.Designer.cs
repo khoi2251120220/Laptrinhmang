@@ -5,11 +5,11 @@
         private System.ComponentModel.IContainer components = null;
         private Label lblTieuDeDauGia;
         private Label lblBienSoXeTieuDe;
-        private Label lblBienSoXeGiaTri;
+        private Label lblBienSoXe;
         private Label lblGiaHienTaiTieuDe;
-        private Label lblGiaHienTaiGiaTri;
+        private Label lblGiaHienTai;
         private Label lblThoiGianConLaiTieuDe;
-        private Label lblThoiGianConLaiGiaTri;
+        private Label lblThoiGianConLai;
         private TextBox txtGiaMoi;
         private Button btnDatGia;
         private Label lblLichSuDauGia;
@@ -33,11 +33,11 @@
             mainPanel = new Panel();
             lblTieuDeDauGia = new Label();
             lblBienSoXeTieuDe = new Label();
-            lblBienSoXeGiaTri = new Label();
+            lblBienSoXe = new Label();
             lblGiaHienTaiTieuDe = new Label();
-            lblGiaHienTaiGiaTri = new Label();
+            lblGiaHienTai = new Label();
             lblThoiGianConLaiTieuDe = new Label();
-            lblThoiGianConLaiGiaTri = new Label();
+            lblThoiGianConLai = new Label();
             txtGiaMoi = new TextBox();
             btnDatGia = new Button();
             lblLichSuDauGia = new Label();
@@ -52,11 +52,11 @@
             mainPanel.BorderStyle = BorderStyle.FixedSingle;
             mainPanel.Controls.Add(lblTieuDeDauGia);
             mainPanel.Controls.Add(lblBienSoXeTieuDe);
-            mainPanel.Controls.Add(lblBienSoXeGiaTri);
+            mainPanel.Controls.Add(lblBienSoXe);
             mainPanel.Controls.Add(lblGiaHienTaiTieuDe);
-            mainPanel.Controls.Add(lblGiaHienTaiGiaTri);
+            mainPanel.Controls.Add(lblGiaHienTai);
             mainPanel.Controls.Add(lblThoiGianConLaiTieuDe);
-            mainPanel.Controls.Add(lblThoiGianConLaiGiaTri);
+            mainPanel.Controls.Add(lblThoiGianConLai);
             mainPanel.Controls.Add(txtGiaMoi);
             mainPanel.Controls.Add(btnDatGia);
             mainPanel.Controls.Add(lblLichSuDauGia);
@@ -88,18 +88,18 @@
             lblBienSoXeTieuDe.TabIndex = 1;
             lblBienSoXeTieuDe.Text = "Biển Số Xe:";
             // 
-            // lblBienSoXeGiaTri
+            // lblBienSoXe
             // 
-            lblBienSoXeGiaTri.AutoSize = true;
-            lblBienSoXeGiaTri.BackColor = Color.White;
-            lblBienSoXeGiaTri.BorderStyle = BorderStyle.FixedSingle;
-            lblBienSoXeGiaTri.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBienSoXeGiaTri.ForeColor = Color.Black;
-            lblBienSoXeGiaTri.Location = new Point(262, 65);
-            lblBienSoXeGiaTri.Name = "lblBienSoXeGiaTri";
-            lblBienSoXeGiaTri.Size = new Size(153, 47);
-            lblBienSoXeGiaTri.TabIndex = 2;
-            lblBienSoXeGiaTri.Text = "ABC-123";
+            lblBienSoXe.AutoSize = true;
+            lblBienSoXe.BackColor = Color.White;
+            lblBienSoXe.BorderStyle = BorderStyle.FixedSingle;
+            lblBienSoXe.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBienSoXe.ForeColor = Color.Black;
+            lblBienSoXe.Location = new Point(262, 65);
+            lblBienSoXe.Name = "lblBienSoXe";
+            lblBienSoXe.Size = new Size(153, 47);
+            lblBienSoXe.TabIndex = 2;
+            lblBienSoXe.Text = "ABC-123";
             // 
             // lblGiaHienTaiTieuDe
             // 
@@ -112,16 +112,16 @@
             lblGiaHienTaiTieuDe.TabIndex = 3;
             lblGiaHienTaiTieuDe.Text = "Giá Hiện Tại:";
             // 
-            // lblGiaHienTaiGiaTri
+            // lblGiaHienTai
             // 
-            lblGiaHienTaiGiaTri.AutoSize = true;
-            lblGiaHienTaiGiaTri.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblGiaHienTaiGiaTri.ForeColor = Color.White;
-            lblGiaHienTaiGiaTri.Location = new Point(263, 131);
-            lblGiaHienTaiGiaTri.Name = "lblGiaHienTaiGiaTri";
-            lblGiaHienTaiGiaTri.Size = new Size(121, 21);
-            lblGiaHienTaiGiaTri.TabIndex = 4;
-            lblGiaHienTaiGiaTri.Text = "1.000.000 VND";
+            lblGiaHienTai.AutoSize = true;
+            lblGiaHienTai.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblGiaHienTai.ForeColor = Color.White;
+            lblGiaHienTai.Location = new Point(263, 131);
+            lblGiaHienTai.Name = "lblGiaHienTai";
+            lblGiaHienTai.Size = new Size(121, 21);
+            lblGiaHienTai.TabIndex = 4;
+            lblGiaHienTai.Text = "1.000.000 VND";
             // 
             // lblThoiGianConLaiTieuDe
             // 
@@ -134,16 +134,16 @@
             lblThoiGianConLaiTieuDe.TabIndex = 5;
             lblThoiGianConLaiTieuDe.Text = "Thời Gian Còn Lại:";
             // 
-            // lblThoiGianConLaiGiaTri
+            // lblThoiGianConLai
             // 
-            lblThoiGianConLaiGiaTri.AutoSize = true;
-            lblThoiGianConLaiGiaTri.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblThoiGianConLaiGiaTri.ForeColor = Color.White;
-            lblThoiGianConLaiGiaTri.Location = new Point(312, 156);
-            lblThoiGianConLaiGiaTri.Name = "lblThoiGianConLaiGiaTri";
-            lblThoiGianConLaiGiaTri.Size = new Size(72, 21);
-            lblThoiGianConLaiGiaTri.TabIndex = 6;
-            lblThoiGianConLaiGiaTri.Text = "00:05:30";
+            lblThoiGianConLai.AutoSize = true;
+            lblThoiGianConLai.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblThoiGianConLai.ForeColor = Color.White;
+            lblThoiGianConLai.Location = new Point(312, 156);
+            lblThoiGianConLai.Name = "lblThoiGianConLai";
+            lblThoiGianConLai.Size = new Size(72, 21);
+            lblThoiGianConLai.TabIndex = 6;
+            lblThoiGianConLai.Text = "00:05:30";
             // 
             // txtGiaMoi
             // 
@@ -201,7 +201,7 @@
             menuStrip.TabIndex = 11;
             menuStrip.Text = "menuStrip";
             // 
-            // Form3
+            // ProductBid
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -209,7 +209,7 @@
             ClientSize = new Size(800, 500);
             Controls.Add(menuStrip);
             Controls.Add(mainPanel);
-            Name = "Form3";
+            Name = "ProductBid";
             Text = "Đấu Giá Biển Số Xe";
             mainPanel.ResumeLayout(false);
             mainPanel.PerformLayout();
