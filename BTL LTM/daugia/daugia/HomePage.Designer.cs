@@ -28,202 +28,342 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
             panel2 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            panel5 = new Panel();
-            label5 = new Label();
+            label8 = new Label();
             panel4 = new Panel();
-            label4 = new Label();
-            panel3 = new Panel();
-            label2 = new Label();
+            panel5 = new Panel();
+            panel7 = new Panel();
+            label14 = new Label();
             panel6 = new Panel();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            label7 = new Label();
+            panel3 = new Panel();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            panel1 = new Panel();
             label3 = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            panel8 = new Panel();
+            panel9 = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             menuStrip1 = new MenuStrip();
             trangChủToolStripMenuItem = new ToolStripMenuItem();
-            đấuGiáToolStripMenuItem = new ToolStripMenuItem();
-            tạoĐấuGiáMớiToolStripMenuItem = new ToolStripMenuItem();
-            xemDanhSáchĐấuGiáToolStripMenuItem = new ToolStripMenuItem();
             lịchSửToolStripMenuItem = new ToolStripMenuItem();
             tàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
             thôngTinTàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
-            đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            logOutToolStripMenuItem = new ToolStripMenuItem();
+            trợGiúpToolStripMenuItem = new ToolStripMenuItem();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox7 = new PictureBox();
+            pictureBox8 = new PictureBox();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            panel10 = new Panel();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
+            label22 = new Label();
             panel2.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            panel5.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
+            panel7.SuspendLayout();
             panel3.SuspendLayout();
-            panel6.SuspendLayout();
+            panel1.SuspendLayout();
+            panel8.SuspendLayout();
+            panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            panel10.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(255, 128, 0);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(0, 27);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(925, 80);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = client.Properties.Resources.images;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(96, 80);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Emoji", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(352, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(242, 32);
-            label1.TabIndex = 0;
-            label1.Text = "Auction Application";
             // 
             // panel2
             // 
-            panel2.Controls.Add(tableLayoutPanel1);
-            panel2.Location = new Point(0, 103);
+            panel2.BackColor = Color.LightSeaGreen;
+            panel2.Controls.Add(panel10);
+            panel2.Controls.Add(panel4);
+            panel2.Controls.Add(panel3);
+            panel2.Controls.Add(panel1);
+            panel2.Location = new Point(0, 150);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(10);
-            panel2.Size = new Size(925, 496);
-            panel2.TabIndex = 1;
-            panel2.Paint += panel2_Paint;
+            panel2.Size = new Size(885, 426);
+            panel2.TabIndex = 3;
+            panel2.Paint += panel2_Paint_1;
             // 
-            // tableLayoutPanel1
+            // label8
             // 
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Controls.Add(panel5, 3, 0);
-            tableLayoutPanel1.Controls.Add(panel4, 2, 0);
-            tableLayoutPanel1.Controls.Add(panel3, 0, 0);
-            tableLayoutPanel1.Controls.Add(panel6, 1, 0);
-            tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(10, 10);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(905, 63);
-            tableLayoutPanel1.TabIndex = 0;
+            label8.AutoSize = true;
+            label8.Location = new Point(3, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(62, 15);
+            label8.TabIndex = 1;
+            label8.Text = "Nghiệp vụ";
+            label8.Click += label8_Click;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.DimGray;
+            panel4.Controls.Add(pictureBox8);
+            panel4.Controls.Add(pictureBox7);
+            panel4.Controls.Add(pictureBox6);
+            panel4.Controls.Add(pictureBox5);
+            panel4.Controls.Add(pictureBox4);
+            panel4.Controls.Add(pictureBox3);
+            panel4.Controls.Add(label8);
+            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(panel6);
+            panel4.Controls.Add(label13);
+            panel4.Controls.Add(label12);
+            panel4.Controls.Add(label11);
+            panel4.Controls.Add(label10);
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(label7);
+            panel4.Location = new Point(206, 6);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(676, 323);
+            panel4.TabIndex = 5;
             // 
             // panel5
             // 
-            panel5.BackColor = Color.Silver;
-            panel5.Controls.Add(label5);
-            panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(678, 0);
-            panel5.Margin = new Padding(0, 0, 10, 10);
+            panel5.BackColor = Color.Turquoise;
+            panel5.Controls.Add(label17);
+            panel5.Controls.Add(label16);
+            panel5.Controls.Add(label15);
+            panel5.Controls.Add(panel7);
+            panel5.Location = new Point(508, 9);
             panel5.Name = "panel5";
-            panel5.Size = new Size(217, 53);
-            panel5.TabIndex = 1;
-            panel5.Paint += panel5_Paint;
+            panel5.Size = new Size(161, 296);
+            panel5.TabIndex = 6;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.Gray;
+            panel7.Controls.Add(label14);
+            panel7.Location = new Point(3, 6);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(135, 36);
+            panel7.TabIndex = 0;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(26, 10);
+            label14.Name = "label14";
+            label14.Size = new Size(77, 15);
+            label14.TabIndex = 0;
+            label14.Text = "CHỨC NĂNG";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel6
+            // 
+            panel6.Location = new Point(525, 9);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(141, 38);
+            panel6.TabIndex = 0;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(36, 290);
+            label13.Name = "label13";
+            label13.Size = new Size(120, 15);
+            label13.TabIndex = 5;
+            label13.Text = "Phản hồi và khiếu nại";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(201, 139);
+            label12.Name = "label12";
+            label12.Size = new Size(122, 15);
+            label12.TabIndex = 4;
+            label12.Text = "Quản lý đơn đặt hàng";
+            label12.Click += label12_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(36, 139);
+            label11.Name = "label11";
+            label11.Size = new Size(104, 15);
+            label11.TabIndex = 3;
+            label11.Text = "Quản lý Sản phẩm";
+            label11.Click += label11_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(370, 139);
+            label10.Name = "label10";
+            label10.Size = new Size(113, 15);
+            label10.TabIndex = 2;
+            label10.Text = "Quản lý khách hàng";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(233, 290);
+            label9.Name = "label9";
+            label9.Size = new Size(58, 15);
+            label9.TabIndex = 1;
+            label9.Text = "Giới thiệu";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(396, 290);
+            label7.Name = "label7";
+            label7.Size = new Size(67, 15);
+            label7.TabIndex = 0;
+            label7.Text = "Thanh toán";
+            label7.Click += label7_Click;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Gainsboro;
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(label4);
+            panel3.Location = new Point(3, 166);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(200, 145);
+            panel3.TabIndex = 4;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(26, 70);
+            label6.Name = "label6";
+            label6.Size = new Size(53, 15);
+            label6.TabIndex = 2;
+            label6.Text = "- Liên hệ";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label5.Location = new Point(43, 10);
+            label5.Location = new Point(26, 38);
             label5.Name = "label5";
-            label5.Size = new Size(89, 30);
-            label5.TabIndex = 0;
-            label5.Text = "Contact";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(128, 255, 128);
-            panel4.Controls.Add(label4);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(452, 0);
-            panel4.Margin = new Padding(0, 0, 10, 10);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(216, 53);
-            panel4.TabIndex = 1;
-            panel4.Paint += panel4_Paint;
+            label5.Size = new Size(121, 15);
+            label5.TabIndex = 1;
+            label5.Text = "- Hướng dẫn sử dụng";
+            label5.Click += label5_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label4.Location = new Point(41, 10);
+            label4.Location = new Point(16, 11);
             label4.Name = "label4";
-            label4.Size = new Size(91, 30);
+            label4.Size = new Size(41, 15);
             label4.TabIndex = 0;
-            label4.Text = "My Bids";
-            label4.Click += label4_Click;
+            label4.Text = "Hỗ trợ";
             // 
-            // panel3
+            // panel1
             // 
-            panel3.BackColor = Color.DodgerBlue;
-            panel3.Controls.Add(label2);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(0, 0, 10, 10);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(216, 53);
-            panel3.TabIndex = 0;
-            panel3.Paint += panel3_Paint;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.DodgerBlue;
-            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(45, 10);
-            label2.Margin = new Padding(0);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 30);
-            label2.TabIndex = 0;
-            label2.Text = "Home";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.RosyBrown;
-            panel6.Controls.Add(label3);
-            panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(226, 0);
-            panel6.Margin = new Padding(0, 0, 10, 10);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(216, 53);
-            panel6.TabIndex = 2;
-            panel6.Paint += panel6_Paint;
+            panel1.BackColor = Color.Gainsboro;
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label2);
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 142);
+            panel1.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label3.Location = new Point(41, 10);
+            label3.Location = new Point(12, 9);
             label3.Name = "label3";
-            label3.Size = new Size(100, 30);
-            label3.TabIndex = 1;
-            label3.Text = "Products";
-            label3.Click += label3_Click_1;
+            label3.Size = new Size(69, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Doanh mục";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(26, 69);
+            label1.Name = "label1";
+            label1.Size = new Size(137, 15);
+            label1.TabIndex = 0;
+            label1.Text = "- Phiên đấu đang diễn ra";
+            label1.Click += label1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(26, 36);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 15);
+            label2.TabIndex = 1;
+            label2.Text = "- Phiên đấu đã đóng";
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(panel9);
+            panel8.Controls.Add(panel2);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new Point(0, 0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(887, 578);
+            panel8.TabIndex = 4;
+            panel8.Paint += panel8_Paint;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.Silver;
+            panel9.Controls.Add(pictureBox2);
+            panel9.Controls.Add(pictureBox1);
+            panel9.Controls.Add(menuStrip1);
+            panel9.Location = new Point(3, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(885, 147);
+            panel9.TabIndex = 4;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = client.Properties.Resources.anh3;
+            pictureBox2.Location = new Point(287, 25);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(598, 122);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Silver;
+            pictureBox1.Image = client.Properties.Resources.images;
+            pictureBox1.Location = new Point(0, 25);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(293, 119);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, đấuGiáToolStripMenuItem, lịchSửToolStripMenuItem, tàiKhoảnToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, lịchSửToolStripMenuItem, tàiKhoảnToolStripMenuItem, trợGiúpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(925, 24);
-            menuStrip1.TabIndex = 2;
+            menuStrip1.Size = new Size(885, 24);
+            menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // trangChủToolStripMenuItem
@@ -231,109 +371,278 @@
             trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
             trangChủToolStripMenuItem.Size = new Size(71, 20);
             trangChủToolStripMenuItem.Text = "Trang chủ";
-            trangChủToolStripMenuItem.Click += trangChủToolStripMenuItem_Click;
-            // 
-            // đấuGiáToolStripMenuItem
-            // 
-            đấuGiáToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tạoĐấuGiáMớiToolStripMenuItem, xemDanhSáchĐấuGiáToolStripMenuItem });
-            đấuGiáToolStripMenuItem.Name = "đấuGiáToolStripMenuItem";
-            đấuGiáToolStripMenuItem.Size = new Size(59, 20);
-            đấuGiáToolStripMenuItem.Text = "Đấu giá";
-            đấuGiáToolStripMenuItem.Click += đấuGiáToolStripMenuItem_Click;
-            // 
-            // tạoĐấuGiáMớiToolStripMenuItem
-            // 
-            tạoĐấuGiáMớiToolStripMenuItem.Name = "tạoĐấuGiáMớiToolStripMenuItem";
-            tạoĐấuGiáMớiToolStripMenuItem.Size = new Size(197, 22);
-            tạoĐấuGiáMớiToolStripMenuItem.Text = "Tạo đấu giá mới";
-            // 
-            // xemDanhSáchĐấuGiáToolStripMenuItem
-            // 
-            xemDanhSáchĐấuGiáToolStripMenuItem.Name = "xemDanhSáchĐấuGiáToolStripMenuItem";
-            xemDanhSáchĐấuGiáToolStripMenuItem.Size = new Size(197, 22);
-            xemDanhSáchĐấuGiáToolStripMenuItem.Text = "Xem danh sách đấu giá";
             // 
             // lịchSửToolStripMenuItem
             // 
             lịchSửToolStripMenuItem.Name = "lịchSửToolStripMenuItem";
             lịchSửToolStripMenuItem.Size = new Size(56, 20);
             lịchSửToolStripMenuItem.Text = "Lịch sử";
-            lịchSửToolStripMenuItem.Click += lịchSửToolStripMenuItem_Click;
             // 
             // tàiKhoảnToolStripMenuItem
             // 
-            tàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { thôngTinTàiKhoảnToolStripMenuItem, đăngXuấtToolStripMenuItem });
+            tàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { thôngTinTàiKhoảnToolStripMenuItem, logOutToolStripMenuItem });
             tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
-            tàiKhoảnToolStripMenuItem.Size = new Size(72, 20);
-            tàiKhoảnToolStripMenuItem.Text = "Tài khoản ";
-            tàiKhoảnToolStripMenuItem.Click += tàiKhoảnToolStripMenuItem_Click;
+            tàiKhoảnToolStripMenuItem.Size = new Size(68, 20);
+            tàiKhoảnToolStripMenuItem.Text = "tài khoản";
             // 
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(177, 22);
-            thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
+            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(175, 22);
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "thông tin tài khoản";
             // 
-            // đăngXuấtToolStripMenuItem
+            // logOutToolStripMenuItem
             // 
-            đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(177, 22);
-            đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            logOutToolStripMenuItem.Size = new Size(175, 22);
+            logOutToolStripMenuItem.Text = "log out";
+            // 
+            // trợGiúpToolStripMenuItem
+            // 
+            trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            trợGiúpToolStripMenuItem.Size = new Size(62, 20);
+            trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = client.Properties.Resources.anhquanlisanpham;
+            pictureBox3.Location = new Point(36, 33);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(120, 95);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 7;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = client.Properties.Resources.thanhtoan;
+            pictureBox4.Location = new Point(370, 181);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(113, 90);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 8;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = client.Properties.Resources.quanlydondathang;
+            pictureBox5.Location = new Point(201, 33);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(122, 95);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 9;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = client.Properties.Resources.quanlykhachhang;
+            pictureBox6.Location = new Point(370, 33);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(113, 95);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 10;
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = client.Properties.Resources.phan_hoi_cua_khach_hang_la_gi_81eaa0267ab440baa7501dfe2c1a612e_grande;
+            pictureBox7.Location = new Point(36, 181);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(120, 90);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 11;
+            pictureBox7.TabStop = false;
+            pictureBox7.Click += pictureBox7_Click;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = client.Properties.Resources.gioithieu;
+            pictureBox8.Location = new Point(201, 181);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(122, 90);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 12;
+            pictureBox8.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(3, 72);
+            label15.Name = "label15";
+            label15.Size = new Size(138, 15);
+            label15.TabIndex = 1;
+            label15.Text = "Sản phẩm đấu giá nhiều ";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(3, 130);
+            label16.Name = "label16";
+            label16.Size = new Size(142, 15);
+            label16.TabIndex = 2;
+            label16.Text = "Sản phẩm ít được đấu giá";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(3, 189);
+            label17.Name = "label17";
+            label17.Size = new Size(118, 15);
+            label17.TabIndex = 3;
+            label17.Text = "Công nợ khách hàng";
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.Gray;
+            panel10.Controls.Add(label22);
+            panel10.Controls.Add(label21);
+            panel10.Controls.Add(label20);
+            panel10.Controls.Add(label19);
+            panel10.Controls.Add(label18);
+            panel10.Location = new Point(3, 332);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(879, 91);
+            panel10.TabIndex = 6;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label18.Location = new Point(239, 17);
+            label18.Name = "label18";
+            label18.Size = new Size(53, 15);
+            label18.TabIndex = 0;
+            label18.Text = "ĐỐI TÁC";
+            label18.Click += label18_Click;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label19.Location = new Point(367, 17);
+            label19.Name = "label19";
+            label19.Size = new Size(50, 15);
+            label19.TabIndex = 1;
+            label19.Text = "ĐỊA CHỈ";
+            label19.Click += label19_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label20.Location = new Point(477, 17);
+            label20.Name = "label20";
+            label20.Size = new Size(49, 15);
+            label20.TabIndex = 2;
+            label20.Text = "LIÊN HỆ";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label21.Location = new Point(608, 17);
+            label21.Name = "label21";
+            label21.Size = new Size(78, 15);
+            label21.TabIndex = 3;
+            label21.Text = "NGÂN HÀNG";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label22.Location = new Point(344, 54);
+            label22.Name = "label22";
+            label22.Size = new Size(222, 15);
+            label22.TabIndex = 4;
+            label22.Text = "WEB ĐƯỢC HOÀN THÀNH BỞI NHÓM 3";
             // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(925, 576);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            ClientSize = new Size(887, 578);
+            Controls.Add(panel8);
             Name = "HomePage";
             Text = "HomePage";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += HomePage_Load;
             panel2.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
-        private Label label1;
-        private PictureBox pictureBox1;
         private Panel panel2;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel3;
-        private Panel panel5;
-        private Panel panel4;
+        private Label label1;
         private Label label2;
-        private Label label3;
+        private Panel panel3;
         private Label label5;
         private Label label4;
+        private Panel panel1;
+        private Label label3;
+        private Panel panel4;
+        private Label label7;
+        private Label label6;
+        private Label label8;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private Panel panel5;
+        private Label label13;
+        private Label label12;
+        private Panel panel7;
+        private Label label14;
         private Panel panel6;
+        private Panel panel8;
+        private Panel panel9;
         private MenuStrip menuStrip1;
+        private PictureBox pictureBox1;
         private ToolStripMenuItem trangChủToolStripMenuItem;
-        private ToolStripMenuItem đấuGiáToolStripMenuItem;
-        private ToolStripMenuItem tạoĐấuGiáMớiToolStripMenuItem;
-        private ToolStripMenuItem xemDanhSáchĐấuGiáToolStripMenuItem;
         private ToolStripMenuItem lịchSửToolStripMenuItem;
         private ToolStripMenuItem tàiKhoảnToolStripMenuItem;
         private ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
-        private ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private ToolStripMenuItem logOutToolStripMenuItem;
+        private ToolStripMenuItem trợGiúpToolStripMenuItem;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox8;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private Label label15;
+        private Label label17;
+        private Label label16;
+        private Panel panel10;
+        private Label label22;
+        private Label label21;
+        private Label label20;
+        private Label label19;
+        private Label label18;
     }
 }
