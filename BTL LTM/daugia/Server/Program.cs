@@ -9,7 +9,7 @@ namespace ConnectMySQL
         static void Main(string[] args)
         {
             Console.WriteLine("C# MySQL");
-            string connStr = "server=localhost;user=root;database=auction_db;port=3306;password=1234";
+            string connStr = "server=localhost;user=root;database=auction_db;port=3306;password=lamtrinh";
             MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
