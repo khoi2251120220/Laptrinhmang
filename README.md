@@ -17,22 +17,11 @@ Dự án bao gồm ba phần chính:
 
 ## Cài đặt
 
-1. Clone repository:
-   ```
-   git clone https://github.com/your-username/AuctionApp.git
-   cd AuctionApp
-   ```
-
-2. Restore các packages NuGet:
-   ```
-   dotnet restore
-   ```
-
-3. Cấu hình cơ sở dữ liệu:
+1. Cấu hình cơ sở dữ liệu:
    - Tạo một cơ sở dữ liệu mới trong MySQL Server.
    - Cập nhật thông tin kết nối trong file `.env` trong thư mục `daugia/Server`.
 
-4. Tạo file `.env` trong thư mục `AuctionApp.Server` với nội dung sau:
+2. Tạo file `.env` trong thư mục `AuctionApp.Server` với nội dung sau:
    ```
    DB_USER=your_username
    DB_PASSWORD=your_password
