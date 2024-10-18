@@ -160,5 +160,10 @@ namespace daugia
         {
 
         }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
