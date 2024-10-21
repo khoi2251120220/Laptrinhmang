@@ -1,19 +1,15 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace daugia
 {
     public partial class SignUp : Form
     {
-        List<User> userList = new List<User>();
+   
+
         public SignUp()
         {
             InitializeComponent();
@@ -56,34 +52,40 @@ namespace daugia
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
+            string userName = textBox1.Text;
             string password = textBox2.Text;
             string email = textBox3.Text;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
+            try
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
-            }
-            else
-            {
-                userList.Add(new User(username, password, email));
-                MessageBox.Show("Đăng ký thành công!");
-                Login login = new Login();
-                login.Show();
-                this.Close();
-            }
-        }
-        public class User
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public string Email { get; set; }
+                using (TcpClient client = new TcpClient("127.0.0.1", 9999))
+                {
+                    NetworkStream stream = client.GetStream();
 
-            public User(string username, string password, string email)
+                    string signUpInfo = $"register:{userName}:{password}:{email}";
+                    byte[] dataToSend = Encoding.UTF8.GetBytes(signUpInfo);
+                    stream.Write(dataToSend, 0, dataToSend.Length);
+
+                    byte[] dataToReceive = new byte[1024];
+                    int bytesRead = stream.Read(dataToReceive, 0, dataToReceive.Length);
+                    string response = Encoding.UTF8.GetString(dataToReceive, 0, bytesRead);
+
+                    if (response == "Registration successful")
+                    {
+                        MessageBox.Show("Đăng ký thành công!");
+                        this.Hide();
+                        HomePage homePage = new HomePage();
+                        homePage.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(response); 
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                Username = username;
-                Password = password;
-                Email = email;
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }
