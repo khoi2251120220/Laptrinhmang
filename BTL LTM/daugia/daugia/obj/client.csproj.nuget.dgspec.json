@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj": {}
+    "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj": {}
   },
   "projects": {
-    "C:\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj": {
+    "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+        "projectUniqueName": "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
         "projectName": "client",
-        "projectPath": "C:\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
-        "packagesPath": "C:\\Users\\codon\\.nuget\\packages\\",
-        "outputPath": "C:\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\",
+        "projectPath": "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\client.csproj",
+        "packagesPath": "C:\\Users\\biphi\\.nuget\\packages\\",
+        "outputPath": "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\daugia\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\codon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\biphi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

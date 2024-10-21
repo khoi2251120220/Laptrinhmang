@@ -32,13 +32,13 @@
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            radioButtonMomo = new RadioButton();
+            rbMomo = new RadioButton();
             pictureBox2 = new PictureBox();
-            radioButtonPaypal = new RadioButton();
+            rbPaypal = new RadioButton();
             pictureBox3 = new PictureBox();
-            radioButtonATM = new RadioButton();
+            rbATM = new RadioButton();
             pictureBox4 = new PictureBox();
-            radioButtonVisa = new RadioButton();
+            rbVisa = new RadioButton();
             label3 = new Label();
             textBoxTotal = new TextBox();
             label7 = new Label();
@@ -61,18 +61,17 @@
             // 
             panel1.Controls.Add(label1);
             panel1.Location = new Point(2, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(697, 33);
+            panel1.Size = new Size(797, 44);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(9, 7);
+            label1.Location = new Point(10, 9);
             label1.Name = "label1";
-            label1.Size = new Size(225, 20);
+            label1.Size = new Size(274, 25);
             label1.TabIndex = 0;
             label1.Text = "PHƯƠNG THỨC THANH TOÁN";
             // 
@@ -80,165 +79,154 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(2, 42);
+            label2.Location = new Point(2, 56);
             label2.Name = "label2";
-            label2.Size = new Size(177, 15);
+            label2.Size = new Size(225, 20);
             label2.TabIndex = 1;
             label2.Text = "Chọn phương thức thanh toán ";
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.z5940619016006_1e2058ba24cc729e5cba97c917051b13;
-            pictureBox1.Location = new Point(11, 66);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(13, 88);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(51, 48);
+            pictureBox1.Size = new Size(50, 49);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // radioButtonMomo
+            // rbMomo
             // 
-            radioButtonMomo.AutoSize = true;
-            radioButtonMomo.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonMomo.Location = new Point(68, 70);
-            radioButtonMomo.Margin = new Padding(3, 2, 3, 2);
-            radioButtonMomo.Name = "radioButtonMomo";
-            radioButtonMomo.Size = new Size(89, 29);
-            radioButtonMomo.TabIndex = 3;
-            radioButtonMomo.TabStop = true;
-            radioButtonMomo.Text = "Momo";
-            radioButtonMomo.UseVisualStyleBackColor = true;
+            rbMomo.AutoSize = true;
+            rbMomo.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbMomo.Location = new Point(78, 93);
+            rbMomo.Name = "rbMomo";
+            rbMomo.Size = new Size(106, 35);
+            rbMomo.TabIndex = 3;
+            rbMomo.TabStop = true;
+            rbMomo.Text = "Momo";
+            rbMomo.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
             pictureBox2.BackgroundImage = Properties.Resources.paypal;
-            pictureBox2.Location = new Point(11, 118);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Location = new Point(13, 157);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(51, 47);
+            pictureBox2.Size = new Size(50, 50);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
             // 
-            // radioButtonPaypal
+            // rbPaypal
             // 
-            radioButtonPaypal.AutoSize = true;
-            radioButtonPaypal.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonPaypal.Location = new Point(68, 118);
-            radioButtonPaypal.Margin = new Padding(3, 2, 3, 2);
-            radioButtonPaypal.Name = "radioButtonPaypal";
-            radioButtonPaypal.Size = new Size(89, 29);
-            radioButtonPaypal.TabIndex = 5;
-            radioButtonPaypal.TabStop = true;
-            radioButtonPaypal.Text = "Paypal";
-            radioButtonPaypal.UseVisualStyleBackColor = true;
+            rbPaypal.AutoSize = true;
+            rbPaypal.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbPaypal.Location = new Point(78, 157);
+            rbPaypal.Name = "rbPaypal";
+            rbPaypal.Size = new Size(105, 35);
+            rbPaypal.TabIndex = 5;
+            rbPaypal.TabStop = true;
+            rbPaypal.Text = "Paypal";
+            rbPaypal.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
             pictureBox3.BackgroundImage = Properties.Resources.credit_card;
-            pictureBox3.Location = new Point(10, 169);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
+            pictureBox3.Location = new Point(11, 225);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(53, 47);
+            pictureBox3.Size = new Size(50, 50);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 6;
             pictureBox3.TabStop = false;
             // 
-            // radioButtonATM
+            // rbATM
             // 
-            radioButtonATM.AutoSize = true;
-            radioButtonATM.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonATM.Location = new Point(69, 180);
-            radioButtonATM.Margin = new Padding(3, 2, 3, 2);
-            radioButtonATM.Name = "radioButtonATM";
-            radioButtonATM.Size = new Size(71, 29);
-            radioButtonATM.TabIndex = 7;
-            radioButtonATM.TabStop = true;
-            radioButtonATM.Text = "ATM";
-            radioButtonATM.UseVisualStyleBackColor = true;
+            rbATM.AutoSize = true;
+            rbATM.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbATM.Location = new Point(79, 240);
+            rbATM.Name = "rbATM";
+            rbATM.Size = new Size(84, 35);
+            rbATM.TabIndex = 7;
+            rbATM.TabStop = true;
+            rbATM.Text = "ATM";
+            rbATM.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
             pictureBox4.BackgroundImage = Properties.Resources.card;
-            pictureBox4.Location = new Point(10, 234);
-            pictureBox4.Margin = new Padding(3, 2, 3, 2);
+            pictureBox4.Location = new Point(11, 312);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(52, 54);
+            pictureBox4.Size = new Size(50, 50);
             pictureBox4.TabIndex = 8;
             pictureBox4.TabStop = false;
             // 
-            // radioButtonVisa
+            // rbVisa
             // 
-            radioButtonVisa.AutoSize = true;
-            radioButtonVisa.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonVisa.Location = new Point(69, 245);
-            radioButtonVisa.Margin = new Padding(3, 2, 3, 2);
-            radioButtonVisa.Name = "radioButtonVisa";
-            radioButtonVisa.Size = new Size(73, 29);
-            radioButtonVisa.TabIndex = 9;
-            radioButtonVisa.TabStop = true;
-            radioButtonVisa.Text = "VISA";
-            radioButtonVisa.UseVisualStyleBackColor = true;
+            rbVisa.AutoSize = true;
+            rbVisa.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbVisa.Location = new Point(79, 327);
+            rbVisa.Name = "rbVisa";
+            rbVisa.Size = new Size(86, 35);
+            rbVisa.TabIndex = 9;
+            rbVisa.TabStop = true;
+            rbVisa.Text = "VISA";
+            rbVisa.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(434, 42);
+            label3.Location = new Point(496, 56);
             label3.Name = "label3";
-            label3.Size = new Size(148, 15);
+            label3.Size = new Size(190, 20);
             label3.TabIndex = 10;
             label3.Text = "Thông tin cần thanh toán ";
             // 
             // textBoxTotal
             // 
             textBoxTotal.BackColor = SystemColors.ActiveCaption;
-            textBoxTotal.Location = new Point(414, 263);
-            textBoxTotal.Margin = new Padding(3, 2, 3, 2);
+            textBoxTotal.Location = new Point(473, 351);
             textBoxTotal.Multiline = true;
             textBoxTotal.Name = "textBoxTotal";
-            textBoxTotal.Size = new Size(269, 27);
+            textBoxTotal.Size = new Size(307, 35);
             textBoxTotal.TabIndex = 26;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(259, 268);
+            label7.Location = new Point(296, 357);
             label7.Name = "label7";
-            label7.Size = new Size(142, 20);
+            label7.Size = new Size(175, 25);
             label7.TabIndex = 25;
             label7.Text = "Số tiền thanh toán:";
             // 
             // textBoxPrice
             // 
             textBoxPrice.BackColor = SystemColors.ActiveCaption;
-            textBoxPrice.Location = new Point(414, 228);
-            textBoxPrice.Margin = new Padding(3, 2, 3, 2);
+            textBoxPrice.Location = new Point(473, 304);
             textBoxPrice.Multiline = true;
             textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.Size = new Size(266, 26);
+            textBoxPrice.Size = new Size(303, 33);
             textBoxPrice.TabIndex = 24;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(260, 234);
+            label6.Location = new Point(297, 312);
             label6.Name = "label6";
-            label6.Size = new Size(134, 20);
+            label6.Size = new Size(165, 25);
             label6.TabIndex = 23;
             label6.Text = "Giá trúng đấu giá:";
             // 
             // textBoxInfomation
             // 
             textBoxInfomation.BackColor = SystemColors.ActiveCaption;
-            textBoxInfomation.Location = new Point(415, 104);
-            textBoxInfomation.Margin = new Padding(3, 2, 3, 2);
+            textBoxInfomation.Location = new Point(474, 139);
             textBoxInfomation.Multiline = true;
             textBoxInfomation.Name = "textBoxInfomation";
-            textBoxInfomation.Size = new Size(265, 112);
+            textBoxInfomation.Size = new Size(302, 148);
             textBoxInfomation.TabIndex = 22;
             textBoxInfomation.TextChanged += textBoxInfomation_TextChanged;
             // 
@@ -246,29 +234,28 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(259, 136);
+            label5.Location = new Point(296, 181);
             label5.Name = "label5";
-            label5.Size = new Size(135, 20);
+            label5.Size = new Size(166, 25);
             label5.TabIndex = 21;
             label5.Text = "Thông tin biển số:";
             // 
             // textBoxUserName
             // 
             textBoxUserName.BackColor = SystemColors.ActiveCaption;
-            textBoxUserName.Location = new Point(416, 71);
-            textBoxUserName.Margin = new Padding(3, 2, 3, 2);
+            textBoxUserName.Location = new Point(475, 95);
             textBoxUserName.Multiline = true;
             textBoxUserName.Name = "textBoxUserName";
-            textBoxUserName.Size = new Size(263, 19);
+            textBoxUserName.Size = new Size(300, 24);
             textBoxUserName.TabIndex = 20;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(259, 70);
+            label4.Location = new Point(296, 93);
             label4.Name = "label4";
-            label4.Size = new Size(107, 20);
+            label4.Size = new Size(132, 25);
             label4.TabIndex = 19;
             label4.Text = "Tên tài khoản:";
             // 
@@ -278,13 +265,13 @@
             btnPay.BackColor = SystemColors.ActiveCaption;
             btnPay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPay.ForeColor = Color.Black;
-            btnPay.Location = new Point(415, 310);
-            btnPay.Margin = new Padding(3, 2, 3, 2);
+            btnPay.Location = new Point(474, 413);
             btnPay.Name = "btnPay";
-            btnPay.Size = new Size(90, 25);
+            btnPay.Size = new Size(103, 33);
             btnPay.TabIndex = 27;
             btnPay.Text = "Thanh toán ";
             btnPay.UseVisualStyleBackColor = false;
+            btnPay.Click += btnPay_Click;
             // 
             // btnCancel
             // 
@@ -292,20 +279,20 @@
             btnCancel.BackColor = SystemColors.ActiveCaption;
             btnCancel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.Black;
-            btnCancel.Location = new Point(565, 310);
-            btnCancel.Margin = new Padding(3, 2, 3, 2);
+            btnCancel.Location = new Point(646, 413);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(90, 25);
+            btnCancel.Size = new Size(103, 33);
             btnCancel.TabIndex = 28;
             btnCancel.Text = "Hủy";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // Payment
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(btnCancel);
             Controls.Add(btnPay);
             Controls.Add(textBoxTotal);
@@ -317,19 +304,20 @@
             Controls.Add(textBoxUserName);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(radioButtonVisa);
+            Controls.Add(rbVisa);
             Controls.Add(pictureBox4);
-            Controls.Add(radioButtonATM);
+            Controls.Add(rbATM);
             Controls.Add(pictureBox3);
-            Controls.Add(radioButtonPaypal);
+            Controls.Add(rbPaypal);
             Controls.Add(pictureBox2);
-            Controls.Add(radioButtonMomo);
+            Controls.Add(rbMomo);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Payment";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Payment";
+            Load += Payment_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -346,13 +334,13 @@
         private Label label1;
         private Label label2;
         private PictureBox pictureBox1;
-        private RadioButton radioButtonMomo;
+        private RadioButton rbMomo;
         private PictureBox pictureBox2;
-        private RadioButton radioButtonPaypal;
+        private RadioButton rbPaypal;
         private PictureBox pictureBox3;
-        private RadioButton radioButtonATM;
+        private RadioButton rbATM;
         private PictureBox pictureBox4;
-        private RadioButton radioButtonVisa;
+        private RadioButton rbVisa;
         private Label label3;
         private TextBox textBoxTotal;
         private Label label7;
