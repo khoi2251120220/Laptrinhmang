@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Server;
 
 namespace daugia
 {
@@ -66,11 +67,20 @@ namespace daugia
             }
             else
             {
-                userList.Add(new User(username, password, email));
-                MessageBox.Show("Đăng ký thành công!");
-                Login login = new Login();
-                login.Show();
-                this.Close();
+                Server.Database database = new Server.Database();
+                bool success = database.RegisterUser(username, password, email);
+
+                if (success)
+                {
+                    MessageBox.Show("Đăng ký thành công!");
+                    Login login = new Login();
+                    login.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Đăng ký thất bại. Vui lòng thử lại.");
+                }
             }
         }
         public class User
