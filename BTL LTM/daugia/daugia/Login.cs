@@ -1,6 +1,6 @@
 ﻿using System.Net.Sockets;
 using System.Text;
-
+using client;
 namespace daugia
 {
     public partial class Login : Form
@@ -36,13 +36,14 @@ namespace daugia
             string userName = textBox1.Text;
             string password = textBox2.Text;
 
+            string hashedPassword = UserService.HashPassword(password);
             try
             {
                 using (TcpClient client = new TcpClient("127.0.0.1", 9999))
                 {
                     NetworkStream stream = client.GetStream();
 
-                    string loginInfo = $"{userName}:{password}";
+                    string loginInfo = $"{userName}:{hashedPassword}";
                     byte[] dataToSend = Encoding.UTF8.GetBytes(loginInfo);
                     stream.Write(dataToSend, 0, dataToSend.Length);
 

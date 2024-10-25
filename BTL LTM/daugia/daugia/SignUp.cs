@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Server;
+using client;
 
 namespace daugia
 {
@@ -67,8 +68,9 @@ namespace daugia
             }
             else
             {
+                string hashedPassword = UserService.HashPassword(password);
                 Server.Database database = new Server.Database();
-                bool success = database.RegisterUser(username, password, email);
+                bool success = database.RegisterUser(username, hashedPassword, email);
 
                 if (success)
                 {
