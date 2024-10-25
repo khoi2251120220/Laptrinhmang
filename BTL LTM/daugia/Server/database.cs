@@ -54,5 +54,28 @@ namespace Server
                 }
             }
         }
+        // Phương thức để lấy thông tin người dùng
+        public string? LoadUserInfo(string username)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT username, product_name FROM user WHERE username = @username";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string userInfo = $"Tên tài khoản: {reader["username"]}";
+                            return userInfo; // Trả về thông tin người dùng
+                        }
+                    }
+                }
+            }
+            return null; // Trả về null nếu không tìm thấy
+        }
     }
 }

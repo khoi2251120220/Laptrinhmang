@@ -42,8 +42,6 @@
             label3 = new Label();
             textBoxTotal = new TextBox();
             label7 = new Label();
-            textBoxPrice = new TextBox();
-            label6 = new Label();
             textBoxInfomation = new TextBox();
             label5 = new Label();
             textBoxUserName = new TextBox();
@@ -185,9 +183,10 @@
             // textBoxTotal
             // 
             textBoxTotal.BackColor = SystemColors.ActiveCaption;
-            textBoxTotal.Location = new Point(473, 351);
+            textBoxTotal.Location = new Point(474, 327);
             textBoxTotal.Multiline = true;
             textBoxTotal.Name = "textBoxTotal";
+            textBoxTotal.ReadOnly = true;
             textBoxTotal.Size = new Size(307, 35);
             textBoxTotal.TabIndex = 26;
             // 
@@ -195,30 +194,11 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(296, 357);
+            label7.Location = new Point(287, 327);
             label7.Name = "label7";
             label7.Size = new Size(175, 25);
             label7.TabIndex = 25;
             label7.Text = "Số tiền thanh toán:";
-            // 
-            // textBoxPrice
-            // 
-            textBoxPrice.BackColor = SystemColors.ActiveCaption;
-            textBoxPrice.Location = new Point(473, 304);
-            textBoxPrice.Multiline = true;
-            textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.Size = new Size(303, 33);
-            textBoxPrice.TabIndex = 24;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(297, 312);
-            label6.Name = "label6";
-            label6.Size = new Size(165, 25);
-            label6.TabIndex = 23;
-            label6.Text = "Giá trúng đấu giá:";
             // 
             // textBoxInfomation
             // 
@@ -226,6 +206,7 @@
             textBoxInfomation.Location = new Point(474, 139);
             textBoxInfomation.Multiline = true;
             textBoxInfomation.Name = "textBoxInfomation";
+            textBoxInfomation.ReadOnly = true;
             textBoxInfomation.Size = new Size(302, 148);
             textBoxInfomation.TabIndex = 22;
             textBoxInfomation.TextChanged += textBoxInfomation_TextChanged;
@@ -246,6 +227,7 @@
             textBoxUserName.Location = new Point(475, 95);
             textBoxUserName.Multiline = true;
             textBoxUserName.Name = "textBoxUserName";
+            textBoxUserName.ReadOnly = true;
             textBoxUserName.Size = new Size(300, 24);
             textBoxUserName.TabIndex = 20;
             // 
@@ -297,8 +279,6 @@
             Controls.Add(btnPay);
             Controls.Add(textBoxTotal);
             Controls.Add(label7);
-            Controls.Add(textBoxPrice);
-            Controls.Add(label6);
             Controls.Add(textBoxInfomation);
             Controls.Add(label5);
             Controls.Add(textBoxUserName);
@@ -316,7 +296,7 @@
             Controls.Add(panel1);
             Name = "Payment";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Payment";
+            Text = "Thanh toán ";
             Load += Payment_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -344,8 +324,6 @@
         private Label label3;
         private TextBox textBoxTotal;
         private Label label7;
-        private TextBox textBoxPrice;
-        private Label label6;
         private TextBox textBoxInfomation;
         private Label label5;
         private TextBox textBoxUserName;
