@@ -77,5 +77,50 @@ namespace Server
             }
             return null; // Trả về null nếu không tìm thấy
         }
+        //Phương thức để lấy thông tin phiên đấu giá theo username
+        public string LoadAuctionInfo(string username)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT AuctionID, ProductName, StartTime, EndTime FROM Auction WHERE Username = @username";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string auctionInfo = $"Mã phiên đấu giá: {reader["AuctionID"]}, Tên sản phẩm: {reader["ProductName"]}, Thời gian bắt đầu: {reader["StartTime"]}, Thời gian kết thúc: {reader["EndTime"]}";
+                            return auctionInfo;
+                        }
+                    }
+                }
+            }
+            return "Không tìm thấy thông tin phiên đấu giá.";
+        }
+        //Phương thức lấy giá đấu 
+        public decimal GetBidAmount(string username, int auctionId)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT BidAmount FROM Bids WHERE Username = @username AND AuctionID = @auctionId";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@auctionId", auctionId);
+
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return Convert.ToDecimal(result);
+                    }
+                }
+            }
+            return 0;
+        }
     }
 }
+

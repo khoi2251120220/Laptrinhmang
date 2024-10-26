@@ -40,11 +40,11 @@
             pictureBox4 = new PictureBox();
             rbVisa = new RadioButton();
             label3 = new Label();
-            textBoxTotal = new TextBox();
+            textBoxAmount = new TextBox();
             label7 = new Label();
-            textBoxInfomation = new TextBox();
+            textBoxAuctionInfo = new TextBox();
             label5 = new Label();
-            textBoxUserName = new TextBox();
+            textBoxUserInfor = new TextBox();
             label4 = new Label();
             btnPay = new Button();
             btnCancel = new Button();
@@ -180,15 +180,15 @@
             label3.TabIndex = 10;
             label3.Text = "Thông tin cần thanh toán ";
             // 
-            // textBoxTotal
+            // textBoxAmount
             // 
-            textBoxTotal.BackColor = SystemColors.ActiveCaption;
-            textBoxTotal.Location = new Point(474, 327);
-            textBoxTotal.Multiline = true;
-            textBoxTotal.Name = "textBoxTotal";
-            textBoxTotal.ReadOnly = true;
-            textBoxTotal.Size = new Size(307, 35);
-            textBoxTotal.TabIndex = 26;
+            textBoxAmount.BackColor = SystemColors.ActiveCaption;
+            textBoxAmount.Location = new Point(474, 327);
+            textBoxAmount.Multiline = true;
+            textBoxAmount.Name = "textBoxAmount";
+            textBoxAmount.ReadOnly = true;
+            textBoxAmount.Size = new Size(307, 35);
+            textBoxAmount.TabIndex = 26;
             // 
             // label7
             // 
@@ -200,16 +200,16 @@
             label7.TabIndex = 25;
             label7.Text = "Số tiền thanh toán:";
             // 
-            // textBoxInfomation
+            // textBoxAuctionInfo
             // 
-            textBoxInfomation.BackColor = SystemColors.ActiveCaption;
-            textBoxInfomation.Location = new Point(474, 139);
-            textBoxInfomation.Multiline = true;
-            textBoxInfomation.Name = "textBoxInfomation";
-            textBoxInfomation.ReadOnly = true;
-            textBoxInfomation.Size = new Size(302, 148);
-            textBoxInfomation.TabIndex = 22;
-            textBoxInfomation.TextChanged += textBoxInfomation_TextChanged;
+            textBoxAuctionInfo.BackColor = SystemColors.ActiveCaption;
+            textBoxAuctionInfo.Location = new Point(474, 139);
+            textBoxAuctionInfo.Multiline = true;
+            textBoxAuctionInfo.Name = "textBoxAuctionInfo";
+            textBoxAuctionInfo.ReadOnly = true;
+            textBoxAuctionInfo.Size = new Size(302, 148);
+            textBoxAuctionInfo.TabIndex = 22;
+            textBoxAuctionInfo.TextChanged += textBoxInfomation_TextChanged;
             // 
             // label5
             // 
@@ -221,15 +221,15 @@
             label5.TabIndex = 21;
             label5.Text = "Thông tin biển số:";
             // 
-            // textBoxUserName
+            // textBoxUserInfor
             // 
-            textBoxUserName.BackColor = SystemColors.ActiveCaption;
-            textBoxUserName.Location = new Point(475, 95);
-            textBoxUserName.Multiline = true;
-            textBoxUserName.Name = "textBoxUserName";
-            textBoxUserName.ReadOnly = true;
-            textBoxUserName.Size = new Size(300, 24);
-            textBoxUserName.TabIndex = 20;
+            textBoxUserInfor.BackColor = SystemColors.ActiveCaption;
+            textBoxUserInfor.Location = new Point(475, 95);
+            textBoxUserInfor.Multiline = true;
+            textBoxUserInfor.Name = "textBoxUserInfor";
+            textBoxUserInfor.ReadOnly = true;
+            textBoxUserInfor.Size = new Size(300, 24);
+            textBoxUserInfor.TabIndex = 20;
             // 
             // label4
             // 
@@ -277,11 +277,11 @@
             ClientSize = new Size(800, 451);
             Controls.Add(btnCancel);
             Controls.Add(btnPay);
-            Controls.Add(textBoxTotal);
+            Controls.Add(textBoxAmount);
             Controls.Add(label7);
-            Controls.Add(textBoxInfomation);
+            Controls.Add(textBoxAuctionInfo);
             Controls.Add(label5);
-            Controls.Add(textBoxUserName);
+            Controls.Add(textBoxUserInfor);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(rbVisa);
@@ -322,11 +322,11 @@
         private PictureBox pictureBox4;
         private RadioButton rbVisa;
         private Label label3;
-        private TextBox textBoxTotal;
+        private TextBox textBoxAmount;
         private Label label7;
-        private TextBox textBoxInfomation;
+        private TextBox textBoxAuctionInfo;
         private Label label5;
-        private TextBox textBoxUserName;
+        private TextBox textBoxUserInfor;
         private Label label4;
         private Button btnPay;
         private Button btnCancel;
