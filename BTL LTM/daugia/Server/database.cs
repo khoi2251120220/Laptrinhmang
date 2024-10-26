@@ -121,6 +121,37 @@ namespace Server
             }
             return 0;
         }
-    }
+
+        public bool SavePaymentHistory(string username, string transactionInfo, decimal amount, string paymentMethod)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                string query = "INSERT INTO PaymentHistory (user_id, transaction_info, amount, payment_method_id, status) " +
+                       "VALUES ((SELECT user_id FROM user WHERE username = @username), @transactionInfo, @amount, " +
+                       "(SELECT payment_method_id FROM PaymentMethods WHERE method_name = @paymentMethod), @status)";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@transactionInfo", transactionInfo);
+                    cmd.Parameters.AddWithValue("@amount", amount);
+                    cmd.Parameters.AddWithValue("@paymentMethod", paymentMethod);
+                    cmd.Parameters.AddWithValue("@status", "Thành công");
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true; // Trả về true nếu lưu thành công
+                    }
+                    catch (MySqlException ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}");
+                        return false; // Trả về false nếu có lỗi
+                    }
+                }
+            }
+        }
+   }
 }
+
 

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Server;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace client
 {
@@ -17,6 +18,7 @@ namespace client
     {
         private int auctionId;
         private Server.Database database = new Server.Database();
+        private string username;
         public Payment(int auctionId)
         {
             InitializeComponent();
@@ -56,10 +58,27 @@ namespace client
                 MessageBox.Show("Vui lòng chọn phương thức thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Lấy thông tin thanh toán 
+            string selectedPaymentMethod = rbMomo.Checked ? "Momo" :
+                                           rbPaypal.Checked ? "Paypal" :
+                                           rbATM.Checked ? "ATM" : "VISA";
+            string transactionInfo = "Thông tin giao dịch";
+            decimal amount = decimal.Parse(textBoxAmount.Text, System.Globalization.NumberStyles.Currency);
+
+            bool isSaved = database.SavePaymentHistory(username, transactionInfo, amount, selectedPaymentMethod);
+            if (isSaved)
+            {
+                MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra khi lưu lịch sử thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             this.Close();
             HomePage f = new HomePage();
             f.Show();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
