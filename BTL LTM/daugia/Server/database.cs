@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 
 namespace Server
 {
@@ -150,6 +151,31 @@ namespace Server
                     }
                 }
             }
+        }
+
+        public DataTable GetPaymentHistory(string username)
+        {
+            DataTable paymentHistoryTable = new DataTable();
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT ph.transaction_id AS 'Mã số', u.username AS 'Người dùng', ph.transaction_info AS 'Thông tin biến số', " +
+                               "ph.amount AS 'Số tiền', pm.method_name AS 'Phương thức thanh toán', ph.status AS 'Trạng thái' " +
+                               "FROM PaymentHistory ph " +
+                               "JOIN user u ON ph.user_id = u.user_id " +
+                               "JOIN PaymentMethods pm ON ph.payment_method_id = pm.payment_method_id " +
+                               "WHERE u.username = @username";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(paymentHistoryTable);
+                    }
+                }
+            }
+            return paymentHistoryTable;
         }
    }
 }
