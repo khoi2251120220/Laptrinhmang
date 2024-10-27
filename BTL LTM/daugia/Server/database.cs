@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-
+using client;
 namespace Server
 {
     public class Database
@@ -44,16 +44,25 @@ namespace Server
             using (var conn = GetConnection())
             {
                 conn.Open();
-                string query = "SELECT COUNT(*) FROM user WHERE username = @username AND password = @password";
+                string query = "SELECT password FROM user WHERE username = @username";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string storedHashedPassword = reader.GetString("password");
+                            string hashedPassword = UserService.HashPassword(password);
+                            Console.WriteLine("Stored Hashed Password in DB: " + storedHashedPassword);
+                            Console.WriteLine("Hashed Password for Login: " + hashedPassword);
+                            return storedHashedPassword == hashedPassword;
+                        }
+                    }
                 }
             }
+            return false;
         }
         // Phương thức để lấy thông tin người dùng
         public string? LoadUserInfo(string username)

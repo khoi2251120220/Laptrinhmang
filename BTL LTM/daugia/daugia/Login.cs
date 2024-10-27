@@ -1,6 +1,7 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using client;
+
 namespace daugia
 {
     public partial class Login : Form
@@ -37,6 +38,7 @@ namespace daugia
             string password = textBox2.Text;
 
             string hashedPassword = UserService.HashPassword(password);
+            Console.WriteLine("Hashed Password for Login: " + hashedPassword);
             try
             {
                 using (TcpClient client = new TcpClient("127.0.0.1", 9999))

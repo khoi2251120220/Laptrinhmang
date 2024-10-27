@@ -53,11 +53,8 @@ C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-wi
 C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.pdb
 C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.genruntimeconfig.cache
 C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\ref\client.dll
-C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.exe
-C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.deps.json
-C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.runtimeconfig.json
-C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.dll
-C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\client.pdb
+C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.csproj.AssemblyReference.cache
+C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.History.resources
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\daugia.HomePage.resources
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\daugia.Login.resources
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.Payment.resources
@@ -70,8 +67,3 @@ C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.AssemblyIn
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.AssemblyInfo.cs
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.csproj.CoreCompileInputs.cache
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.sourcelink.json
-C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.dll
-C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\refint\client.dll
-C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.pdb
-C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.genruntimeconfig.cache
-C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\ref\client.dll

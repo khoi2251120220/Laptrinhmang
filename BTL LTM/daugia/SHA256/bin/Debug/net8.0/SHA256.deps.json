@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "client/1.0.0": {
+      "SHA256/1.0.0": {
         "runtime": {
-          "client.dll": {}
+          "SHA256.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "client/1.0.0": {
+    "SHA256/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

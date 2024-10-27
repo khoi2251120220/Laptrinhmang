@@ -69,6 +69,7 @@ namespace daugia
             else
             {
                 string hashedPassword = UserService.HashPassword(password);
+                Console.WriteLine("Hashed Password for Registration: " + hashedPassword);
                 Server.Database database = new Server.Database();
                 bool success = database.RegisterUser(username, hashedPassword, email);
 

@@ -3,7 +3,7 @@ using System.Text;
 
 namespace client
 {
-    internal class UserService
+    public class UserService
     {
         public static string HashPassword(string password)
         {
