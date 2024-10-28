@@ -187,5 +187,17 @@ namespace daugia
         {
 
         }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+            aboutForm.Show();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+            aboutForm.Show();
+        }
     }
 }

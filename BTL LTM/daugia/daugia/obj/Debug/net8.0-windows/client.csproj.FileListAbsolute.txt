@@ -67,3 +67,7 @@ C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.AssemblyIn
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.AssemblyInfo.cs
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.csproj.CoreCompileInputs.cache
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.sourcelink.json
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.csproj.AssemblyReference.cache
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.About.resources
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.Feedback.resources
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.History.resources

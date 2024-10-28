@@ -326,6 +326,7 @@
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox8.TabIndex = 12;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // pictureBox7
             // 
@@ -524,6 +525,7 @@
             label9.Size = new Size(58, 15);
             label9.TabIndex = 1;
             label9.Text = "Giới thiệu";
+            label9.Click += label9_Click;
             // 
             // label7
             // 
