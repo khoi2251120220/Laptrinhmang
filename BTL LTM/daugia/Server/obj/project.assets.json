@@ -474,16 +474,6 @@
         "runtime": {
           "lib/net8.0/ZstdSharp.dll": {}
         }
-      },
-      "SHA256/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/SHA256.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SHA256.dll": {}
-        }
       }
     }
   },
@@ -1611,38 +1601,27 @@
         "zstdsharp.port.0.8.0.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
-    },
-    "SHA256/1.0.0": {
-      "type": "project",
-      "path": "../SHA256/SHA256.csproj",
-      "msbuildProject": "../SHA256/SHA256.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "MySql.Data >= 9.1.0",
-      "SHA256 >= 1.0.0"
+      "MySql.Data >= 9.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\biphi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\codon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Laptrinhmang\\BTL LTM\\daugia\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\biphi\\.nuget\\packages\\",
-      "outputPath": "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\Server\\obj\\",
+      "projectPath": "C:\\Laptrinhmang\\BTL LTM\\daugia\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\codon\\.nuget\\packages\\",
+      "outputPath": "C:\\Laptrinhmang\\BTL LTM\\daugia\\Server\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\biphi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\codon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1656,11 +1635,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\SHA256\\SHA256.csproj": {
-              "projectPath": "C:\\laptrinhmang\\baitaplon\\Laptrinhmang\\BTL LTM\\daugia\\SHA256\\SHA256.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -1699,7 +1674,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

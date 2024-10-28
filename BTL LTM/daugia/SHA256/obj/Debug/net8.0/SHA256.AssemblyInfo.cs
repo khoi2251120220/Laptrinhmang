@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SHA256")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe237e44de42a7bc2fd0c1165849c9b9162a57a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdb7be8ce4be5bd8e030f9c5fb28d5779c591c14")]
 [assembly: System.Reflection.AssemblyProductAttribute("SHA256")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SHA256")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
