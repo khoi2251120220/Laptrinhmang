@@ -1,113 +1,121 @@
-﻿using MySql.Data.MySqlClient;
-using Server.Services;
+﻿using System.Net;
+using System.Net.Sockets;
+using MySql.Data.MySqlClient;
 using DotNetEnv;
+using Server.Services;
 using Server.Data;
+using System.Text.Json;
+using Shared.Models;
 
 namespace Server
 {
     class Program
     {
-        // private const int BUFFER_SIZE = 1024;
-        // private const int PORT_NUMBER = 9999;
-
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            // Console.WriteLine("C# MySQL");
-            // string connStr = "server=localhost;user=root;database=phpmyadmin;port=3306";
-            // using (MySqlConnection conn = new MySqlConnection(connStr))
-            // {
-            //     try
-            //     {
-            //         Console.WriteLine("Đang kết nối đến MySQL...");
-            //         conn.Open();
-
-            //         IPAddress address = IPAddress.Parse("127.0.0.1");
-            //         TcpListener listener = new TcpListener(address, PORT_NUMBER);
-            //         listener.Start();
-            //         Console.WriteLine($"Server đang lắng nghe trên port {PORT_NUMBER}...");
-
-            //         using (Socket socket = listener.AcceptSocket())
-            //         {
-            //             byte[] data = new byte[BUFFER_SIZE];
-            //             int bytesReceived = socket.Receive(data);
-            //             string receivedMessage = Encoding.UTF8.GetString(data, 0, bytesReceived);
-
-            //             string[] credentials = receivedMessage.Split(':');
-            //             string userName = credentials[0];
-            //             string password = credentials[1];
-
-            //             string sql = "SELECT COUNT(*) FROM phpmyadmin.user WHERE username = @username AND password = @password";
-            //             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-            //             {
-
-            //                 cmd.Parameters.AddWithValue("@username", userName);
-            //                 cmd.Parameters.AddWithValue("@password", password);
-
-            //                 int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-            //                 if (count > 0)
-            //                 {
-            //                     socket.Send(Encoding.UTF8.GetBytes("Login successful"));
-            //                 }
-            //                 else
-            //                 {
-            //                     socket.Send(Encoding.UTF8.GetBytes("Invalid username or password."));
-            //                 }
-            //             }
-            //         }
-            //         listener.Stop();
-            //     }
-            //     catch (Exception ex)
-            //     {
-            //         Console.WriteLine("Lỗi: " + ex);
-            //     }
-            // }
-            // string connectionString = "server=localhost;user=user;password=password;database=auction_db";
-            //get to .env file
+            // Load .env file
             Env.Load();
-            string connectionString = "server=localhost;" +
-                                    $"user={Environment.GetEnvironmentVariable("DB_USER")};" +
-                                    $"password={Environment.GetEnvironmentVariable("DB_PASSWORD")};" +
-                                    $"database={Environment.GetEnvironmentVariable("DB_NAME")}";
 
-            var dbManager = new DatabaseManager(connectionString);
-            dbManager.InitializeDatabase();
+            // Initialize database
+            var dbContext = new DatabaseContext();
+            await dbContext.InitializeDatabase();
 
-            var auctionService = new AuctionService(connectionString);
+            var auctionService = new AuctionService(dbContext);
 
-            SocketServer server = new("127.0.0.1", 8888, auctionService);
-            server.Start();
+            // Set up TCP listener
+            TcpListener listener = new TcpListener(IPAddress.Any, 5000);
+            listener.Start();
+            Console.WriteLine("Server started on port 5000");
+
+            while (true)
+            {
+                TcpClient client = await listener.AcceptTcpClientAsync();
+                _ = HandleClientAsync(client, auctionService);
+            }
         }
 
-        static String getPassword(String username)
+        static async Task HandleClientAsync(TcpClient client, AuctionService auctionService)
         {
-            string passwordReal = null;
-            Console.WriteLine("C# MySQL");
-            string connStr = "server=localhost;user=root;database=phpmyadmin;port=3306";
-            using (MySqlConnection conn = new MySqlConnection(connStr))
+            try
             {
-                try
-                {
-                    Console.WriteLine("Đang kết nối đến MySQL...");
-                    conn.Open();
-                    string sql = "SELECT password FROM phpmyadmin.user WHERE username = @username";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@username", username);
+                using var stream = client.GetStream();
+                using var reader = new StreamReader(stream);
+                using var writer = new StreamWriter(stream);
+                writer.AutoFlush = true;
 
-                    using (MySqlDataReader rdr = cmd.ExecuteReader())
-                    {
-                        if (rdr.Read())
-                        {
-                            passwordReal = rdr.GetString(0);
-                        }
-                    }
-                }
-                catch (Exception ex)
+                while (true)
                 {
-                    Console.WriteLine("Lỗi: " + ex.Message);
+                    string? command = await reader.ReadLineAsync();
+                    if (string.IsNullOrEmpty(command)) break;
+
+                    string response = await ProcessCommand(command, auctionService);
+                    await writer.WriteLineAsync(response);
                 }
             }
-            return passwordReal;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error handling client: {ex.Message}");
+            }
+            finally
+            {
+                client.Close();
+            }
+        }
+
+        static async Task<string> ProcessCommand(string command, AuctionService auctionService)
+        {
+            try
+            {
+                var parts = command.Split('|');
+                switch (parts[0].ToLower())
+                {
+                    case "login":
+                        if (parts.Length != 3)
+                            return JsonSerializer.Serialize<User>(null); // Return null for invalid format
+
+                        var user = await auctionService.Login(parts[1], parts[2]);
+                        return JsonSerializer.Serialize(user);
+
+                    case "register":
+                        if (parts.Length != 4)
+                            return "Invalid command format";
+
+                        var newUser = new User
+                        {
+                            Username = parts[1],
+                            Password = parts[2], // In production, should hash password
+                            Email = parts[3]
+                        };
+
+                        bool registerSuccess = await auctionService.RegisterUser(newUser);
+                        return registerSuccess ? "Registration successful" : "Registration failed";
+
+                    case "getauctions":
+                        var auctions = await auctionService.GetActiveAuctions();
+                        return JsonSerializer.Serialize(auctions);
+
+                    case "getbids":
+                        if (parts.Length != 2) return "Invalid command format";
+                        var bids = await auctionService.GetAuctionBids(int.Parse(parts[1]));
+                        return JsonSerializer.Serialize(bids);
+
+                    case "placebid":
+                        if (parts.Length != 4) return "Invalid command format";
+                        var success = await auctionService.PlaceBid(
+                            int.Parse(parts[1]), // auctionId
+                            int.Parse(parts[2]), // userId
+                            decimal.Parse(parts[3]) // amount
+                        );
+                        return success ? "Bid placed successfully" : "Failed to place bid";
+
+                    default:
+                        return "Unknown command";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
         }
     }
 }
