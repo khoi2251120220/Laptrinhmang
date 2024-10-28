@@ -1,9 +1,21 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using client;
+
 namespace Server
 {
+    public class UserService
+    {
+        public static string HashPassword(string password)
+        {
+            // Logic băm mật khẩu của bạn ở đây
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
+    }
     public class Database
     {
         private string connectionString = "server=localhost;user=root;database=phpmyadmin;port=3306";

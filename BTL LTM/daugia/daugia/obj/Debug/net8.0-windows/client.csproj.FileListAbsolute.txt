@@ -95,9 +95,7 @@ C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\runtimes\win-x64\
 C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
 C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\Server.dll
-C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\SHA256.dll
 C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\Server.pdb
-C:\Laptrinhmang\BTL LTM\daugia\daugia\bin\Debug\net8.0-windows\SHA256.pdb
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.csproj.Up2Date
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\client.dll
 C:\Laptrinhmang\BTL LTM\daugia\daugia\obj\Debug\net8.0-windows\refint\client.dll

@@ -1,7 +1,7 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using client;
-
+using Server;
 namespace daugia
 {
     public partial class Login : Form
