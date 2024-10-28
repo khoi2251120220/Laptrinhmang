@@ -4,16 +4,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "client", "daugia\client.csproj", "{343AA99E-EDB3-46CC-A2FD-4C24CBEF4835}"
-	ProjectSection(ProjectDependencies) = postProject
-		{72EC08AE-C5DE-47DE-BC7D-4FB659686847} = {72EC08AE-C5DE-47DE-BC7D-4FB659686847}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{01C95859-E5E8-4322-9739-93E7E7F553AF}"
-	ProjectSection(ProjectDependencies) = postProject
-		{72EC08AE-C5DE-47DE-BC7D-4FB659686847} = {72EC08AE-C5DE-47DE-BC7D-4FB659686847}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHA256", "SHA256\SHA256.csproj", "{72EC08AE-C5DE-47DE-BC7D-4FB659686847}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +21,6 @@ Global
 		{01C95859-E5E8-4322-9739-93E7E7F553AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01C95859-E5E8-4322-9739-93E7E7F553AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01C95859-E5E8-4322-9739-93E7E7F553AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72EC08AE-C5DE-47DE-BC7D-4FB659686847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72EC08AE-C5DE-47DE-BC7D-4FB659686847}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72EC08AE-C5DE-47DE-BC7D-4FB659686847}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72EC08AE-C5DE-47DE-BC7D-4FB659686847}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

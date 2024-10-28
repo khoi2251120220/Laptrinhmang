@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Server\Server.csproj" />
-    <ProjectReference Include="..\SHA256\SHA256.csproj" />
   </ItemGroup>
 
   <ItemGroup>

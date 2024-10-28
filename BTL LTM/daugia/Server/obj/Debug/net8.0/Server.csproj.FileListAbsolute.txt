@@ -42,6 +42,11 @@ C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\re
 C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.pdb
 C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.genruntimeconfig.cache
 C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\ref\Server.dll
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.deps.json
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.runtimeconfig.json
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.exe
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.dll
+C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.pdb
 C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.deps.json
 C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.runtimeconfig.json
 C:\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.exe
@@ -85,8 +90,3 @@ C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\refint\Server.dll
 C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.pdb
 C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\Server.genruntimeconfig.cache
 C:\Laptrinhmang\BTL LTM\daugia\Server\obj\Debug\net8.0\ref\Server.dll
-C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.deps.json
-C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.runtimeconfig.json
-C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.exe
-C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.dll
-C:\laptrinhmang\baitaplon\Laptrinhmang\BTL LTM\daugia\Server\bin\Debug\net8.0\SHA256.pdb

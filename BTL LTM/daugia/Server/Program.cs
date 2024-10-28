@@ -15,7 +15,7 @@ namespace ConnectMySQL
         static void Main(string[] args)
         {
             Console.WriteLine("C# MySQL");
-            string connStr = "server=localhost;user=root;database=auction_db;password=1234;port=3306";
+            string connStr = "server=localhost;user=root;database=phpmyadmin;port=3306";
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 try
@@ -38,7 +38,7 @@ namespace ConnectMySQL
                         string userName = credentials[0];
                         string password = credentials[1];
 
-                        string sql = "SELECT COUNT(*) FROM auction_db.user WHERE username = @username AND password = @password";
+                        string sql = "SELECT COUNT(*) FROM phpmyadmin.user WHERE username = @username AND password = @password";
                         using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                         {
                             cmd.Parameters.AddWithValue("@username", userName);

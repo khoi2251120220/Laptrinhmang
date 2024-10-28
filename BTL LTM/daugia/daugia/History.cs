@@ -21,7 +21,7 @@ namespace client
 
         private void History_Load(object sender, EventArgs e)
         {
-            DataTable paymentHistory = database.GetPaymentHistory(username);
+            //DataTable paymentHistory = database.GetPaymentHistory(username);
             dataGridViewPaymentHistory.DataSource = paymentHistory;
         }
     }

@@ -114,8 +114,8 @@ namespace daugia
 
         private void label7_Click(object sender, EventArgs e)
         {
-            Payment f = new Payment();
-            f.Show();
+            //Payment f = new Payment();
+            //f.Show();
         }
 
         private void label8_Click(object sender, EventArgs e)
