@@ -1,22 +1,19 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client.Services;
+using Shared.Models;
 
 namespace daugia
 {
     public partial class SignUp : Form
     {
-        List<User> userList = new List<User>();
+        private AuctionClient _client;
+
         public SignUp()
         {
             InitializeComponent();
+            _client = new AuctionClient();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -54,36 +51,37 @@ namespace daugia
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             string username = textBox1.Text;
             string password = textBox2.Text;
             string email = textBox3.Text;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
+            var user = new User
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
-            }
-            else
-            {
-                userList.Add(new User(username, password, email));
-                MessageBox.Show("Đăng ký thành công!");
-                Login login = new Login();
-                login.Show();
-                this.Close();
-            }
-        }
-        public class User
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public string Email { get; set; }
+                Username = username,
+                Password = password,
+                Email = email
+            };
 
-            public User(string username, string password, string email)
+            try
             {
-                Username = username;
-                Password = password;
-                Email = email;
+                bool success = await _client.RegisterUser(user);
+                if (success)
+                {
+                    MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Login login = new Login();
+                    login.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Registration failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Registration error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

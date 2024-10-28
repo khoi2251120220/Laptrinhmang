@@ -13,6 +13,7 @@ namespace daugia
 {
     public partial class HomePage : Form
     {
+        private AuctionClient _client;
         public HomePage(AuctionClient _client)
         {
             InitializeComponent();
