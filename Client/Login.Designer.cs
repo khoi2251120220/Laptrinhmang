@@ -43,7 +43,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.ControlLightLight;
-            pictureBox1.Image = client.Properties.Resources.download;
+            pictureBox1.Image = Client.Properties.Resources.download;
             pictureBox1.Location = new Point(-1, -2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(405, 453);
@@ -111,7 +111,7 @@
             button1.TabIndex = 7;
             button1.Text = "Sign In";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += button1_ClickAsync;
             // 
             // button2
             // 

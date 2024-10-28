@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client.Services;
 
 namespace daugia
 {
     public partial class HomePage : Form
     {
-        public HomePage()
+        public HomePage(AuctionClient _client)
         {
             InitializeComponent();
         }

@@ -117,7 +117,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = client.Properties.Resources.download;
+            pictureBox1.Image = Client.Properties.Resources.download;
             pictureBox1.Location = new Point(-1, -9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(405, 467);

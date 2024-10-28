@@ -88,7 +88,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.z5940619016006_1e2058ba24cc729e5cba97c917051b13;
+            pictureBox1.BackgroundImage = Client.Properties.Resources.z5940619016006_1e2058ba24cc729e5cba97c917051b13;
             pictureBox1.Location = new Point(11, 66);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
@@ -112,7 +112,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BackgroundImage = Properties.Resources.paypal;
+            pictureBox2.BackgroundImage = Client.Properties.Resources.paypal;
             pictureBox2.Location = new Point(11, 118);
             pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
@@ -136,7 +136,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackgroundImage = Properties.Resources.credit_card;
+            pictureBox3.BackgroundImage = Client.Properties.Resources.credit_card;
             pictureBox3.Location = new Point(10, 169);
             pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
@@ -160,7 +160,7 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.BackgroundImage = Properties.Resources.card;
+            pictureBox4.BackgroundImage = Client.Properties.Resources.card;
             pictureBox4.Location = new Point(10, 234);
             pictureBox4.Margin = new Padding(3, 2, 3, 2);
             pictureBox4.Name = "pictureBox4";
