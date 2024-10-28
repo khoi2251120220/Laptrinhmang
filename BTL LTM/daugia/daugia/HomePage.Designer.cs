@@ -45,6 +45,7 @@
             label19 = new Label();
             label18 = new Label();
             panel4 = new Panel();
+            pictureBox6 = new PictureBox();
             pictureBox8 = new PictureBox();
             pictureBox7 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -52,6 +53,7 @@
             pictureBox3 = new PictureBox();
             label8 = new Label();
             panel5 = new Panel();
+            pictureBox14 = new PictureBox();
             label28 = new Label();
             pictureBox13 = new PictureBox();
             label27 = new Label();
@@ -88,8 +90,6 @@
             thôngTinTàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
             trợGiúpToolStripMenuItem = new ToolStripMenuItem();
-            pictureBox6 = new PictureBox();
-            pictureBox14 = new PictureBox();
             panel2.SuspendLayout();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -97,12 +97,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
@@ -111,8 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -315,6 +315,14 @@
             panel4.Size = new Size(682, 326);
             panel4.TabIndex = 5;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.Location = new Point(305, 172);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(22, 8);
+            pictureBox6.TabIndex = 13;
+            pictureBox6.TabStop = false;
+            // 
             // pictureBox8
             // 
             pictureBox8.Image = client.Properties.Resources.gioithieu;
@@ -393,6 +401,17 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(168, 299);
             panel5.TabIndex = 6;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = client.Properties.Resources.biểm_số;
+            pictureBox14.Location = new Point(17, 203);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(124, 74);
+            pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox14.TabIndex = 9;
+            pictureBox14.TabStop = false;
+            pictureBox14.Click += pictureBox14_Click;
             // 
             // label28
             // 
@@ -676,9 +695,9 @@
             // 
             pictureBox1.BackColor = Color.Silver;
             pictureBox1.Image = client.Properties.Resources.images;
-            pictureBox1.Location = new Point(9, 25);
+            pictureBox1.Location = new Point(0, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(197, 125);
+            pictureBox1.Size = new Size(206, 125);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -729,25 +748,6 @@
             trợGiúpToolStripMenuItem.Size = new Size(62, 20);
             trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
-            // pictureBox6
-            // 
-            pictureBox6.Location = new Point(305, 172);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(22, 8);
-            pictureBox6.TabIndex = 13;
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            pictureBox14.Image = client.Properties.Resources.biểm_số;
-            pictureBox14.Location = new Point(17, 203);
-            pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(124, 74);
-            pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox14.TabIndex = 9;
-            pictureBox14.TabStop = false;
-            pictureBox14.Click += pictureBox14_Click;
-            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -767,6 +767,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -774,6 +775,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -786,8 +788,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ResumeLayout(false);
         }
 

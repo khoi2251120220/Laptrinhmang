@@ -46,6 +46,7 @@ namespace Server
             label19 = new Label();
             label18 = new Label();
             panel4 = new Panel();
+            label1 = new Label();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -63,7 +64,6 @@ namespace Server
             thôngTinTàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
             trợGiúpToolStripMenuItem = new ToolStripMenuItem();
-            label1 = new Label();
             panel2.SuspendLayout();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -267,6 +267,16 @@ namespace Server
             panel4.TabIndex = 5;
             panel4.Paint += panel4_Paint;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 14);
+            label1.Name = "label1";
+            label1.Size = new Size(79, 30);
+            label1.TabIndex = 11;
+            label1.Text = "Admin";
+            // 
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.quanlykhachhang;
@@ -326,6 +336,7 @@ namespace Server
             label10.Size = new Size(113, 15);
             label10.TabIndex = 2;
             label10.Text = "Quản lý người dùng";
+            label10.Click += label10_Click;
             // 
             // panel8
             // 
@@ -415,16 +426,6 @@ namespace Server
             trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
             trợGiúpToolStripMenuItem.Size = new Size(62, 20);
             trợGiúpToolStripMenuItem.Text = "Trợ giúp";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(79, 30);
-            label1.TabIndex = 11;
-            label1.Text = "Admin";
             // 
             // home_page
             // 

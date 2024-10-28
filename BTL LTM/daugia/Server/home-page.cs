@@ -41,5 +41,11 @@ namespace Server
         {
 
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            QLND qlndForm = new QLND();
+            qlndForm.Show();
+        }
     }
 }
