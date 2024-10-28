@@ -183,6 +183,16 @@ namespace Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kinh_lup {
+            get {
+                object obj = ResourceManager.GetObject("kinh_lup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paypal {
             get {
                 object obj = ResourceManager.GetObject("paypal", resourceCulture);
