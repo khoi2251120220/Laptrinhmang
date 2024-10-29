@@ -9,7 +9,7 @@ namespace Server.Data
         public DatabaseContext()
         {
             _connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
-                              "server=localhost;database=auction_db;user=root;password=password";
+                              "server=localhost;database=auction_db;user=root;password=1234";
         }
 
         public MySqlConnection GetConnection()

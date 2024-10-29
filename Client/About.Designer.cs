@@ -34,15 +34,15 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
-            label2 = new Label();
             textBox1 = new TextBox();
+            label2 = new Label();
             menuStrip1 = new MenuStrip();
             trangChủToolStripMenuItem = new ToolStripMenuItem();
             lịchSửToolStripMenuItem = new ToolStripMenuItem();
             tàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
-            trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             thôngTinTàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
+            trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -102,16 +102,6 @@
             panel2.Size = new Size(800, 265);
             panel2.TabIndex = 2;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(338, 23);
-            label2.TabIndex = 0;
-            label2.Text = "Giới Thiệu Ứng Dụng Đấu Giá Biển Số Xe";
-            // 
             // textBox1
             // 
             textBox1.BackColor = SystemColors.ActiveBorder;
@@ -123,6 +113,17 @@
             textBox1.Size = new Size(721, 163);
             textBox1.TabIndex = 2;
             textBox1.Text = resources.GetString("textBox1.Text");
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(338, 23);
+            label2.TabIndex = 0;
+            label2.Text = "Giới Thiệu Ứng Dụng Đấu Giá Biển Số Xe";
             // 
             // menuStrip1
             // 
@@ -138,6 +139,7 @@
             trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
             trangChủToolStripMenuItem.Size = new Size(71, 20);
             trangChủToolStripMenuItem.Text = "Trang chủ";
+            trangChủToolStripMenuItem.Click += trangChủToolStripMenuItem_Click;
             // 
             // lịchSửToolStripMenuItem
             // 
@@ -152,23 +154,23 @@
             tàiKhoảnToolStripMenuItem.Size = new Size(69, 20);
             tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
             // 
-            // trợGiúpToolStripMenuItem
-            // 
-            trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            trợGiúpToolStripMenuItem.Size = new Size(62, 20);
-            trợGiúpToolStripMenuItem.Text = "Trợ giúp";
-            // 
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(180, 22);
+            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(177, 22);
             thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(180, 22);
+            logOutToolStripMenuItem.Size = new Size(177, 22);
             logOutToolStripMenuItem.Text = "Log out";
+            // 
+            // trợGiúpToolStripMenuItem
+            // 
+            trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            trợGiúpToolStripMenuItem.Size = new Size(62, 20);
+            trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // About
             // 

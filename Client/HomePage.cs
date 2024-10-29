@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client;
 using Client.Services;
 
 namespace daugia
@@ -76,26 +77,22 @@ namespace daugia
 
         private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AuctionForm auctionForm = new AuctionForm();
-            auctionForm.Show();
+
         }
 
         private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AccountForm accountForm = new AccountForm();
-            accountForm.Show();
+
         }
 
         private void đấuGiáToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AuctionForm auctionForm = new AuctionForm();
-            auctionForm.Show();
+
         }
 
         private void lịchSửToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AuctionForm auctionForm = new AuctionForm();
-            auctionForm.Show();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -181,6 +178,38 @@ namespace daugia
         private void label26_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            // Tạo một instance của form About
+            About aboutForm = new About(_client);
+
+            // Hiển thị form About dưới dạng một hộp thoại
+            aboutForm.Show();
+            this.Close();
+        }
+
+        private void trangChủToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            // Tạo một instance của form Homepage
+            HomePage homepageForm = new HomePage(_client);
+
+            // Hiển thị form Homepage
+            homepageForm.Show();
+
+            // Đóng form hiện tại (giả sử form hiện tại là MainForm)
+            this.Close();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            // Tạo một instance của form About
+            About aboutForm = new About(_client);
+
+            // Hiển thị form About dưới dạng một hộp thoại
+            aboutForm.Show();
+            this.Close();
         }
     }
 }
