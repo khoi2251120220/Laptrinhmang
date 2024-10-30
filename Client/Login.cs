@@ -2,7 +2,8 @@
 using System.Text;
 using Client.Services;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+using Server;
+using Server.Data;
 namespace daugia
 {
     public partial class Login : Form
@@ -39,10 +40,11 @@ namespace daugia
         {
             string username = textBox1.Text;
             string password = textBox2.Text;
-
+            string hashedPassword = UserService.HashPassword(password);
+            Console.WriteLine("Hashed Password for Login: " + hashedPassword);
             try
             {
-                var user = await _client.Login(username, password);
+                var user = await _client.Login(username, hashedPassword);
                 if (user != null)
                 {
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

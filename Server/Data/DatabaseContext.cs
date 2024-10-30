@@ -2,6 +2,17 @@ using MySql.Data.MySqlClient;
 
 namespace Server.Data
 {
+    public class UserService
+    {
+        public static string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
+    }
     public class DatabaseContext
     {
         private readonly string _connectionString;
@@ -9,7 +20,11 @@ namespace Server.Data
         public DatabaseContext()
         {
             _connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
-                              "server=localhost;database=auction_db;user=root;password=password";
+<<<<<<< HEAD
+                              "server=localhost;database=phpmyadmin;user=root;";
+=======
+                              "server=localhost;database=auction_db;user=root;password=1234";
+>>>>>>> 0809fb1db1f84e257402f7f255322e4bd7ec05e8
         }
 
         public MySqlConnection GetConnection()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using daugia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +8,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client;
+using Client.Services;
 
 namespace Client
 {
     public partial class About : Form
     {
-        public About()
+        private AuctionClient _client;
+        public About(AuctionClient _client)
         {
             InitializeComponent();
         }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Tạo một instance của form Homepage
+            HomePage homepageForm = new HomePage(_client);
+
+            // Hiển thị form Homepage
+            homepageForm.Show();
+
+            // Đóng form hiện tại (giả sử form hiện tại là MainForm)
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

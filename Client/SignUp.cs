@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Client.Services;
 using Shared.Models;
-
+using Server;
+using Server.Data;
 namespace daugia
 {
     public partial class SignUp : Form
@@ -56,14 +57,14 @@ namespace daugia
             string username = textBox1.Text;
             string password = textBox2.Text;
             string email = textBox3.Text;
-
+            string hashedPassword = UserService.HashPassword(password);
+            Console.WriteLine("Hashed Password for Registration: " + hashedPassword);
             var user = new User
             {
                 Username = username,
-                Password = password,
+                Password = hashedPassword,
                 Email = email
             };
-
             try
             {
                 bool success = await _client.RegisterUser(user);

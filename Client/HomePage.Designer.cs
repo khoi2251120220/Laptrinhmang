@@ -45,12 +45,14 @@
             label19 = new Label();
             label18 = new Label();
             panel4 = new Panel();
+            label8 = new Label();
             pictureBox8 = new PictureBox();
             pictureBox7 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             panel5 = new Panel();
+            pictureBox14 = new PictureBox();
             label28 = new Label();
             pictureBox13 = new PictureBox();
             label27 = new Label();
@@ -87,8 +89,6 @@
             thôngTinTàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
             trợGiúpToolStripMenuItem = new ToolStripMenuItem();
-            pictureBox14 = new PictureBox();
-            label8 = new Label();
             panel2.SuspendLayout();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -102,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
@@ -110,7 +111,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -312,6 +312,16 @@
             panel4.Size = new Size(682, 326);
             panel4.TabIndex = 5;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label8.Location = new Point(13, 9);
+            label8.Name = "label8";
+            label8.Size = new Size(90, 21);
+            label8.TabIndex = 13;
+            label8.Text = "Nghiệp vụ";
+            // 
             // pictureBox8
             // 
             pictureBox8.Image = Client.Properties.Resources.gioithieu;
@@ -321,6 +331,7 @@
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox8.TabIndex = 12;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // pictureBox7
             // 
@@ -377,6 +388,16 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(168, 299);
             panel5.TabIndex = 6;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = Client.Properties.Resources.biểm_số;
+            pictureBox14.Location = new Point(11, 203);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(124, 74);
+            pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox14.TabIndex = 9;
+            pictureBox14.TabStop = false;
             // 
             // label28
             // 
@@ -469,6 +490,7 @@
             label9.Size = new Size(58, 15);
             label9.TabIndex = 1;
             label9.Text = "Giới thiệu";
+            label9.Click += label9_Click;
             // 
             // label7
             // 
@@ -677,6 +699,7 @@
             trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
             trangChủToolStripMenuItem.Size = new Size(71, 20);
             trangChủToolStripMenuItem.Text = "Trang chủ";
+            trangChủToolStripMenuItem.Click += trangChủToolStripMenuItem_Click_1;
             // 
             // lịchSửToolStripMenuItem
             // 
@@ -709,26 +732,6 @@
             trợGiúpToolStripMenuItem.Size = new Size(62, 20);
             trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
-            // pictureBox14
-            // 
-            pictureBox14.Image = Client.Properties.Resources.biểm_số;
-            pictureBox14.Location = new Point(11, 203);
-            pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(124, 74);
-            pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox14.TabIndex = 9;
-            pictureBox14.TabStop = false;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label8.Location = new Point(13, 9);
-            label8.Name = "label8";
-            label8.Size = new Size(90, 21);
-            label8.TabIndex = 13;
-            label8.Text = "Nghiệp vụ";
-            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -755,6 +758,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -767,7 +771,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ResumeLayout(false);
         }
 
