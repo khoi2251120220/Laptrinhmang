@@ -21,7 +21,11 @@ namespace Server.Data
         {
             _connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
 <<<<<<< HEAD
+<<<<<<< HEAD
                               "server=localhost;database=phpmyadmin;user=root;";
+=======
+                              "server=localhost;database=auction_db;user=root;password=1234";
+>>>>>>> 0809fb1db1f84e257402f7f255322e4bd7ec05e8
 =======
                               "server=localhost;database=auction_db;user=root;password=1234";
 >>>>>>> 0809fb1db1f84e257402f7f255322e4bd7ec05e8
