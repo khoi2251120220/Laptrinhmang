@@ -110,6 +110,7 @@
             textBox1.Location = new Point(29, 57);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
             textBox1.Size = new Size(721, 163);
             textBox1.TabIndex = 2;
             textBox1.Text = resources.GetString("textBox1.Text");
@@ -157,13 +158,13 @@
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(177, 22);
+            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(180, 22);
             thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(177, 22);
+            logOutToolStripMenuItem.Size = new Size(180, 22);
             logOutToolStripMenuItem.Text = "Log out";
             // 
             // trợGiúpToolStripMenuItem

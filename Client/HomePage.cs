@@ -142,7 +142,9 @@ namespace daugia
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-
+            answer answerForm = new answer(_client);
+            answerForm.Show();
+            this.Close();
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -210,6 +212,20 @@ namespace daugia
             // Hiển thị form About dưới dạng một hộp thoại
             aboutForm.Show();
             this.Close();
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            answer answerForm = new answer(_client);
+            answerForm.Show();
+            this.Close();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Login loginForm = new Login(_client);
+            //loginForm.Show();
+            //this.Close();
         }
     }
 }

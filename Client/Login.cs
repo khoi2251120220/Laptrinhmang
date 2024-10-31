@@ -14,6 +14,10 @@ namespace daugia
             InitializeComponent();
             _client = new AuctionClient();
         }
+        public Login(AuctionClient _client)
+        {
+            InitializeComponent();
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -66,6 +70,11 @@ namespace daugia
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Mật khẩu đã được reset thành: 123a", "Reset Mật Khẩu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

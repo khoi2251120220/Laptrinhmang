@@ -20,15 +20,7 @@ namespace Server.Data
         public DatabaseContext()
         {
             _connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
-<<<<<<< HEAD
-<<<<<<< HEAD
-                              "server=localhost;database=phpmyadmin;user=root;";
-=======
                               "server=localhost;database=auction_db;user=root;password=1234";
->>>>>>> 0809fb1db1f84e257402f7f255322e4bd7ec05e8
-=======
-                              "server=localhost;database=auction_db;user=root;password=1234";
->>>>>>> 0809fb1db1f84e257402f7f255322e4bd7ec05e8
         }
 
         public MySqlConnection GetConnection()
@@ -82,7 +74,6 @@ namespace Server.Data
                     INSERT INTO users (username, password, email) VALUES
                     ('user1', 'password123', 'user1@example.com'),
                     ('user2', 'password123', 'user2@example.com');
-
                     INSERT INTO auctions (license_plate_number, starting_price, current_price, 
                                         start_time, end_time, status) VALUES
                     ('51F-123.45', 1000000, 1000000, NOW(), DATE_ADD(NOW(), INTERVAL 1 DAY), 'Active'),

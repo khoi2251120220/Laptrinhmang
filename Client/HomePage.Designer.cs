@@ -461,6 +461,7 @@
             label13.Size = new Size(134, 15);
             label13.TabIndex = 5;
             label13.Text = "Các câu hỏi thường gặp";
+            label13.Click += label13_Click;
             // 
             // label12
             // 
@@ -717,14 +718,15 @@
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(175, 22);
+            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(180, 22);
             thôngTinTàiKhoảnToolStripMenuItem.Text = "thông tin tài khoản";
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(175, 22);
+            logOutToolStripMenuItem.Size = new Size(180, 22);
             logOutToolStripMenuItem.Text = "log out";
+            logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
             // 
             // trợGiúpToolStripMenuItem
             // 
