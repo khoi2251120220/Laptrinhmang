@@ -50,7 +50,7 @@
             pictureBox7 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            pBSanpham = new PictureBox();
             panel5 = new Panel();
             pictureBox14 = new PictureBox();
             label28 = new Label();
@@ -61,7 +61,7 @@
             panel6 = new Panel();
             label13 = new Label();
             label12 = new Label();
-            label11 = new Label();
+            lblSanpham = new Label();
             label9 = new Label();
             label7 = new Label();
             panel3 = new Panel();
@@ -100,7 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pBSanpham).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
@@ -299,12 +299,12 @@
             panel4.Controls.Add(pictureBox7);
             panel4.Controls.Add(pictureBox5);
             panel4.Controls.Add(pictureBox4);
-            panel4.Controls.Add(pictureBox3);
+            panel4.Controls.Add(pBSanpham);
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(panel6);
             panel4.Controls.Add(label13);
             panel4.Controls.Add(label12);
-            panel4.Controls.Add(label11);
+            panel4.Controls.Add(lblSanpham);
             panel4.Controls.Add(label9);
             panel4.Controls.Add(label7);
             panel4.Location = new Point(206, 3);
@@ -364,16 +364,16 @@
             pictureBox4.TabIndex = 8;
             pictureBox4.TabStop = false;
             // 
-            // pictureBox3
+            // pBSanpham
             // 
-            pictureBox3.Image = Client.Properties.Resources.anhquanlisanpham;
-            pictureBox3.Location = new Point(110, 39);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(120, 95);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 7;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
+            pBSanpham.Image = Client.Properties.Resources.anhquanlisanpham;
+            pBSanpham.Location = new Point(110, 39);
+            pBSanpham.Name = "pBSanpham";
+            pBSanpham.Size = new Size(120, 95);
+            pBSanpham.SizeMode = PictureBoxSizeMode.StretchImage;
+            pBSanpham.TabIndex = 7;
+            pBSanpham.TabStop = false;
+            pBSanpham.Click += pictureBox3_Click;
             // 
             // panel5
             // 
@@ -473,15 +473,15 @@
             label12.Text = "Thông tin đơn đặt hàng";
             label12.Click += label12_Click;
             // 
-            // label11
+            // lblSanpham
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(110, 148);
-            label11.Name = "label11";
-            label11.Size = new Size(91, 15);
-            label11.TabIndex = 3;
-            label11.Text = "Trang sản phẩm";
-            label11.Click += label11_Click;
+            lblSanpham.AutoSize = true;
+            lblSanpham.Location = new Point(110, 148);
+            lblSanpham.Name = "lblSanpham";
+            lblSanpham.Size = new Size(91, 15);
+            lblSanpham.TabIndex = 3;
+            lblSanpham.Text = "Trang sản phẩm";
+            lblSanpham.Click += label11_Click;
             // 
             // label9
             // 
@@ -718,13 +718,13 @@
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(180, 22);
+            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(175, 22);
             thôngTinTàiKhoảnToolStripMenuItem.Text = "thông tin tài khoản";
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(180, 22);
+            logOutToolStripMenuItem.Size = new Size(175, 22);
             logOutToolStripMenuItem.Text = "log out";
             logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
             // 
@@ -757,7 +757,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pBSanpham).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
@@ -788,7 +788,7 @@
         private Panel panel4;
         private Label label7;
         private Label label6;
-        private Label label11;
+        private Label lblSanpham;
         private Label label9;
         private Panel panel5;
         private Label label13;
@@ -805,7 +805,7 @@
         private ToolStripMenuItem logOutToolStripMenuItem;
         private ToolStripMenuItem trợGiúpToolStripMenuItem;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox pBSanpham;
         private PictureBox pictureBox4;
         private PictureBox pictureBox8;
         private PictureBox pictureBox7;

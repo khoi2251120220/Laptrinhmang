@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using client;
 using Client;
 using Client.Services;
 
@@ -18,6 +19,7 @@ namespace daugia
         public HomePage(AuctionClient _client)
         {
             InitializeComponent();
+            this._client = _client;
         }
 
         private void đánklsanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,12 +134,16 @@ namespace daugia
 
         private void label11_Click(object sender, EventArgs e)
         {
-
+            ProductBid productBidForm = new ProductBid(_client);
+            productBidForm.Show();
+            this.Close();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-
+            ProductBid productBidForm = new ProductBid(_client);
+            productBidForm.Show();
+            this.Close();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -223,9 +229,9 @@ namespace daugia
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Login loginForm = new Login(_client);
-            //loginForm.Show();
-            //this.Close();
+            Login loginForm = new Login();
+            loginForm.Show();
+            this.Close();
         }
     }
 }

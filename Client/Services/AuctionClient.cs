@@ -28,6 +28,12 @@ namespace Client.Services
             var response = await _reader.ReadLineAsync();
             return JsonSerializer.Deserialize<List<Auction>>(response);
         }
+        public async Task<List<Auction>> GetInactiveAuctions()
+        {
+            await _writer.WriteLineAsync("getinactiveauctions");
+            var response = await _reader.ReadLineAsync();
+            return JsonSerializer.Deserialize<List<Auction>>(response);
+        }
 
         public async Task<bool> PlaceBid(int auctionId, int userId, decimal amount)
         {

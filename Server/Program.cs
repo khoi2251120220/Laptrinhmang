@@ -107,7 +107,9 @@ namespace Server
                             decimal.Parse(parts[3]) // amount
                         );
                         return success ? "Bid placed successfully" : "Failed to place bid";
-
+                    case "getinactiveauctions":  // Thêm lệnh mới
+                        var inactiveAuctions = await auctionService.GetInactiveAuctions();
+                        return JsonSerializer.Serialize(inactiveAuctions);
                     default:
                         return "Unknown command";
                 }
