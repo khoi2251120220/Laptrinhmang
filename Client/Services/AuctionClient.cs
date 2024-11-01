@@ -146,6 +146,54 @@ namespace Client.Services
             }
         }
 
+        public async Task<bool> UpdateAuction(Auction auction)
+        {
+            await _lock.WaitAsync();
+            try
+            {
+                string auctionData = $"{auction.Id}|{auction.LicensePlateNumber}|{auction.StartingPrice}|{auction.CurrentPrice}|{auction.StartTime}|{auction.EndTime}|{auction.Status}";
+                await _writer.WriteLineAsync($"updateauction|{auctionData}");
+                var response = await _reader.ReadLineAsync();
+                return response == "Auction updated successfully";
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
+        public async Task<bool> DeleteAuction(int auctionId)
+        {
+            await _lock.WaitAsync();
+            try
+            {
+                await _writer.WriteLineAsync($"deleteauction|{auctionId}");
+                var response = await _reader.ReadLineAsync();
+                return response == "Auction deleted successfully";
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
+        public async Task<bool> AddAuction(Auction newAuction)
+        {
+            await _lock.WaitAsync();
+            try
+            {
+                string auctionData = $"{newAuction.LicensePlateNumber}|{newAuction.StartingPrice}|{newAuction.CurrentPrice}|{newAuction.StartTime}|{newAuction.EndTime}|{newAuction.Status}";
+                await _writer.WriteLineAsync($"addauction|{auctionData}");
+                var response = await _reader.ReadLineAsync();
+                return response == "Auction added successfully";
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
+
         public bool IsConnected()
         {
             try

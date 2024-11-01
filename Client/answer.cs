@@ -19,6 +19,7 @@ namespace Client
         public answer(AuctionClient _client, int id)
         {
             InitializeComponent();
+            this._client = _client;
             _id = id;
         }
 

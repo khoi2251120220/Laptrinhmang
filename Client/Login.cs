@@ -36,7 +36,7 @@ namespace daugia
         {
             SignUp signUpForm = new SignUp();
             signUpForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

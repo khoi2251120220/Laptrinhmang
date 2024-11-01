@@ -1,4 +1,5 @@
-﻿using Client.Services;
+﻿using client;
+using Client.Services;
 using daugia;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,20 @@ namespace Client
             qLNDForm.Show();
             this.Close();
             _client.Dispose();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (_client.IsConnected())
+            {
+                AuctionsManage auctionsManage = new AuctionsManage(_client);
+                auctionsManage.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
+            }
         }
     }
 }

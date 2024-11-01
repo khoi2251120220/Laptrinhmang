@@ -11,5 +11,8 @@ namespace Shared.Interfaces
         Task<List<Bid>> GetAuctionBids(int auctionId);
         Task<bool> RegisterUser(User user);
         Task<User> Login(string username, string password);
+        Task<bool> UpdateAuction(Auction updatedAuction);
+        Task<bool> DeleteAuction(int auctionId);
+        Task<bool> AddAuction(Auction newAuction);
     }
 }

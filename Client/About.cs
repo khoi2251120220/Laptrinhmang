@@ -20,6 +20,7 @@ namespace Client
         public About(AuctionClient client, int id)
         {
             InitializeComponent();
+            this.client = client;
             _id = id;
         }
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

@@ -88,7 +88,6 @@ namespace Server.Services
 
             try
             {
-                // Check if auction is active and amount is higher than current price
                 var checkSql = @"SELECT current_price, status, end_time 
                                FROM auctions 
                                WHERE id = @auctionId";
@@ -108,7 +107,6 @@ namespace Server.Services
 
                 reader.Close();
 
-                // Insert bid
                 var insertBidSql = @"INSERT INTO bids (auction_id, user_id, amount, bid_time)
                                    VALUES (@auctionId, @userId, @amount, NOW())";
                 using var insertBidCmd = new MySqlCommand(insertBidSql, conn);
@@ -117,7 +115,6 @@ namespace Server.Services
                 insertBidCmd.Parameters.AddWithValue("@amount", amount);
                 await insertBidCmd.ExecuteNonQueryAsync();
 
-                // Update auction current price
                 var updateAuctionSql = @"UPDATE auctions 
                                        SET current_price = @amount 
                                        WHERE id = @auctionId";
@@ -244,5 +241,97 @@ namespace Server.Services
             var status = await cmd.ExecuteScalarAsync();
             return status?.ToString(); // Tr? v? tr?ng thái ho?c null n?u không t́m th?y
         }
+
+        public async Task<bool> UpdateAuction(Auction updatedAuction)
+        {
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+
+            //Kiểm tra phiên đấu giá tồn tại chưa
+            var checkSql = @"SELECT status FROM auctions WHERE id = @auctionId";
+            using var checkCmd = new MySqlCommand(checkSql, conn);
+            checkCmd.Parameters.AddWithValue("@auctionId", updatedAuction.Id);
+
+            var status = await checkCmd.ExecuteScalarAsync();
+            if (status == null || status.ToString() != "Active")
+                return false; 
+
+            try
+            {
+                //Cập nhật
+                var updateSql = @"UPDATE auctions 
+                          SET license_plate_number = @licensePlateNumber, 
+                              starting_price = @startingPrice, 
+                              current_price = @currentPrice, 
+                              start_time = @startTime, 
+                              end_time = @endTime, 
+                              status = @status 
+                          WHERE id = @auctionId";
+
+                using var updateCmd = new MySqlCommand(updateSql, conn);
+                updateCmd.Parameters.AddWithValue("@licensePlateNumber", updatedAuction.LicensePlateNumber);
+                updateCmd.Parameters.AddWithValue("@startingPrice", updatedAuction.StartingPrice);
+                updateCmd.Parameters.AddWithValue("@currentPrice", updatedAuction.CurrentPrice);
+                updateCmd.Parameters.AddWithValue("@startTime", updatedAuction.StartTime);
+                updateCmd.Parameters.AddWithValue("@endTime", updatedAuction.EndTime);
+                updateCmd.Parameters.AddWithValue("@status", updatedAuction.Status);
+                updateCmd.Parameters.AddWithValue("@auctionId", updatedAuction.Id);
+
+                var rowsAffected = await updateCmd.ExecuteNonQueryAsync();
+                return rowsAffected > 0; 
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public async Task<bool> DeleteAuction(int auctionId)
+        {
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+            var checkSql = @"SELECT COUNT(*) FROM auctions WHERE id = @auctionId";
+            using var checkCmd = new MySqlCommand(checkSql, conn);
+            checkCmd.Parameters.AddWithValue("@auctionId", auctionId);
+            var count = Convert.ToInt32(await checkCmd.ExecuteScalarAsync());
+
+            if (count == 0)
+                return false; 
+
+            try
+            {
+           
+                var deleteSql = @"DELETE FROM auctions WHERE id = @auctionId";
+                using var deleteCmd = new MySqlCommand(deleteSql, conn);
+                deleteCmd.Parameters.AddWithValue("@auctionId", auctionId);
+                var rowsAffected = await deleteCmd.ExecuteNonQueryAsync();
+
+                return rowsAffected > 0; 
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> AddAuction(Auction newAuction)
+        {
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+
+            var sql = @"INSERT INTO auctions (license_plate_number, starting_price, current_price, start_time, end_time, status)
+                        VALUES (@licensePlateNumber, @startingPrice, @currentPrice, @startTime, @endTime, @status)";
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@licensePlateNumber", newAuction.LicensePlateNumber);
+            cmd.Parameters.AddWithValue("@startingPrice", newAuction.StartingPrice);
+            cmd.Parameters.AddWithValue("@currentPrice", newAuction.CurrentPrice);
+            cmd.Parameters.AddWithValue("@startTime", newAuction.StartTime);
+            cmd.Parameters.AddWithValue("@endTime", newAuction.EndTime);
+            cmd.Parameters.AddWithValue("@status", newAuction.Status);
+
+            var rowsAffected = await cmd.ExecuteNonQueryAsync();
+            return rowsAffected > 0;
+        }
+
+
     }
 }

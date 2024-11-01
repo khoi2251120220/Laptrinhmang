@@ -114,6 +114,41 @@ namespace Server
                         if (parts.Length != 2) return "Invalid command format";
                         var status = await auctionService.GetStatus(int.Parse(parts[1]));
                         return status != null ? status : "Auction not found";
+                    case "updateauction":
+                        if (parts.Length != 8) return "Invalid command format";
+
+                        var updatedAuction = new Auction
+                        {
+                            Id = int.Parse(parts[1]),
+                            LicensePlateNumber = parts[2],
+                            StartingPrice = decimal.Parse(parts[3]),
+                            CurrentPrice = decimal.Parse(parts[4]),
+                            StartTime = DateTime.Parse(parts[5]),
+                            EndTime = DateTime.Parse(parts[6]),
+                            Status = parts[7]
+                        };
+
+                        bool updateSuccess = await auctionService.UpdateAuction(updatedAuction);
+                        return updateSuccess ? "Auction updated successfully" : "Failed to update auction";
+                    case "deleteauction":
+                        if (parts.Length != 2) return "Invalid command format";
+                        bool deleteSuccess = await auctionService.DeleteAuction(int.Parse(parts[1]));
+                        return deleteSuccess ? "Auction deleted successfully" : "Failed to delete auction";
+                    case "addauction":
+                        if (parts.Length != 7) return "Invalid command format";
+
+                        var newAuction = new Auction
+                        {
+                            LicensePlateNumber = parts[1],
+                            StartingPrice = decimal.Parse(parts[2]),
+                            CurrentPrice = decimal.Parse(parts[3]),
+                            StartTime = DateTime.Parse(parts[4]),
+                            EndTime = DateTime.Parse(parts[5]),
+                            Status = parts[6]
+                        };
+
+                        bool addSuccess = await auctionService.AddAuction(newAuction);
+                        return addSuccess ? "Auction added successfully" : "Failed to add auction";
                     default:
                         return "Unknown command";
                 }
