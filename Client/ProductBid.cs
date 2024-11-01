@@ -127,6 +127,10 @@ namespace client
             auctionItem = auction;
             lblBienSo.Text = auction.LicensePlateNumber;
             lblGiaHT.Text = auction.CurrentPrice.ToString("N0") + " VNĐ";
+            if (!(_timer.Enabled))
+            {
+                _timer.Start();
+            }
             UpdateStatus();
         }
 
@@ -164,8 +168,16 @@ namespace client
             DateTime currentTime = DateTime.Now;
             if (currentTime < auctionItem.StartTime)
             {
-                lblTGTieuDe.Text = "Bắt đầu sau:";
-                lblTG.Text = (auctionItem.StartTime - currentTime).ToString(@"hh\:mm\:ss");
+                if(auctionItem.Status== "Cancelled")
+                {
+                    lblTGTieuDe.Text = "Phiên đấu giá đã bị hủy";
+                    lblTG.Text = "";
+                }
+                else
+                {
+                    lblTGTieuDe.Text = "Bắt đầu sau:";
+                    lblTG.Text = (auctionItem.StartTime - currentTime).ToString(@"hh\:mm\:ss");
+                }
             }
             else if (currentTime >= auctionItem.EndTime)
             {
@@ -221,6 +233,7 @@ namespace client
                         {
                             auctionItem.CurrentPrice = newBidAmount;
                             MessageBox.Show("Đặt giá thành công!");
+                            txtGiaMoi.Clear();
                             await loadData(); // Cập nhật lại dữ liệu sau khi đặt giá thành công
                         }
                         else

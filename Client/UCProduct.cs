@@ -91,8 +91,17 @@ namespace Client
             DateTime currentTime = DateTime.Now;
             if (currentTime < _startTime)
             {
-                lblTrangthai.Text = "Phiên đấu giá sắp diễn ra";
-                lblDemnguoc.Text = "Bắt đầu sau: " + (_startTime - currentTime).ToString(@"hh\:mm\:ss");
+                if(_status== "Cancelled")
+                {
+                    lblTrangthai.Text = "Phiên đấu giá đã bị hủy";
+                    lblDemnguoc.Text = "";
+                }
+                else
+                {
+                    lblTrangthai.Text = "Phiên đấu giá sắp diễn ra";
+                    lblDemnguoc.Text = "Bắt đầu sau: " + (_startTime - currentTime).ToString(@"hh\:mm\:ss");
+                }
+                
             }
             else if (currentTime >= _endTime)
             {
