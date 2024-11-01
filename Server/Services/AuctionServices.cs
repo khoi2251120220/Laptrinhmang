@@ -1,4 +1,4 @@
-using Server.Data;
+﻿using Server.Data;
 using MySql.Data.MySqlClient;
 using Shared.Models;
 using Shared.Interfaces;
@@ -8,6 +8,14 @@ namespace Server.Services
 {
     public class AuctionService : IAuctionService
     {
+        public static string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
         private readonly DatabaseContext _dbContext;
 
         public AuctionService(DatabaseContext dbContext)
@@ -159,7 +167,7 @@ namespace Server.Services
             using var conn = _dbContext.GetConnection();
             await conn.OpenAsync();
 
-            // Check if username already exists
+            // Kiểm tra xem tên đăng nhập đã tồn tại chưa
             using (var checkCmd = new MySqlCommand(
                 "SELECT COUNT(*) FROM users WHERE username = @username",
                 conn))
@@ -172,13 +180,14 @@ namespace Server.Services
 
             try
             {
+                string hashedPassword = HashPassword(user.Password); // Mã hóa mật khẩu
                 using var cmd = new MySqlCommand(
                     @"INSERT INTO users (username, password, email)
-                      VALUES (@username, @password, @email)",
+              VALUES (@username, @password, @email)",
                     conn);
 
                 cmd.Parameters.AddWithValue("@username", user.Username);
-                cmd.Parameters.AddWithValue("@password", user.Password); // Should hash password in production
+                cmd.Parameters.AddWithValue("@password", hashedPassword); // Lưu mật khẩu đã mã hóa
                 cmd.Parameters.AddWithValue("@email", user.Email);
 
                 await cmd.ExecuteNonQueryAsync();
@@ -190,19 +199,20 @@ namespace Server.Services
             }
         }
 
+
         public async Task<User> Login(string username, string password)
         {
             using var conn = _dbContext.GetConnection();
             await conn.OpenAsync();
-
+            string hashedPassword = HashPassword(password); // Mã hóa mật khẩu
             using var cmd = new MySqlCommand(
-                @"SELECT id, username, password, email 
-                  FROM users 
-                  WHERE username = @username AND password = @password",
+                @"SELECT id, username, password, email, role 
+          FROM users 
+          WHERE username = @username AND password = @password",
                 conn);
 
             cmd.Parameters.AddWithValue("@username", username);
-            cmd.Parameters.AddWithValue("@password", password); // Should hash password in production
+            cmd.Parameters.AddWithValue("@password", hashedPassword); // So sánh với mật khẩu đã mã hóa
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -212,13 +222,15 @@ namespace Server.Services
                 {
                     Id = reader.GetInt32("id"),
                     Username = reader.GetString("username"),
-                    Password = reader.GetString("password"), // Consider not sending password back
-                    Email = reader.GetString("email")
+                    Password = reader.GetString("password"), // Cân nhắc không trả lại mật khẩu
+                    Email = reader.GetString("email"),
+                    Role = reader.GetString("role")
                 };
             }
 
             return null;
         }
+
 
         public async Task<string> GetStatus(int auctionId)
         {
@@ -230,7 +242,7 @@ namespace Server.Services
             cmd.Parameters.AddWithValue("@auctionId", auctionId);
 
             var status = await cmd.ExecuteScalarAsync();
-            return status?.ToString(); // Tr? v? tr?ng th�i ho?c null n?u kh�ng t�m th?y
+            return status?.ToString(); // Tr? v? tr?ng thái ho?c null n?u không t́m th?y
         }
     }
 }

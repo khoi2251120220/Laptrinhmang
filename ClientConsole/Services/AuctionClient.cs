@@ -1,98 +1,248 @@
-using System.Net.Sockets;
-using System.Text.Json;
+using Server.Data;
+using MySql.Data.MySqlClient;
 using Shared.Models;
 using Shared.Interfaces;
+using System.Data;
 
-namespace Client.Services
+namespace Server.Services
 {
-    public class AuctionClient : IAuctionService, IDisposable
+    public class AuctionService : IAuctionService
     {
-        private readonly TcpClient _client;
-        private readonly StreamReader _reader;
-        private readonly StreamWriter _writer;
-        private User _currentUser;
-
-        public AuctionClient(string serverIp = "127.0.0.1", int port = 5000)
+        public static string HashPassword(string password)
         {
-            _client = new TcpClient(serverIp, port);
-            var stream = _client.GetStream();
-            _reader = new StreamReader(stream);
-            _writer = new StreamWriter(stream);
-            _writer.AutoFlush = true;
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
+        private readonly DatabaseContext _dbContext;
+
+        public AuctionService(DatabaseContext dbContext)
+        {
+            _dbContext = dbContext;
         }
 
-        // Implement IAuctionService interface methods
         public async Task<List<Auction>> GetActiveAuctions()
         {
-            await _writer.WriteLineAsync("getauctions");
-            var response = await _reader.ReadLineAsync();
-            return JsonSerializer.Deserialize<List<Auction>>(response);
+            var auctions = new List<Auction>();
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+
+            var sql = @"SELECT * FROM auctions WHERE status = 'Active' AND end_time > NOW()";
+            using var cmd = new MySqlCommand(sql, conn);
+            using var reader = await cmd.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                auctions.Add(new Auction
+                {
+                    Id = reader.GetInt32("id"),
+                    LicensePlateNumber = reader.GetString("license_plate_number"),
+                    StartingPrice = reader.GetDecimal("starting_price"),
+                    CurrentPrice = reader.GetDecimal("current_price"),
+                    StartTime = reader.GetDateTime("start_time"),
+                    EndTime = reader.GetDateTime("end_time"),
+                    WinnerId = reader.IsDBNull("winner_id") ? null : reader.GetInt32("winner_id"),
+                    Status = reader.GetString("status")
+                });
+            }
+
+            return auctions;
         }
+
+        public async Task<List<Auction>> GetInactiveAuctions()
+        {
+            var auctions = new List<Auction>();
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+
+            var sql = @"SELECT * FROM auctions WHERE status IN ('Completed', 'Cancelled')  OR end_time < NOW()";
+            using var cmd = new MySqlCommand(sql, conn);
+            using var reader = await cmd.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                auctions.Add(new Auction
+                {
+                    Id = reader.GetInt32("id"),
+                    LicensePlateNumber = reader.GetString("license_plate_number"),
+                    StartingPrice = reader.GetDecimal("starting_price"),
+                    CurrentPrice = reader.GetDecimal("current_price"),
+                    StartTime = reader.GetDateTime("start_time"),
+                    EndTime = reader.GetDateTime("end_time"),
+                    WinnerId = reader.IsDBNull("winner_id") ? null : reader.GetInt32("winner_id"),
+                    Status = reader.GetString("status")
+                });
+            }
+
+            return auctions;
+        }
+
 
         public async Task<bool> PlaceBid(int auctionId, int userId, decimal amount)
         {
-            if (_currentUser == null || _currentUser.Id != userId)
-                throw new InvalidOperationException("Must be logged in with correct user to place bid");
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+            using var transaction = await conn.BeginTransactionAsync();
 
-            await _writer.WriteLineAsync($"placebid|{auctionId}|{userId}|{amount}");
-            var response = await _reader.ReadLineAsync();
-            return response == "Bid placed successfully";
+            try
+            {
+                // Check if auction is active and amount is higher than current price
+                var checkSql = @"SELECT current_price, status, end_time 
+                               FROM auctions 
+                               WHERE id = @auctionId";
+                using var checkCmd = new MySqlCommand(checkSql, conn);
+                checkCmd.Parameters.AddWithValue("@auctionId", auctionId);
+                using var reader = await checkCmd.ExecuteReaderAsync();
+
+                if (!await reader.ReadAsync())
+                    return false;
+
+                var currentPrice = reader.GetDecimal("current_price");
+                var status = reader.GetString("status");
+                var endTime = reader.GetDateTime("end_time");
+
+                if (status != "Active" || DateTime.Now > endTime || amount <= currentPrice)
+                    return false;
+
+                reader.Close();
+
+                // Insert bid
+                var insertBidSql = @"INSERT INTO bids (auction_id, user_id, amount, bid_time)
+                                   VALUES (@auctionId, @userId, @amount, NOW())";
+                using var insertBidCmd = new MySqlCommand(insertBidSql, conn);
+                insertBidCmd.Parameters.AddWithValue("@auctionId", auctionId);
+                insertBidCmd.Parameters.AddWithValue("@userId", userId);
+                insertBidCmd.Parameters.AddWithValue("@amount", amount);
+                await insertBidCmd.ExecuteNonQueryAsync();
+
+                // Update auction current price
+                var updateAuctionSql = @"UPDATE auctions 
+                                       SET current_price = @amount 
+                                       WHERE id = @auctionId";
+                using var updateAuctionCmd = new MySqlCommand(updateAuctionSql, conn);
+                updateAuctionCmd.Parameters.AddWithValue("@amount", amount);
+                updateAuctionCmd.Parameters.AddWithValue("@auctionId", auctionId);
+                await updateAuctionCmd.ExecuteNonQueryAsync();
+
+                await transaction.CommitAsync();
+                return true;
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                return false;
+            }
         }
 
         public async Task<List<Bid>> GetAuctionBids(int auctionId)
         {
-            await _writer.WriteLineAsync($"getbids|{auctionId}");
-            var response = await _reader.ReadLineAsync();
-            return JsonSerializer.Deserialize<List<Bid>>(response);
+            var bids = new List<Bid>();
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+
+            var sql = @"SELECT * FROM bids WHERE auction_id = @auctionId ORDER BY amount DESC";
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@auctionId", auctionId);
+            using var reader = await cmd.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                bids.Add(new Bid
+                {
+                    Id = reader.GetInt32("id"),
+                    AuctionId = reader.GetInt32("auction_id"),
+                    UserId = reader.GetInt32("user_id"),
+                    Amount = reader.GetDecimal("amount"),
+                    BidTime = reader.GetDateTime("bid_time")
+                });
+            }
+
+            return bids;
         }
 
         public async Task<bool> RegisterUser(User user)
         {
-            await _writer.WriteLineAsync($"register|{user.Username}|{user.Password}|{user.Email}");
-            var response = await _reader.ReadLineAsync();
-            return response == "Registration successful";
-        }
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
 
-        public async Task<User> Login(string username, string password)
-        {
-            await _writer.WriteLineAsync($"login|{username}|{password}");
-            var response = await _reader.ReadLineAsync();
+            // Ki?m tra xem tên ðãng nh?p ð? t?n t?i chýa
+            using (var checkCmd = new MySqlCommand(
+                "SELECT COUNT(*) FROM users WHERE username = @username",
+                conn))
+            {
+                checkCmd.Parameters.AddWithValue("@username", user.Username);
+                var count = Convert.ToInt32(await checkCmd.ExecuteScalarAsync());
+                if (count > 0)
+                    return false;
+            }
 
             try
             {
-                var user = JsonSerializer.Deserialize<User>(response);
-                if (user != null)
-                {
-                    _currentUser = user;
-                    return user;
-                }
+                string hashedPassword = HashPassword(user.Password); // M? hóa m?t kh?u
+                using var cmd = new MySqlCommand(
+                    @"INSERT INTO users (username, password, email)
+              VALUES (@username, @password, @email)",
+                    conn);
+
+                cmd.Parameters.AddWithValue("@username", user.Username);
+                cmd.Parameters.AddWithValue("@password", hashedPassword); // Lýu m?t kh?u ð? m? hóa
+                cmd.Parameters.AddWithValue("@email", user.Email);
+
+                await cmd.ExecuteNonQueryAsync();
+                return true;
             }
             catch
             {
-                // If response is not a valid user JSON
+                return false;
+            }
+        }
+
+
+        public async Task<User> Login(string username, string password)
+        {
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+            string hashedPassword = HashPassword(password); // M? hóa m?t kh?u
+            using var cmd = new MySqlCommand(
+                @"SELECT id, username, password, email, role 
+          FROM users 
+          WHERE username = @username AND password = @password",
+                conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", hashedPassword); // So sánh v?i m?t kh?u ð? m? hóa
+
+            using var reader = await cmd.ExecuteReaderAsync();
+
+            if (await reader.ReadAsync())
+            {
+                return new User
+                {
+                    Id = reader.GetInt32("id"),
+                    Username = reader.GetString("username"),
+                    Password = reader.GetString("password"), // Cân nh?c không tr? l?i m?t kh?u
+                    Email = reader.GetString("email"),
+                    Role = reader.GetString("role")
+                };
             }
 
             return null;
         }
 
-        public User CurrentUser => _currentUser;
 
-        public void SetCurrentUser(User user)
+        public async Task<string> GetStatus(int auctionId)
         {
-            _currentUser = user;
-        }
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
 
-        public void Dispose()
-        {
-            _reader?.Dispose();
-            _writer?.Dispose();
-            _client?.Dispose();
-        }
+            var sql = @"SELECT status FROM auctions WHERE id = @auctionId";
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@auctionId", auctionId);
 
-        // Alias for Close() to maintain backwards compatibility
-        public void Close()
-        {
-            Dispose();
+            var status = await cmd.ExecuteScalarAsync();
+            return status?.ToString(); // Tr? v? tr?ng thái ho?c null n?u không tìm th?y
         }
     }
 }

@@ -21,7 +21,8 @@ namespace Server.Data
         public DatabaseContext()
         {
             _connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
-                              "server=localhost;database=auction_db;user=root";
+                              "server=localhost;database=phpmyadmin;user=root";
+
         }
 
         public MySqlConnection GetConnection()
@@ -40,7 +41,8 @@ namespace Server.Data
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     username VARCHAR(50) UNIQUE NOT NULL,
                     password VARCHAR(100) NOT NULL,
-                    email VARCHAR(100) NOT NULL
+                    email VARCHAR(100) NOT NULL,
+                    role VARCHAR(20) NOT NULL DEFAULT 'user'
                 );
 
                 CREATE TABLE IF NOT EXISTS auctions (

@@ -4,6 +4,7 @@ using Client.Services;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Server;
 using Server.Data;
+using Client;
 namespace daugia
 {
     public partial class Login : Form
@@ -46,6 +47,11 @@ namespace daugia
         {
             string username = textBox1.Text;
             string password = textBox2.Text;
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Vui lòng nhập tên đăng nhập và mật khẩu.", "Lỗi Xác Thực", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string hashedPassword = UserService.HashPassword(password);
             Console.WriteLine("Hashed Password for Login: " + hashedPassword);
             try
@@ -54,11 +60,20 @@ namespace daugia
                 if (user != null)
                 {
                     _id = user.Id;
+                    if (user.Role == "admin") // Giả sử bạn có thuộc tính Role trong đối tượng user
+                    {
+                        MessageBox.Show("Login successful as Admin!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        var adminPage = new Homepage_admin(); // Chuyển đến trang admin
+                        adminPage.Show();
+                    }
+                    else
+                    {
 
-                    MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    var homePage = new HomePage(_client,_id);
-                    homePage.Show();
-                    this.Hide();
+                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        var homePage = new HomePage(_client, _id);
+                        homePage.Show();
+                        this.Hide();
+                    }
                 }
                 else
                 {

@@ -57,6 +57,11 @@ namespace daugia
             string username = textBox1.Text;
             string password = textBox2.Text;
             string email = textBox3.Text;
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Lỗi Xác Thực", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string hashedPassword = UserService.HashPassword(password);
             Console.WriteLine("Hashed Password for Registration: " + hashedPassword);
             var user = new User
