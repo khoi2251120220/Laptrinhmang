@@ -8,15 +8,17 @@ namespace daugia
 {
     public partial class Login : Form
     {
+        private int _id;
         private AuctionClient _client;
         public Login()
         {
             InitializeComponent();
             _client = new AuctionClient();
         }
-        public Login(AuctionClient _client)
+        public Login(AuctionClient _client, int id)
         {
             InitializeComponent();
+            _id = id;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -51,8 +53,10 @@ namespace daugia
                 var user = await _client.Login(username, hashedPassword);
                 if (user != null)
                 {
+                    _id = user.Id;
+
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    var homePage = new HomePage(_client);
+                    var homePage = new HomePage(_client,_id);
                     homePage.Show();
                     this.Hide();
                 }
@@ -73,6 +77,11 @@ namespace daugia
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }

@@ -14,10 +14,12 @@ namespace Client
 {
     public partial class answer : Form
     {
+        private int _id;
         private AuctionClient _client;
-        public answer(AuctionClient _client)
+        public answer(AuctionClient _client, int id)
         {
             InitializeComponent();
+            _id = id;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace Client
         private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Tạo một instance của form Homepage
-            HomePage homepageForm = new HomePage(_client);
+            HomePage homepageForm = new HomePage(_client, _id);
 
             // Hiển thị form Homepage
             homepageForm.Show();

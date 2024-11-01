@@ -15,11 +15,13 @@ namespace daugia
 {
     public partial class HomePage : Form
     {
+        private int _id;
         private AuctionClient _client;
-        public HomePage(AuctionClient _client)
+        public HomePage(AuctionClient _client, int id)
         {
             InitializeComponent();
             this._client = _client;
+            _id = id;
         }
 
         private void đánklsanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,6 +116,11 @@ namespace daugia
 
         private void label7_Click(object sender, EventArgs e)
         {
+            Payment paymentForm = new Payment(_client, _id);
+            paymentForm.Show();
+
+
+            this.Hide();
 
         }
 
@@ -136,7 +143,7 @@ namespace daugia
         {
             if (_client.IsConnected())
             {
-                ProductBid productBidForm = new ProductBid(_client);
+                ProductBid productBidForm = new ProductBid(_client, _id);
                 productBidForm.Show();
                 this.Close();
             }
@@ -151,7 +158,7 @@ namespace daugia
         {
             if (_client.IsConnected())
             {
-                ProductBid productBidForm = new ProductBid(_client);
+                ProductBid productBidForm = new ProductBid(_client, _id);
                 productBidForm.Show();
                 this.Close();
             }
@@ -163,7 +170,7 @@ namespace daugia
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            answer answerForm = new answer(_client);
+            answer answerForm = new answer(_client, _id);
             answerForm.Show();
             this.Close();
         }
@@ -206,7 +213,7 @@ namespace daugia
         private void label9_Click(object sender, EventArgs e)
         {
             // Tạo một instance của form About
-            About aboutForm = new About(_client);
+            About aboutForm = new About(_client, _id);
 
             // Hiển thị form About dưới dạng một hộp thoại
             aboutForm.Show();
@@ -216,7 +223,7 @@ namespace daugia
         private void trangChủToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             // Tạo một instance của form Homepage
-            HomePage homepageForm = new HomePage(_client);
+            HomePage homepageForm = new HomePage(_client,_id);
 
             // Hiển thị form Homepage
             homepageForm.Show();
@@ -228,7 +235,7 @@ namespace daugia
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             // Tạo một instance của form About
-            About aboutForm = new About(_client);
+            About aboutForm = new About(_client, _id);
 
             // Hiển thị form About dưới dạng một hộp thoại
             aboutForm.Show();
@@ -237,7 +244,7 @@ namespace daugia
 
         private void label13_Click(object sender, EventArgs e)
         {
-            answer answerForm = new answer(_client);
+            answer answerForm = new answer(_client,_id);
             answerForm.Show();
             this.Close();
         }

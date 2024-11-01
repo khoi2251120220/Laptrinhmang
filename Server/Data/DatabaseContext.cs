@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Server.Data
 {
@@ -20,7 +21,7 @@ namespace Server.Data
         public DatabaseContext()
         {
             _connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
-                              "server=localhost;database=auction_db;user=root;password=1234";
+                              "server=localhost;database=auction_db;user=root";
         }
 
         public MySqlConnection GetConnection()
@@ -62,6 +63,19 @@ namespace Server.Data
                     bid_time DATETIME NOT NULL,
                     FOREIGN KEY (auction_id) REFERENCES auctions(id),
                     FOREIGN KEY (user_id) REFERENCES users(id)
+                );
+                CREATE TABLE IF NOT EXISTS payment_history (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    history_username VARCHAR(50) NOT NULL,
+                    history_license_plate VARCHAR(20) NOT NULL,
+                    history_amount DECIMAL(10,2) NOT NULL,
+                    payment_method VARCHAR(20) NOT NULL,
+                    payment_time DATETIME NOT NULL,
+                    status ENUM('Thành công', 'Th?t b?i') NOT NULL,
+                    user_id INT,
+                    auction_id INT,
+                    FOREIGN KEY (user_id) REFERENCES users(id),
+                    FOREIGN KEY (auction_id) REFERENCES auctions(id)
                 );";
 
             using var cmd = new MySqlCommand(createTables, conn);
@@ -90,5 +104,111 @@ namespace Server.Data
             var count = Convert.ToInt32(await cmd.ExecuteScalarAsync());
             return count > 0;
         }
+        // Method to retrieve a username by user ID
+        public async Task<string> GetUsernameById(int id)
+        {
+            using var conn = GetConnection();
+            await conn.OpenAsync();
+
+            using var cmd = new MySqlCommand("SELECT username FROM users WHERE id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            var username = await cmd.ExecuteScalarAsync();
+            return username?.ToString();
+        }
+        public async Task<int> GetAuctionIdByUserId(int id)
+        {
+            using var conn = GetConnection();
+            await conn.OpenAsync();
+
+            using var cmd = new MySqlCommand("SELECT id FROM auctions WHERE winner_id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            var result = await cmd.ExecuteScalarAsync();
+            return result != null ? Convert.ToInt32(result) : -1;  // Tr? v? -1 n?u không tìm th?y ??u giá
+        }
+
+        public async Task<(string licensePlateNumber, decimal totalAmount)> GetAuctionDetailsAndTotalAmount(int id)
+        {
+            using var conn = GetConnection();
+            await conn.OpenAsync();
+
+            string licensePlateNumber = null;
+            decimal totalAmount = 0;
+
+            // Lay thong tin bien so cua cuoc duu gia ma nguoi dung da thang
+            using (var cmd = new MySqlCommand("SELECT license_plate_number FROM auctions WHERE winner_id = @id", conn))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                using var reader = await cmd.ExecuteReaderAsync();
+                if (await reader.ReadAsync())
+                {
+                    // Ki?m tra xem giá tr? có ph?i là DBNull không
+                    if (!reader.IsDBNull(reader.GetOrdinal("license_plate_number")))
+                    {
+                        licensePlateNumber = reader.GetString("license_plate_number");
+                    }
+                }
+            }
+
+            // Tính t?ng s? ti?n thanh toán t? b?ng bids
+            using (var cmd = new MySqlCommand("SELECT SUM(amount) FROM bids WHERE user_id = @id", conn))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                var result = await cmd.ExecuteScalarAsync();
+                // Ki?m tra xem giá tr? có ph?i là DBNull không
+                totalAmount = result != null && !Convert.IsDBNull(result) ? Convert.ToDecimal(result) : 0;
+            }
+
+            return (licensePlateNumber, totalAmount);
+        }
+        public async Task SavePaymentHistory(string username, string licensePlateNumber, decimal amount, string paymentMethod, string status, int userId, int auctionId)
+        {
+            using var conn = GetConnection();
+            await conn.OpenAsync();
+
+            var query = @"
+        INSERT INTO payment_history (history_username, history_license_plate, history_amount, payment_method, payment_time, status, user_id, auction_id)
+        VALUES (@username, @licensePlateNumber, @amount, @paymentMethod, NOW(), @status, @userId, @auctionId);
+    ";
+
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@licensePlateNumber", licensePlateNumber);
+            cmd.Parameters.AddWithValue("@amount", amount);
+            cmd.Parameters.AddWithValue("@paymentMethod", paymentMethod);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@userId", userId);
+            cmd.Parameters.AddWithValue("@auctionId", auctionId);
+
+            await cmd.ExecuteNonQueryAsync();
+        }
+
+        public async Task<DataTable> GetPaymentHistoryByUserId(int id)
+        {
+            using var conn = GetConnection();
+            await conn.OpenAsync();
+
+            string query = @"
+            SELECT id, 
+                   history_username, 
+                   history_license_plate_number,
+                   history_amount, 
+                   history_payment_method, 
+                   payment_time, 
+                   history_status'
+            FROM payment_history 
+            WHERE user_id = @id";
+
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@userId", id);
+
+            using var adapter = new MySqlDataAdapter(cmd);
+            var dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        }
+
     }
 }

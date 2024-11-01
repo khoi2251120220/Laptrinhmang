@@ -10,16 +10,17 @@ namespace client
 {
     public partial class ProductBid : Form
     {
+        private int _id;
         private AuctionClient _client;
         private System.Windows.Forms.Timer _timer;
         private Auction auctionItem;
 
-        public ProductBid(AuctionClient client)
+        public ProductBid(AuctionClient client, int id)
         {
             this._client = client;
             if (_client != null && !_client.IsConnected())
             {
-                HomePage homePage = new HomePage(_client);
+                HomePage homePage = new HomePage(_client, _id);
                 homePage.Show();
                 this.Close();
                 MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
@@ -30,6 +31,7 @@ namespace client
                 InitializeTimer();
                 loadListView();
             }
+            _id = id;
         }
 
         private async void ProductBid_Load(object sender, EventArgs e)
@@ -136,7 +138,7 @@ namespace client
 
         private void TrangChuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage(_client);
+            HomePage homePage = new HomePage(_client,_id);
             homePage.Show();
             this.Close();
         }
