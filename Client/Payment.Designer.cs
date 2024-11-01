@@ -287,6 +287,7 @@
             trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
             trangChủToolStripMenuItem.Size = new Size(111, 29);
             trangChủToolStripMenuItem.Text = "Trang chủ";
+            trangChủToolStripMenuItem.Click += trangChủToolStripMenuItem_Click;
             // 
             // lịchSửThanhToánToolStripMenuItem
             // 
@@ -294,6 +295,7 @@
             lịchSửThanhToánToolStripMenuItem.Name = "lịchSửThanhToánToolStripMenuItem";
             lịchSửThanhToánToolStripMenuItem.Size = new Size(189, 29);
             lịchSửThanhToánToolStripMenuItem.Text = "Lịch sử thanh toán ";
+            lịchSửThanhToánToolStripMenuItem.Click += lịchSửThanhToánToolStripMenuItem_Click;
             // 
             // Payment
             // 

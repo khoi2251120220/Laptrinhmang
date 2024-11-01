@@ -1,4 +1,5 @@
-﻿using Server.Data;
+﻿using Client.Services;
+using Server.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,13 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using client;
+using Client;
+using Client.Services;
+using Server.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Client
 {
     public partial class History : Form
     {
         private int _id;
-        public History(int id)
+        private AuctionClient _client;
+        public History(AuctionClient _client, int id)
         {
             InitializeComponent();
             _id = id;

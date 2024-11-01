@@ -101,5 +101,19 @@ namespace client
             var dbContext = new DatabaseContext();
             return await dbContext.GetAuctionIdByUserId(id);
         }
+
+        private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage(_client, _id);
+            homePage.Show();
+            this.Hide();
+        }
+
+        private void lịchSửThanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            History historypage = new History(_client, _id);
+            historypage.Show();
+            this.Close();
+        }
     }
 }
