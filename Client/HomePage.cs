@@ -151,7 +151,7 @@ namespace daugia
             {
                 MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
             }
-            
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -223,7 +223,7 @@ namespace daugia
         private void trangChủToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             // Tạo một instance của form Homepage
-            HomePage homepageForm = new HomePage(_client,_id);
+            HomePage homepageForm = new HomePage(_client, _id);
 
             // Hiển thị form Homepage
             homepageForm.Show();
@@ -244,7 +244,7 @@ namespace daugia
 
         private void label13_Click(object sender, EventArgs e)
         {
-            answer answerForm = new answer(_client,_id);
+            answer answerForm = new answer(_client, _id);
             answerForm.Show();
             this.Close();
         }
@@ -254,6 +254,13 @@ namespace daugia
             Login loginForm = new Login();
             loginForm.Show();
             this.Close();
+        }
+
+        private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformationUser informationUserForm = new InformationUser(_id);
+            informationUserForm.Show();
+            this.Hide();
         }
     }
 }

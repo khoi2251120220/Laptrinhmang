@@ -718,13 +718,14 @@
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(175, 22);
+            thôngTinTàiKhoảnToolStripMenuItem.Size = new Size(180, 22);
             thôngTinTàiKhoảnToolStripMenuItem.Text = "thông tin tài khoản";
+            thôngTinTàiKhoảnToolStripMenuItem.Click += thôngTinTàiKhoảnToolStripMenuItem_Click;
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(175, 22);
+            logOutToolStripMenuItem.Size = new Size(180, 22);
             logOutToolStripMenuItem.Text = "log out";
             logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
             // 

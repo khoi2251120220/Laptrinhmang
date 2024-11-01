@@ -44,6 +44,16 @@ namespace Server.Data
                     email VARCHAR(100) NOT NULL,
                     role VARCHAR(20) NOT NULL DEFAULT 'users'
                 );
+                
+                CREATE TABLE IF NOT EXISTS user_info (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    user_id INT NOT NULL,
+                    full_name VARCHAR(100) NOT NULL,
+                    date_of_birth DATE,
+                    address VARCHAR(200),
+                    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+                );
+
 
                 CREATE TABLE IF NOT EXISTS auctions (
                     id INT AUTO_INCREMENT PRIMARY KEY,
