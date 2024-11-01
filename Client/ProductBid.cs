@@ -98,23 +98,26 @@ namespace client
 
         private async Task loadListHistory()
         {
-            try
+            if(auctionItem != null)
             {
-                lvHistory.Items.Clear();
-                List<Bid> bids = await _client.GetAuctionBids(auctionItem.Id);
-                foreach (var bid in bids)
+                try
                 {
-                    var item = new ListViewItem
+                    lvHistory.Items.Clear();
+                    List<Bid> bids = await _client.GetAuctionBids(auctionItem.Id);
+                    foreach (var bid in bids)
                     {
-                        Text = bid.Amount.ToString("N0") + " VNĐ"
-                    };
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem { Text = bid.BidTime.ToString("HH:mm:ss dd/MM/yyyy") });
-                    lvHistory.Items.Add(item);
+                        var item = new ListViewItem
+                        {
+                            Text = bid.Amount.ToString("N0") + " VNĐ"
+                        };
+                        item.SubItems.Add(new ListViewItem.ListViewSubItem { Text = bid.BidTime.ToString("HH:mm:ss dd/MM/yyyy") });
+                        lvHistory.Items.Add(item);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                ProcessError(ex);
+                catch (Exception ex)
+                {
+                    ProcessError(ex);
+                }
             }
             lvHistory.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
@@ -181,11 +184,8 @@ namespace client
         {
             if (!_client.IsConnected())
             {
-                HomePage homePage = new HomePage(_client);
-                homePage.Show();
-                this.Close();
-                _timer.Stop();
-                _timer.Dispose();
+                _timer?.Stop();
+                _timer?.Dispose();
                 MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
             }
             else

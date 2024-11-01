@@ -134,16 +134,31 @@ namespace daugia
 
         private void label11_Click(object sender, EventArgs e)
         {
-            ProductBid productBidForm = new ProductBid(_client);
-            productBidForm.Show();
-            this.Close();
+            if (_client.IsConnected())
+            {
+                ProductBid productBidForm = new ProductBid(_client);
+                productBidForm.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
+            }
+            
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            ProductBid productBidForm = new ProductBid(_client);
-            productBidForm.Show();
-            this.Close();
+            if (_client.IsConnected())
+            {
+                ProductBid productBidForm = new ProductBid(_client);
+                productBidForm.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
+            }
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
