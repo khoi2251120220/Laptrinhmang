@@ -48,26 +48,30 @@
             label4 = new Label();
             btnPay = new Button();
             btnCancel = new Button();
+            menuStrip1 = new MenuStrip();
+            trangChủToolStripMenuItem = new ToolStripMenuItem();
+            lịchSửThanhToánToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(2, 0);
+            panel1.Location = new Point(11, 89);
             panel1.Name = "panel1";
-            panel1.Size = new Size(797, 44);
+            panel1.Size = new Size(279, 44);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(10, 9);
+            label1.Location = new Point(3, 6);
             label1.Name = "label1";
             label1.Size = new Size(274, 25);
             label1.TabIndex = 0;
@@ -77,7 +81,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(2, 56);
+            label2.Location = new Point(13, 139);
             label2.Name = "label2";
             label2.Size = new Size(225, 20);
             label2.TabIndex = 1;
@@ -86,7 +90,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Client.Properties.Resources.z5940619016006_1e2058ba24cc729e5cba97c917051b13;
-            pictureBox1.Location = new Point(13, 88);
+            pictureBox1.Location = new Point(13, 171);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(50, 49);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -97,7 +101,7 @@
             // 
             radioButtonMomo.AutoSize = true;
             radioButtonMomo.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonMomo.Location = new Point(78, 93);
+            radioButtonMomo.Location = new Point(109, 174);
             radioButtonMomo.Name = "radioButtonMomo";
             radioButtonMomo.Size = new Size(106, 35);
             radioButtonMomo.TabIndex = 3;
@@ -108,7 +112,7 @@
             // pictureBox2
             // 
             pictureBox2.BackgroundImage = Client.Properties.Resources.paypal;
-            pictureBox2.Location = new Point(13, 157);
+            pictureBox2.Location = new Point(13, 237);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(50, 50);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -119,7 +123,7 @@
             // 
             radioButtonPaypal.AutoSize = true;
             radioButtonPaypal.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonPaypal.Location = new Point(78, 157);
+            radioButtonPaypal.Location = new Point(109, 252);
             radioButtonPaypal.Name = "radioButtonPaypal";
             radioButtonPaypal.Size = new Size(105, 35);
             radioButtonPaypal.TabIndex = 5;
@@ -130,7 +134,7 @@
             // pictureBox3
             // 
             pictureBox3.BackgroundImage = Client.Properties.Resources.credit_card;
-            pictureBox3.Location = new Point(11, 225);
+            pictureBox3.Location = new Point(11, 318);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(50, 50);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -141,7 +145,7 @@
             // 
             radioButtonATM.AutoSize = true;
             radioButtonATM.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonATM.Location = new Point(79, 240);
+            radioButtonATM.Location = new Point(109, 333);
             radioButtonATM.Name = "radioButtonATM";
             radioButtonATM.Size = new Size(84, 35);
             radioButtonATM.TabIndex = 7;
@@ -152,7 +156,7 @@
             // pictureBox4
             // 
             pictureBox4.BackgroundImage = Client.Properties.Resources.card;
-            pictureBox4.Location = new Point(11, 312);
+            pictureBox4.Location = new Point(11, 389);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(50, 50);
             pictureBox4.TabIndex = 8;
@@ -162,7 +166,7 @@
             // 
             radioButtonVisa.AutoSize = true;
             radioButtonVisa.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonVisa.Location = new Point(79, 327);
+            radioButtonVisa.Location = new Point(109, 391);
             radioButtonVisa.Name = "radioButtonVisa";
             radioButtonVisa.Size = new Size(86, 35);
             radioButtonVisa.TabIndex = 9;
@@ -267,6 +271,30 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, lịchSửThanhToánToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 33);
+            menuStrip1.TabIndex = 29;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // trangChủToolStripMenuItem
+            // 
+            trangChủToolStripMenuItem.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
+            trangChủToolStripMenuItem.Size = new Size(111, 29);
+            trangChủToolStripMenuItem.Text = "Trang chủ";
+            // 
+            // lịchSửThanhToánToolStripMenuItem
+            // 
+            lịchSửThanhToánToolStripMenuItem.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lịchSửThanhToánToolStripMenuItem.Name = "lịchSửThanhToánToolStripMenuItem";
+            lịchSửThanhToánToolStripMenuItem.Size = new Size(189, 29);
+            lịchSửThanhToánToolStripMenuItem.Text = "Lịch sử thanh toán ";
+            // 
             // Payment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -292,6 +320,8 @@
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(panel1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Payment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Payment";
@@ -302,6 +332,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -328,5 +360,8 @@
         private Label label4;
         private Button btnPay;
         private Button btnCancel;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem trangChủToolStripMenuItem;
+        private ToolStripMenuItem lịchSửThanhToánToolStripMenuItem;
     }
 }
