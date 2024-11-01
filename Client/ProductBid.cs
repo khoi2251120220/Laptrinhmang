@@ -5,7 +5,6 @@ using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 
 namespace client
 {
@@ -14,14 +13,16 @@ namespace client
         private AuctionClient _client;
         private System.Windows.Forms.Timer _timer;
         private Auction auctionItem;
-        private bool isDisconnected = false; // Cờ kiểm tra kết nối
 
         public ProductBid(AuctionClient client)
         {
             this._client = client;
             if (_client != null && !_client.IsConnected())
             {
-                ShowHomePageWithError();
+                HomePage homePage = new HomePage(_client);
+                homePage.Show();
+                this.Close();
+                MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
             }
             else
             {
@@ -144,7 +145,7 @@ namespace client
         private void InitializeTimer()
         {
             _timer = new System.Windows.Forms.Timer();
-            _timer.Interval = 1000;
+            _timer.Interval = 1000; // Cập nhật mỗi 1 giây
             _timer.Tick += Timer_Tick;
             _timer.Start();
         }
@@ -167,7 +168,7 @@ namespace client
             {
                 lblTGTieuDe.Text = "Kết thúc lúc:";
                 lblTG.Text = auctionItem.EndTime.ToString("HH:mm:ss dd/MM/yyyy");
-                _timer.Stop();
+                _timer.Stop(); // Dừng cập nhật khi phiên đấu giá kết thúc
             }
             else
             {
@@ -180,27 +181,17 @@ namespace client
         {
             if (!_client.IsConnected())
             {
-                if (!isDisconnected)
-                {
-                    isDisconnected = true;
-                    ShowHomePageWithError();
-                }
+                HomePage homePage = new HomePage(_client);
+                homePage.Show();
+                this.Close();
+                _timer.Stop();
+                _timer.Dispose();
+                MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
             }
             else
             {
                 MessageBox.Show("Lỗi khi thực hiện thao tác: " + ex.Message);
             }
-        }
-
-        private void ShowHomePageWithError()
-        {
-            HomePage homePage = new HomePage(_client);
-            homePage.ResetConnectionStatus();
-            homePage.Show();
-            this.Close();
-            _timer.Stop();
-            _timer.Dispose();
-            MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
         }
 
         private void txtGiaMoi_KeyPress(object sender, KeyPressEventArgs e)
@@ -230,7 +221,7 @@ namespace client
                         {
                             auctionItem.CurrentPrice = newBidAmount;
                             MessageBox.Show("Đặt giá thành công!");
-                            await loadData();
+                            await loadData(); // Cập nhật lại dữ liệu sau khi đặt giá thành công
                         }
                         else
                         {
@@ -250,6 +241,7 @@ namespace client
             catch (Exception ex)
             {
                 ProcessError(ex);
+
             }
         }
     }
