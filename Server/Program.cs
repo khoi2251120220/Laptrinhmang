@@ -34,6 +34,21 @@ namespace Server
             }
         }
 
+        /// <summary>
+        /// Handles communication with a connected client asynchronously.
+        /// </summary>
+        /// <param name="client">The TcpClient instance representing the connected client.</param>
+        /// <param name="auctionService">The auction service instance that handles auction-related operations.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// This method:
+        /// - Establishes stream communication with the client
+        /// - Continuously reads commands from the client
+        /// - Processes each command through the auction service
+        /// - Sends responses back to the client
+        /// - Handles connection cleanup when the client disconnects or an error occurs
+        /// </remarks>
+        /// <exception cref="Exception">Catches and logs any exceptions that occur during client communication.</exception>
         static async Task HandleClientAsync(TcpClient client, AuctionService auctionService)
         {
             try

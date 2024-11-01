@@ -30,6 +30,20 @@ namespace Server.Data
             return new MySqlConnection(_connectionString);
         }
 
+        /// <summary>
+        /// Initializes the database by creating necessary tables if they don't exist and populating them with sample data.
+        /// </summary>
+        /// <remarks>
+        /// Creates the following tables:
+        /// - users: Stores user account information
+        /// - user_info: Stores additional user details
+        /// - auctions: Stores auction listings
+        /// - bids: Stores bidding history
+        /// - payment_history: Stores payment transactions
+        /// 
+        /// If the users table is empty, inserts sample users and auction data.
+        /// </remarks>
+        /// <returns>A task representing the asynchronous database initialization operation.</returns>
         public async Task InitializeDatabase()
         {
             using var conn = GetConnection();
