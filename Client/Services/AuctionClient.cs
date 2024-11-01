@@ -2,6 +2,7 @@ using System.Net.Sockets;
 using System.Text.Json;
 using Shared.Models;
 using Shared.Interfaces;
+using System.Threading;
 
 namespace Client.Services
 {
@@ -11,74 +12,150 @@ namespace Client.Services
         private readonly StreamReader _reader;
         private readonly StreamWriter _writer;
         private User _currentUser;
+        private readonly SemaphoreSlim _lock = new SemaphoreSlim(1, 1);
 
         public AuctionClient(string serverIp = "127.0.0.1", int port = 5000)
         {
             _client = new TcpClient(serverIp, port);
             var stream = _client.GetStream();
             _reader = new StreamReader(stream);
-            _writer = new StreamWriter(stream);
-            _writer.AutoFlush = true;
+            _writer = new StreamWriter(stream) { AutoFlush = true };
         }
 
         // Implement IAuctionService interface methods
         public async Task<List<Auction>> GetActiveAuctions()
         {
-            await _writer.WriteLineAsync("getauctions");
-            var response = await _reader.ReadLineAsync();
-            return JsonSerializer.Deserialize<List<Auction>>(response);
+            await _lock.WaitAsync();
+            try
+            {
+                await _writer.WriteLineAsync("getauctions");
+                var response = await _reader.ReadLineAsync();
+                return JsonSerializer.Deserialize<List<Auction>>(response);
+            }
+            finally
+            {
+                _lock.Release();
+            }
         }
+
         public async Task<List<Auction>> GetInactiveAuctions()
         {
-            await _writer.WriteLineAsync("getinactiveauctions");
-            var response = await _reader.ReadLineAsync();
-            return JsonSerializer.Deserialize<List<Auction>>(response);
+            await _lock.WaitAsync();
+            try
+            {
+                await _writer.WriteLineAsync("getinactiveauctions");
+                var response = await _reader.ReadLineAsync();
+                return JsonSerializer.Deserialize<List<Auction>>(response);
+            }
+            finally
+            {
+                _lock.Release();
+            }
         }
 
         public async Task<bool> PlaceBid(int auctionId, int userId, decimal amount)
         {
-            if (_currentUser == null || _currentUser.Id != userId)
-                throw new InvalidOperationException("Must be logged in with correct user to place bid");
+            await _lock.WaitAsync();
+            try
+            {
+                if (_currentUser == null || _currentUser.Id != userId)
+                    throw new InvalidOperationException("Must be logged in with correct user to place bid");
 
-            await _writer.WriteLineAsync($"placebid|{auctionId}|{userId}|{amount}");
-            var response = await _reader.ReadLineAsync();
-            return response == "Bid placed successfully";
+                await _writer.WriteLineAsync($"placebid|{auctionId}|{userId}|{amount}");
+                var response = await _reader.ReadLineAsync();
+                return response == "Bid placed successfully";
+            }
+            finally
+            {
+                _lock.Release();
+            }
         }
 
         public async Task<List<Bid>> GetAuctionBids(int auctionId)
         {
-            await _writer.WriteLineAsync($"getbids|{auctionId}");
-            var response = await _reader.ReadLineAsync();
-            return JsonSerializer.Deserialize<List<Bid>>(response);
+            await _lock.WaitAsync();
+            try
+            {
+                await _writer.WriteLineAsync($"getbids|{auctionId}");
+                var response = await _reader.ReadLineAsync();
+                return JsonSerializer.Deserialize<List<Bid>>(response);
+            }
+            finally
+            {
+                _lock.Release();
+            }
         }
 
         public async Task<bool> RegisterUser(User user)
         {
-            await _writer.WriteLineAsync($"register|{user.Username}|{user.Password}|{user.Email}");
-            var response = await _reader.ReadLineAsync();
-            return response == "Registration successful";
+            await _lock.WaitAsync();
+            try
+            {
+                await _writer.WriteLineAsync($"register|{user.Username}|{user.Password}|{user.Email}");
+                var response = await _reader.ReadLineAsync();
+                return response == "Registration successful";
+            }
+            finally
+            {
+                _lock.Release();
+            }
         }
 
         public async Task<User> Login(string username, string password)
         {
-            await _writer.WriteLineAsync($"login|{username}|{password}");
-            var response = await _reader.ReadLineAsync();
-
+            await _lock.WaitAsync();
             try
             {
-                var user = JsonSerializer.Deserialize<User>(response);
-                if (user != null)
+                await _writer.WriteLineAsync($"login|{username}|{password}");
+                var response = await _reader.ReadLineAsync();
+
+                try
                 {
-                    _currentUser = user;
-                    return user;
+                    var user = JsonSerializer.Deserialize<User>(response);
+                    if (user != null)
+                    {
+                        _currentUser = user;
+                        return user;
+                    }
                 }
+                catch
+                {
+                    // If response is not a valid user JSON
+                }
+
+                return null;
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
+        public async Task<string> GetStatus(int auctionId)
+        {
+            await _lock.WaitAsync();
+            try
+            {
+                await _writer.WriteLineAsync($"getstatus|{auctionId}");
+                var response = await _reader.ReadLineAsync();
+                return response ?? "Auction not found";
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
+        public bool IsConnected()
+        {
+            try
+            {
+                return _client != null && _client.Client.Connected;
             }
             catch
             {
-                // If response is not a valid user JSON
+                return false;
             }
-
-            return null;
         }
 
         public User CurrentUser => _currentUser;
@@ -90,12 +167,12 @@ namespace Client.Services
 
         public void Dispose()
         {
+            _lock.Dispose();
             _reader?.Dispose();
             _writer?.Dispose();
             _client?.Dispose();
         }
 
-        // Alias for Close() to maintain backwards compatibility
         public void Close()
         {
             Dispose();

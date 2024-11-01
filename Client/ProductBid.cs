@@ -1,11 +1,11 @@
 ﻿using Client;
 using Client.Services;
 using daugia;
-using Google.Protobuf.WellKnownTypes;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace client
 {
@@ -13,17 +13,27 @@ namespace client
     {
         private AuctionClient _client;
         private System.Windows.Forms.Timer _timer;
-        private Auction auctionItem = null;
+        private Auction auctionItem;
+        private bool isDisconnected = false; // Cờ kiểm tra kết nối
 
-        public ProductBid(AuctionClient _client)
+        public ProductBid(AuctionClient client)
         {
-            InitializeComponent();
-            InitializeTimer();
-            this._client = _client;
+            this._client = client;
+            if (_client != null && !_client.IsConnected())
+            {
+                ShowHomePageWithError();
+            }
+            else
+            {
+                InitializeComponent();
+                InitializeTimer();
+                loadListView();
+            }
         }
 
         private async void ProductBid_Load(object sender, EventArgs e)
         {
+            auctionItem = null;
             await loadData();
             await loadListHistory();
         }
@@ -32,19 +42,16 @@ namespace client
         {
             try
             {
-                // Lấy danh sách phiên đấu giá đang hoạt động từ server
                 List<Auction> auctions = await _client.GetActiveAuctions();
-                if (auctionItem == null)
+                if (auctionItem == null && auctions.Count > 0)
                 {
                     auctionItem = auctions[0];
                 }
                 lblBienSo.Text = auctionItem.LicensePlateNumber;
-                lblGiaHT.Text = lblGiaHT.Text = auctionItem.CurrentPrice.ToString("N0") + " VNĐ";
+                lblGiaHT.Text = auctionItem.CurrentPrice.ToString("N0") + " VNĐ";
 
-                // Xóa các điều khiển cũ trong FlowLayoutPanel trước khi thêm mới
                 flowLayoutPanel1.Controls.Clear();
 
-                // Thêm các phiên đấu giá vào FlowLayoutPanel
                 foreach (var auction in auctions)
                 {
                     var ucProduct = new UCProduct
@@ -78,30 +85,35 @@ namespace client
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu đấu giá: " + ex.Message);
+                ProcessError(ex);
             }
+        }
+
+        private void loadListView()
+        {
+            lvHistory.Columns.Add("Giá đã đặt");
+            lvHistory.Columns.Add("Thời gian");
         }
 
         private async Task loadListHistory()
         {
-            lvHistory.Columns.Add("Giá đã đặt");
-            lvHistory.Columns.Add("Thời gian");
-
             try
             {
                 lvHistory.Items.Clear();
                 List<Bid> bids = await _client.GetAuctionBids(auctionItem.Id);
                 foreach (var bid in bids)
                 {
-                    var item = new ListViewItem();
-                    item.Text = bid.Amount.ToString("N0") + " VNĐ";
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = bid.BidTime.ToString("HH:mm:ss dd/MM/yyyy") });
+                    var item = new ListViewItem
+                    {
+                        Text = bid.Amount.ToString("N0") + " VNĐ"
+                    };
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem { Text = bid.BidTime.ToString("HH:mm:ss dd/MM/yyyy") });
                     lvHistory.Items.Add(item);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu đấu giá: " + ex.Message);
+                ProcessError(ex);
             }
             lvHistory.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
@@ -110,7 +122,7 @@ namespace client
         {
             auctionItem = auction;
             lblBienSo.Text = auction.LicensePlateNumber;
-            lblGiaHT.Text = lblGiaHT.Text = auction.CurrentPrice.ToString("N0") + " VNĐ";
+            lblGiaHT.Text = auction.CurrentPrice.ToString("N0") + " VNĐ";
             UpdateStatus();
         }
 
@@ -132,7 +144,7 @@ namespace client
         private void InitializeTimer()
         {
             _timer = new System.Windows.Forms.Timer();
-            _timer.Interval = 1000; // Cập nhật mỗi 1 giây
+            _timer.Interval = 1000;
             _timer.Tick += Timer_Tick;
             _timer.Start();
         }
@@ -140,6 +152,7 @@ namespace client
         private void Timer_Tick(object sender, EventArgs e)
         {
             UpdateStatus();
+            loadListHistory();
         }
 
         private void UpdateStatus()
@@ -147,10 +160,6 @@ namespace client
             DateTime currentTime = DateTime.Now;
             if (currentTime < auctionItem.StartTime)
             {
-                if (!_timer.Enabled)
-                {
-                    _timer.Start();
-                }
                 lblTGTieuDe.Text = "Bắt đầu sau:";
                 lblTG.Text = (auctionItem.StartTime - currentTime).ToString(@"hh\:mm\:ss");
             }
@@ -158,22 +167,44 @@ namespace client
             {
                 lblTGTieuDe.Text = "Kết thúc lúc:";
                 lblTG.Text = auctionItem.EndTime.ToString("HH:mm:ss dd/MM/yyyy");
-                _timer.Stop(); // Dừng cập nhật khi phiên đấu giá kết thúc
+                _timer.Stop();
             }
             else
             {
-                if (!_timer.Enabled)
-                {
-                    _timer.Start();
-                }
                 lblTGTieuDe.Text = "Kết thúc sau:";
                 lblTG.Text = (auctionItem.EndTime - currentTime).ToString(@"hh\:mm\:ss");
             }
         }
 
+        private void ProcessError(Exception ex)
+        {
+            if (!_client.IsConnected())
+            {
+                if (!isDisconnected)
+                {
+                    isDisconnected = true;
+                    ShowHomePageWithError();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi thực hiện thao tác: " + ex.Message);
+            }
+        }
+
+        private void ShowHomePageWithError()
+        {
+            HomePage homePage = new HomePage(_client);
+            homePage.ResetConnectionStatus();
+            homePage.Show();
+            this.Close();
+            _timer.Stop();
+            _timer.Dispose();
+            MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
+        }
+
         private void txtGiaMoi_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
@@ -182,8 +213,16 @@ namespace client
         {
             try
             {
-                if (decimal.TryParse(txtGiaMoi.Text, out decimal newBidAmount))
+                if (!_client.IsConnected())
                 {
+                    MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
+                    return;
+                }
+
+                DateTime currentTime = DateTime.Now;
+                if (currentTime < auctionItem.EndTime && (await _client.GetStatus(auctionItem.Id) == "Active"))
+                {
+                    decimal newBidAmount = decimal.Parse(txtGiaMoi.Text);
                     if (newBidAmount > auctionItem.CurrentPrice)
                     {
                         bool isSuccess = await _client.PlaceBid(auctionItem.Id, _client.CurrentUser.Id, newBidAmount);
@@ -191,7 +230,7 @@ namespace client
                         {
                             auctionItem.CurrentPrice = newBidAmount;
                             MessageBox.Show("Đặt giá thành công!");
-                            await loadData(); // Cập nhật lại dữ liệu sau khi đặt giá thành công
+                            await loadData();
                         }
                         else
                         {
@@ -205,12 +244,12 @@ namespace client
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng nhập một giá hợp lệ.");
+                    MessageBox.Show("Phiên đấu giá đã kết thúc hoặc bị tạm hoãn");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi đặt giá: " + ex.Message);
+                ProcessError(ex);
             }
         }
     }

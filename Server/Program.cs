@@ -107,9 +107,13 @@ namespace Server
                             decimal.Parse(parts[3]) // amount
                         );
                         return success ? "Bid placed successfully" : "Failed to place bid";
-                    case "getinactiveauctions":  // Thêm lệnh mới
+                    case "getinactiveauctions":  
                         var inactiveAuctions = await auctionService.GetInactiveAuctions();
                         return JsonSerializer.Serialize(inactiveAuctions);
+                    case "getstatus":
+                        if (parts.Length != 2) return "Invalid command format";
+                        var status = await auctionService.GetStatus(int.Parse(parts[1]));
+                        return status != null ? status : "Auction not found";
                     default:
                         return "Unknown command";
                 }

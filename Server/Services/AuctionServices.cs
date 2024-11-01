@@ -219,5 +219,18 @@ namespace Server.Services
 
             return null;
         }
+
+        public async Task<string> GetStatus(int auctionId)
+        {
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+
+            var sql = @"SELECT status FROM auctions WHERE id = @auctionId";
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@auctionId", auctionId);
+
+            var status = await cmd.ExecuteScalarAsync();
+            return status?.ToString(); // Tr? v? tr?ng thái ho?c null n?u không tìm th?y
+        }
     }
 }

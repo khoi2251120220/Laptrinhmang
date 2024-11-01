@@ -476,7 +476,7 @@
             // lblSanpham
             // 
             lblSanpham.AutoSize = true;
-            lblSanpham.Location = new Point(110, 148);
+            lblSanpham.Location = new Point(123, 148);
             lblSanpham.Name = "lblSanpham";
             lblSanpham.Size = new Size(91, 15);
             lblSanpham.TabIndex = 3;

@@ -4,6 +4,7 @@ namespace Shared.Interfaces
 {
     public interface IAuctionService
     {
+        Task<string> GetStatus(int auctionId);
         Task<List<Auction>> GetActiveAuctions();
         Task<List<Auction>> GetInactiveAuctions();
         Task<bool> PlaceBid(int auctionId, int userId, decimal amount);
