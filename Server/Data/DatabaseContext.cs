@@ -204,16 +204,16 @@ namespace Server.Data
             string query = @"
             SELECT id, 
                    history_username, 
-                   history_license_plate_number,
+                   history_license_plate,
                    history_amount, 
-                   history_payment_method, 
+                   payment_method, 
                    payment_time, 
-                   history_status'
+                   status
             FROM payment_history 
             WHERE user_id = @id";
 
             using var cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@userId", id);
+            cmd.Parameters.AddWithValue("@id", id);
 
             using var adapter = new MySqlDataAdapter(cmd);
             var dataTable = new DataTable();
