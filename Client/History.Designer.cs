@@ -68,7 +68,7 @@
             dataGridViewPaymentHistory.Location = new Point(0, 63);
             dataGridViewPaymentHistory.Name = "dataGridViewPaymentHistory";
             dataGridViewPaymentHistory.RowHeadersWidth = 51;
-            dataGridViewPaymentHistory.Size = new Size(928, 390);
+            dataGridViewPaymentHistory.Size = new Size(931, 390);
             dataGridViewPaymentHistory.TabIndex = 1;
             // 
             // id
@@ -132,7 +132,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(929, 450);
+            ClientSize = new Size(935, 450);
             Controls.Add(dataGridViewPaymentHistory);
             Controls.Add(panel1);
             Name = "History";

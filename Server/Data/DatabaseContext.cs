@@ -1,5 +1,7 @@
 using MySql.Data.MySqlClient;
+using Shared.Models;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace Server.Data
 {
@@ -164,7 +166,7 @@ namespace Server.Data
             }
 
             // Tính t?ng s? ti?n thanh toán t? b?ng bids
-            using (var cmd = new MySqlCommand("SELECT SUM(amount) FROM bids WHERE user_id = @id", conn))
+            using (var cmd = new MySqlCommand("SELECT SUM(max_amount) FROM(SELECT MAX(amount) AS max_amount FROM bids WHERE user_id = @id GROUP BY auction_id) AS max_bids", conn))
             {
                 cmd.Parameters.AddWithValue("@id", id);
                 var result = await cmd.ExecuteScalarAsync();

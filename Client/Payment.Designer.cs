@@ -62,16 +62,16 @@
             // panel1
             // 
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(11, 89);
+            panel1.Location = new Point(11, 56);
             panel1.Name = "panel1";
-            panel1.Size = new Size(279, 44);
+            panel1.Size = new Size(285, 44);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 6);
+            label1.Location = new Point(5, 9);
             label1.Name = "label1";
             label1.Size = new Size(274, 25);
             label1.TabIndex = 0;
@@ -81,7 +81,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(13, 139);
+            label2.Location = new Point(11, 113);
             label2.Name = "label2";
             label2.Size = new Size(225, 20);
             label2.TabIndex = 1;
@@ -277,7 +277,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, lịchSửThanhToánToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 33);
+            menuStrip1.Size = new Size(834, 33);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -302,7 +302,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(800, 451);
+            ClientSize = new Size(834, 496);
             Controls.Add(btnCancel);
             Controls.Add(btnPay);
             Controls.Add(textBoxTotalAmount);
