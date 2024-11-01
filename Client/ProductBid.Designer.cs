@@ -46,7 +46,6 @@
             tàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
             thôngTinTàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
-            trợGiúpToolStripMenuItem = new ToolStripMenuItem();
             splitContainer1 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             mainPanel.SuspendLayout();
@@ -208,7 +207,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { TrangChuToolStripMenuItem, lịchSửToolStripMenuItem, tàiKhoảnToolStripMenuItem, trợGiúpToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { TrangChuToolStripMenuItem, lịchSửToolStripMenuItem, tàiKhoảnToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -247,12 +246,6 @@
             logOutToolStripMenuItem.Size = new Size(175, 22);
             logOutToolStripMenuItem.Text = "log out";
             logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
-            // 
-            // trợGiúpToolStripMenuItem
-            // 
-            trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            trợGiúpToolStripMenuItem.Size = new Size(62, 20);
-            trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // splitContainer1
             // 
@@ -310,7 +303,6 @@
         private ToolStripMenuItem tàiKhoảnToolStripMenuItem;
         private ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
         private ToolStripMenuItem logOutToolStripMenuItem;
-        private ToolStripMenuItem trợGiúpToolStripMenuItem;
         private SplitContainer splitContainer1;
         private FlowLayoutPanel flowLayoutPanel1;
         private ListView lvHistory;

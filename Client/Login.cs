@@ -63,7 +63,7 @@ namespace daugia
                     if (user.Role == "admin") // Giả sử bạn có thuộc tính Role trong đối tượng user
                     {
                         MessageBox.Show("Login successful as Admin!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        var adminPage = new Homepage_admin(); // Chuyển đến trang admin
+                        var adminPage = new Homepage_admin(_client); // Chuyển đến trang admin
                         adminPage.Show();
                     }
                     else

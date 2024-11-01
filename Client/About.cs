@@ -16,8 +16,8 @@ namespace Client
     public partial class About : Form
     {
         private int _id;
-        private AuctionClient _client;
-        public About(AuctionClient _client, int id)
+        private AuctionClient client;
+        public About(AuctionClient client, int id)
         {
             InitializeComponent();
             _id = id;
@@ -30,7 +30,7 @@ namespace Client
         private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Tạo một instance của form Homepage
-            HomePage homepageForm = new HomePage(_client,_id);
+            HomePage homepageForm = new HomePage(client, _id);
 
             // Hiển thị form Homepage
             homepageForm.Show();
@@ -42,6 +42,13 @@ namespace Client
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login loginForm = new Login();
+            loginForm.Show();
+            this.Close();
         }
     }
 }

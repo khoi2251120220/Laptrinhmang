@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Client.Services;
+using daugia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,43 @@ namespace Client
 {
     public partial class Homepage_admin : Form
     {
-        public Homepage_admin()
+        private AuctionClient _client;
+        public Homepage_admin(AuctionClient client)
         {
             InitializeComponent();
+            _client = client;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            {
+                QLND qLNDForm = new QLND(_client);
+                qLNDForm.Show();
+                this.Close();
+                _client.Dispose();
+
+            }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Login loginForm = new Login();
+                loginForm.Show();
+                this.Close();
+                _client.Dispose();
+            }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            QLND qLNDForm = new QLND(_client);
+            qLNDForm.Show();
+            this.Close();
+            _client.Dispose();
         }
     }
 }
+
