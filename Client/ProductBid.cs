@@ -45,6 +45,7 @@ namespace client
             loadListView();
         }
 
+        //Load dữ liệu sản phẩm
         private async Task loadData()
         {
             try
@@ -112,6 +113,7 @@ namespace client
             lvHistory.Columns.Add("Thời gian");
         }
 
+        //load lịch sử đấu giá
         private async Task loadListHistory()
         {
             if (auctionItem != null)
@@ -147,6 +149,7 @@ namespace client
             lvHistory.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
+        //Khi click vào phần tử trong danh sách
         private void OnItemClicked(Auction auction)
         {
             if (!auctionItem.Equals(auction))
@@ -165,6 +168,7 @@ namespace client
             UpdateStatus();
         }
 
+        //chuyển về trang chủ
         private void TrangChuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HomePage homePage = new HomePage(_client, _id);
@@ -193,6 +197,7 @@ namespace client
             loadListHistory();
         }
 
+        //Khởi tạo timer cho chức năng đấu giá tự động
         private void InitializeAutoBidTimer()
         {
             autoBidTimer = new System.Windows.Forms.Timer();
@@ -200,6 +205,7 @@ namespace client
             autoBidTimer.Tick += AutoBidTimer_Tick;
         }
 
+        //Tự động đặt giá nếu người dùng tick vào ô checkbox
         private void AutoBidTimer_Tick(object sender, EventArgs e)
         {
             if (chkAutoBid.Checked)
@@ -233,13 +239,14 @@ namespace client
             return auctionItem != null ? auctionItem.CurrentPrice : 0;
         }
 
+        //Đặt giá tự động
         private void PlaceBid(decimal amount)
         {
             txtGiaMoi.Text = amount.ToString();
             btnDatGia.PerformClick(); // Giả lập nhấn nút "Đặt Giá"
         }
 
-
+        //Cập nhật trạng thái đấu giá
         private void UpdateStatus()
         {
             DateTime currentTime = DateTime.Now;
@@ -269,6 +276,7 @@ namespace client
             }
         }
 
+        //Xử lý lỗi
         private void ProcessError(Exception ex)
         {
             if (!_client.IsConnected())
@@ -285,6 +293,7 @@ namespace client
 
         private void txtGiaMoi_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Chỉ cho nhập số từ bàn phím
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
@@ -293,6 +302,7 @@ namespace client
         {
             try
             {
+                //Kiểm tra kết nối
                 if (!_client.IsConnected())
                 {
                     MessageBox.Show("Mất kết nối với server. Vui lòng kiểm tra lại.");
@@ -300,6 +310,7 @@ namespace client
                 }
 
                 DateTime currentTime = DateTime.Now;
+                //Kiểm tra điều kiện đặt giá
                 if (currentTime < auctionItem.EndTime && (await _client.GetStatus(auctionItem.Id) == "Active"))
                 {
                     decimal newBidAmount = decimal.Parse(txtGiaMoi.Text);

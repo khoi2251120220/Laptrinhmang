@@ -25,6 +25,7 @@ namespace Client
 
         private async void btnThem_Click(object sender, EventArgs e)
         {
+            //Kiểm tra thông tin và thêm phiên đấu giá
             if (string.IsNullOrWhiteSpace(txtBienso.Text) ||
                 !decimal.TryParse(txtGiaBD.Text, out decimal startingPrice) ||
                 dtbStart.Value >= dtbKetThuc.Value)

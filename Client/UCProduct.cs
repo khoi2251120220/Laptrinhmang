@@ -86,6 +86,7 @@ namespace Client
             UpdateStatus();
         }
 
+        //Tự động cập nhật trạng thái
         private void UpdateStatus()
         {
             DateTime currentTime = DateTime.Now;

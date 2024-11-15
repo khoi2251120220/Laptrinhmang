@@ -43,10 +43,12 @@ namespace Client
             await loadData();
         }
 
+        //Load dữ liệu
         private async Task loadData()
         {
             try
             {
+                //Lấy phiên đấu giá đang hoạt động
                 List<Auction> auctions = await _client.GetActiveAuctions();
                 if (auctionItem == null && auctions.Count > 0)
                 {
@@ -78,6 +80,7 @@ namespace Client
                     flowLayoutPanel1.Controls.Add(ucProduct);
                 }
 
+                //Lấy những phiên đấu giá còn lại
                 auctions = await _client.GetInactiveAuctions();
                 if (auctionItem == null && auctions.Count > 0)
                 {
@@ -135,7 +138,7 @@ namespace Client
         }
 
 
-
+        //Xử lý lỗi
         private void ProcessError(Exception ex)
         {
             if (!_client.IsConnected())
@@ -167,7 +170,7 @@ namespace Client
                 return;
             }
 
-            // Update auctionItem with new values
+            // Cập nhật giá trị mới
             auctionItem.LicensePlateNumber = txtBienso.Text;
             auctionItem.StartingPrice = startingPrice;
             auctionItem.StartTime = dtbStart.Value;
@@ -186,6 +189,7 @@ namespace Client
             }
         }
 
+        //Xóa phiên đấu giá
         private async void btnXoa_Click(object sender, EventArgs e)
         {
             if (auctionItem != null)
