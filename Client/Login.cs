@@ -20,6 +20,7 @@ namespace daugia
         {
             InitializeComponent();
             _id = id;
+            this._client = _client;
         }
 
         private void label1_Click(object sender, EventArgs e)

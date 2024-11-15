@@ -151,7 +151,6 @@ namespace Server
                         return deleteSuccess ? "Auction deleted successfully" : "Failed to delete auction";
                     case "addauction":
                         if (parts.Length != 7) return "Invalid command format";
-
                         var newAuction = new Auction
                         {
                             LicensePlateNumber = parts[1],

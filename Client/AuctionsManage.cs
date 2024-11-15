@@ -52,11 +52,14 @@ namespace Client
                 {
                     auctionItem = auctions[0];
                 }
-                txtBienso.Text = auctionItem.LicensePlateNumber;
-                txtGiaBD.Text = auctionItem.StartingPrice.ToString();
-                dtbStart.Value = auctionItem.StartTime;
-                dtbKetThuc.Value = auctionItem.EndTime;
-                cbbStatus.SelectedItem = auctionItem.Status;
+                if(auctions.Count > 0)
+                {
+                    txtBienso.Text = auctionItem.LicensePlateNumber;
+                    txtGiaBD.Text = auctionItem.StartingPrice.ToString();
+                    dtbStart.Value = auctionItem.StartTime;
+                    dtbKetThuc.Value = auctionItem.EndTime;
+                    cbbStatus.SelectedItem = auctionItem.Status;
+                }
 
                 flowLayoutPanel1.Controls.Clear();
 
@@ -76,6 +79,15 @@ namespace Client
                 }
 
                 auctions = await _client.GetInactiveAuctions();
+                if (auctionItem == null && auctions.Count > 0)
+                {
+                    auctionItem = auctions[0];
+                    txtBienso.Text = auctionItem.LicensePlateNumber;
+                    txtGiaBD.Text = auctionItem.StartingPrice.ToString();
+                    dtbStart.Value = auctionItem.StartTime;
+                    dtbKetThuc.Value = auctionItem.EndTime;
+                    cbbStatus.SelectedItem = auctionItem.Status;
+                }
                 foreach (var auction in auctions)
                 {
                     var ucProduct = new UCProduct

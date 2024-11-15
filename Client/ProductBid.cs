@@ -50,8 +50,11 @@ namespace client
                 {
                     auctionItem = auctions[0];
                 }
-                lblBienSo.Text = auctionItem.LicensePlateNumber;
-                lblGiaHT.Text = auctionItem.CurrentPrice.ToString("N0") + " VNĐ";
+                if(auctions.Count > 0)
+                {
+                    lblBienSo.Text = auctionItem.LicensePlateNumber;
+                    lblGiaHT.Text = auctionItem.CurrentPrice.ToString("N0") + " VNĐ";
+                }
 
                 flowLayoutPanel1.Controls.Clear();
 
@@ -71,6 +74,13 @@ namespace client
                 }
 
                 auctions = await _client.GetInactiveAuctions();
+                if (auctionItem == null && auctions.Count > 0)
+                {
+                    auctionItem = auctions[0];
+                    lblBienSo.Text = auctionItem.LicensePlateNumber;
+                    lblGiaHT.Text = auctionItem.CurrentPrice.ToString("N0") + " VNĐ";
+                }
+
                 foreach (var auction in auctions)
                 {
                     var ucProduct = new UCProduct

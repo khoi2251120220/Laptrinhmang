@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddAuctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="answer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AuctionsManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormAddNewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormShowInfoEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Homepage_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InformationUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProductBid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QLND.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UCProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
