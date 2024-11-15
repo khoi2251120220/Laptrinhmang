@@ -13,7 +13,9 @@ namespace client
         private int _id;
         private AuctionClient _client;
         private System.Windows.Forms.Timer _timer;
+        private System.Windows.Forms.Timer autoBidTimer;
         private Auction auctionItem;
+        private int user_currentbid_id = 0;
 
         public ProductBid(AuctionClient client, int id)
         {
@@ -28,8 +30,6 @@ namespace client
             else
             {
                 InitializeComponent();
-                InitializeTimer();
-                loadListView();
             }
             _id = id;
         }
@@ -39,6 +39,10 @@ namespace client
             auctionItem = null;
             await loadData();
             await loadListHistory();
+            InitializeTimer();
+            InitializeAutoBidTimer();
+            autoBidTimer.Start();
+            loadListView();
         }
 
         private async Task loadData()
@@ -50,7 +54,7 @@ namespace client
                 {
                     auctionItem = auctions[0];
                 }
-                if(auctions.Count > 0)
+                if (auctions.Count > 0)
                 {
                     lblBienSo.Text = auctionItem.LicensePlateNumber;
                     lblGiaHT.Text = auctionItem.CurrentPrice.ToString("N0") + " VNĐ";
@@ -110,12 +114,21 @@ namespace client
 
         private async Task loadListHistory()
         {
-            if(auctionItem != null)
+            if (auctionItem != null)
             {
                 try
                 {
                     lvHistory.Items.Clear();
                     List<Bid> bids = await _client.GetAuctionBids(auctionItem.Id);
+                    if (bids != null && bids.Count > 0)
+                    {
+                        user_currentbid_id = bids[0].UserId;
+                    }
+                    else
+                    {
+                        user_currentbid_id = 0;
+                    }
+                    
                     foreach (var bid in bids)
                     {
                         var item = new ListViewItem
@@ -136,9 +149,15 @@ namespace client
 
         private void OnItemClicked(Auction auction)
         {
-            auctionItem = auction;
-            lblBienSo.Text = auction.LicensePlateNumber;
-            lblGiaHT.Text = auction.CurrentPrice.ToString("N0") + " VNĐ";
+            if (!auctionItem.Equals(auction))
+            {
+                auctionItem = auction;
+                lblBienSo.Text = auction.LicensePlateNumber;
+                lblGiaHT.Text = auction.CurrentPrice.ToString("N0") + " VNĐ";
+                autoBidTimer?.Stop();
+                chkAutoBid.Checked = false;
+                txtMaxBid.Text = "";
+            }
             if (!(_timer.Enabled))
             {
                 _timer.Start();
@@ -148,7 +167,7 @@ namespace client
 
         private void TrangChuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage(_client,_id);
+            HomePage homePage = new HomePage(_client, _id);
             homePage.Show();
             this.Close();
         }
@@ -158,7 +177,6 @@ namespace client
             Login loginForm = new Login();
             loginForm.Show();
             this.Close();
-            _client.Dispose();
         }
 
         private void InitializeTimer()
@@ -175,12 +193,59 @@ namespace client
             loadListHistory();
         }
 
+        private void InitializeAutoBidTimer()
+        {
+            autoBidTimer = new System.Windows.Forms.Timer();
+            autoBidTimer.Interval = 1000; // Kiểm tra mỗi giây
+            autoBidTimer.Tick += AutoBidTimer_Tick;
+        }
+
+        private void AutoBidTimer_Tick(object sender, EventArgs e)
+        {
+            if (chkAutoBid.Checked)
+            {
+                try
+                {
+                    if (chkAutoBid.Checked && decimal.TryParse(txtMaxBid.Text, out decimal maxBid))
+                    {
+                        decimal currentPrice = GetCurrentPrice(); // Lấy giá hiện tại
+                        decimal incrementStep = 100000; // Bước giá
+
+                        if (user_currentbid_id != _id && (currentPrice + incrementStep <= maxBid))
+                        {
+                            decimal newBid = currentPrice + incrementStep;
+                            PlaceBid(newBid);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi đặt giá tự động: {ex.Message}");
+                    autoBidTimer.Stop();
+                }
+
+            }
+        }
+
+        private decimal GetCurrentPrice()
+        {
+            // Hàm giả lập để lấy giá hiện tại từ `auctionItem`
+            return auctionItem != null ? auctionItem.CurrentPrice : 0;
+        }
+
+        private void PlaceBid(decimal amount)
+        {
+            txtGiaMoi.Text = amount.ToString();
+            btnDatGia.PerformClick(); // Giả lập nhấn nút "Đặt Giá"
+        }
+
+
         private void UpdateStatus()
         {
             DateTime currentTime = DateTime.Now;
             if (currentTime < auctionItem.StartTime)
             {
-                if(auctionItem.Status== "Cancelled")
+                if (auctionItem.Status == "Cancelled")
                 {
                     lblTGTieuDe.Text = "Phiên đấu giá đã bị hủy";
                     lblTG.Text = "";
@@ -238,13 +303,14 @@ namespace client
                 if (currentTime < auctionItem.EndTime && (await _client.GetStatus(auctionItem.Id) == "Active"))
                 {
                     decimal newBidAmount = decimal.Parse(txtGiaMoi.Text);
-                    if (newBidAmount > auctionItem.CurrentPrice)
+                    if (currentTime >= auctionItem.StartTime && newBidAmount > auctionItem.CurrentPrice)
                     {
                         bool isSuccess = await _client.PlaceBid(auctionItem.Id, _client.CurrentUser.Id, newBidAmount);
                         if (isSuccess)
                         {
                             auctionItem.CurrentPrice = newBidAmount;
-                            MessageBox.Show("Đặt giá thành công!");
+                            MessageForm.Show($"Đã đặt giá: {newBidAmount:N0} VNĐ", "Thông báo", 3000);
+                          
                             txtGiaMoi.Clear();
                             await loadData(); // Cập nhật lại dữ liệu sau khi đặt giá thành công
                         }
@@ -252,6 +318,10 @@ namespace client
                         {
                             MessageBox.Show("Đặt giá thất bại. Vui lòng kiểm tra lại.");
                         }
+                    }
+                    else if(currentTime < auctionItem.StartTime)
+                    {
+                        MessageBox.Show("Phiên đấu giá chưa diễn ra");
                     }
                     else
                     {
@@ -267,6 +337,19 @@ namespace client
             {
                 ProcessError(ex);
 
+            }
+        }
+
+        private void chkAutoBid_CheckedChanged(object sender, EventArgs e)
+        {
+            txtMaxBid.Enabled = chkAutoBid.Checked; // Bật/Tắt TextBox giá tối đa
+            if (!chkAutoBid.Checked)
+            {
+                txtMaxBid.Text = ""; // Xóa giá trị nếu hủy kích hoạt
+            }
+            else
+            {
+                autoBidTimer?.Start();
             }
         }
     }

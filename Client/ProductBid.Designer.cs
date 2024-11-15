@@ -14,6 +14,8 @@
         private Button btnDatGia;
         private Label lblLichSuDauGia;
         private Panel mainPanel;
+        private CheckBox chkAutoBid;
+        private TextBox txtMaxBid;
 
         protected override void Dispose(bool disposing)
         {
@@ -40,6 +42,8 @@
             txtGiaMoi = new TextBox();
             btnDatGia = new Button();
             lblLichSuDauGia = new Label();
+            chkAutoBid = new CheckBox();
+            txtMaxBid = new TextBox();
             menuStrip1 = new MenuStrip();
             TrangChuToolStripMenuItem = new ToolStripMenuItem();
             lịchSửToolStripMenuItem = new ToolStripMenuItem();
@@ -71,6 +75,8 @@
             mainPanel.Controls.Add(txtGiaMoi);
             mainPanel.Controls.Add(btnDatGia);
             mainPanel.Controls.Add(lblLichSuDauGia);
+            mainPanel.Controls.Add(chkAutoBid);
+            mainPanel.Controls.Add(txtMaxBid);
             mainPanel.Location = new Point(0, 0);
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(332, 473);
@@ -80,7 +86,7 @@
             // 
             lvHistory.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lvHistory.GridLines = true;
-            lvHistory.Location = new Point(3, 306);
+            lvHistory.Location = new Point(3, 314);
             lvHistory.Name = "lvHistory";
             lvHistory.Size = new Size(324, 154);
             lvHistory.TabIndex = 10;
@@ -199,11 +205,36 @@
             lblLichSuDauGia.AutoSize = true;
             lblLichSuDauGia.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblLichSuDauGia.ForeColor = Color.White;
-            lblLichSuDauGia.Location = new Point(72, 261);
+            lblLichSuDauGia.Location = new Point(72, 281);
             lblLichSuDauGia.Name = "lblLichSuDauGia";
             lblLichSuDauGia.Size = new Size(194, 30);
             lblLichSuDauGia.TabIndex = 9;
             lblLichSuDauGia.Text = "LỊCH SỬ ĐẤU GIÁ";
+            // 
+            // chkAutoBid
+            // 
+            chkAutoBid.AutoSize = true;
+            chkAutoBid.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            chkAutoBid.ForeColor = Color.White;
+            chkAutoBid.Location = new Point(3, 250);
+            chkAutoBid.Name = "chkAutoBid";
+            chkAutoBid.Size = new Size(136, 25);
+            chkAutoBid.TabIndex = 11;
+            chkAutoBid.Text = "Đặt giá tự động";
+            chkAutoBid.UseVisualStyleBackColor = true;
+            chkAutoBid.CheckedChanged += chkAutoBid_CheckedChanged;
+            // 
+            // txtMaxBid
+            // 
+            txtMaxBid.BackColor = Color.White;
+            txtMaxBid.BorderStyle = BorderStyle.FixedSingle;
+            txtMaxBid.Enabled = false;
+            txtMaxBid.Font = new Font("Segoe UI", 12F);
+            txtMaxBid.Location = new Point(179, 250);
+            txtMaxBid.Name = "txtMaxBid";
+            txtMaxBid.PlaceholderText = "Giá tối đa...";
+            txtMaxBid.Size = new Size(140, 29);
+            txtMaxBid.TabIndex = 12;
             // 
             // menuStrip1
             // 

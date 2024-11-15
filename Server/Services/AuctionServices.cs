@@ -332,6 +332,42 @@ namespace Server.Services
             return rowsAffected > 0;
         }
 
+        public async Task<bool> UpdateWinner(int auctionId)
+        {
+            using var conn = _dbContext.GetConnection();
+            await conn.OpenAsync();
+
+            var sql = @"SELECT id, auction_id, user_id, amount 
+                FROM bids 
+                WHERE auction_id = @auctionId 
+                ORDER BY amount DESC 
+                LIMIT 1";
+
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@auctionId", auctionId);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                var winnerId = reader.GetInt32("user_id");
+                reader.Close();
+
+                var updateSql = @"UPDATE auctions 
+                          SET winner_id = @winnerId, status = 'Completed'
+                          WHERE id = @auctionId";
+
+                using var updateCmd = new MySqlCommand(updateSql, conn);
+                updateCmd.Parameters.AddWithValue("@winnerId", winnerId);
+                updateCmd.Parameters.AddWithValue("@auctionId", auctionId);
+
+                var rowsAffected = await updateCmd.ExecuteNonQueryAsync();
+                return rowsAffected > 0;
+            }
+
+            return false; // Không có lượt đấu giá nào
+        }
+
+
 
     }
 }

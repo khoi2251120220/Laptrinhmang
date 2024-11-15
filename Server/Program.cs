@@ -122,7 +122,7 @@ namespace Server
                             decimal.Parse(parts[3]) // amount
                         );
                         return success ? "Bid placed successfully" : "Failed to place bid";
-                    case "getinactiveauctions":  
+                    case "getinactiveauctions":
                         var inactiveAuctions = await auctionService.GetInactiveAuctions();
                         return JsonSerializer.Serialize(inactiveAuctions);
                     case "getstatus":
@@ -170,6 +170,37 @@ namespace Server
             catch (Exception ex)
             {
                 return $"Error: {ex.Message}";
+            }
+        }
+
+        static async Task UpdateWinnersAuto(AuctionService auctionService)
+        {
+            while (true)
+            {
+                try
+                {
+                    // Lấy các phiên đấu giá đã kết thúc
+                    var inactiveAuctions = await auctionService.GetInactiveAuctions();
+
+                    foreach (var auction in inactiveAuctions)
+                    {
+                        if (auction.Status != "Completed") // Chỉ xử lý nếu chưa hoàn thành
+                        {
+                            bool updated = await auctionService.UpdateWinner(auction.Id);
+                            if (updated)
+                            {
+                                Console.WriteLine($"Winner updated for auction ID: {auction.Id}");
+                            }
+                        }
+                    }
+
+                    // Sleep for a while before next check
+                    await Task.Delay(TimeSpan.FromMinutes(1));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error updating winners: {ex.Message}");
+                }
             }
         }
     }
