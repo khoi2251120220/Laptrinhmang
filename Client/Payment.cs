@@ -31,6 +31,7 @@ namespace client
         {
 
         }
+        //Load dữ liệu lên trang thanh toán 
 
         private async void Payment_Load(object sender, EventArgs e)
         {
@@ -52,6 +53,7 @@ namespace client
             textBoxInfomation.Text = licensePlateNumber;
             textBoxTotalAmount.Text = totalAmount.ToString("C2");
         }
+        //Kiểm tra thông tin khi nhấn thanh toán 
 
         private async void btnPay_Click(object sender, EventArgs e)
         {

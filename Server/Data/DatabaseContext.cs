@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace Server.Data
@@ -21,7 +21,7 @@ namespace Server.Data
         public DatabaseContext()
         {
             _connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
-                              "server=localhost;database=auction_db;user=root;password=1234";
+                              "server=localhost;database=auction_db;user=root";
 
         }
 
@@ -97,7 +97,7 @@ namespace Server.Data
                     history_amount DECIMAL(10,2) NOT NULL,
                     payment_method VARCHAR(20) NOT NULL,
                     payment_time DATETIME NOT NULL,
-                    status ENUM('Th�nh c�ng', 'Th?t b?i') NOT NULL,
+                    status ENUM('Thành công', 'Th?t b?i') NOT NULL,
                     user_id INT,
                     auction_id INT,
                     FOREIGN KEY (user_id) REFERENCES users(id),
@@ -130,7 +130,7 @@ namespace Server.Data
             var count = Convert.ToInt32(await cmd.ExecuteScalarAsync());
             return count > 0;
         }
-        // Method to retrieve a username by user ID
+        // Phương pháp lấy tên người dùng theo ID người dùng
         public async Task<string> GetUsernameById(int id)
         {
             using var conn = GetConnection();
@@ -142,6 +142,7 @@ namespace Server.Data
             var username = await cmd.ExecuteScalarAsync();
             return username?.ToString();
         }
+        //Phương thức lấy id của một cuộc đấu giá mà người dùng đã thắng
         public async Task<int> GetAuctionIdByUserId(int id)
         {
             using var conn = GetConnection();
@@ -151,9 +152,10 @@ namespace Server.Data
             cmd.Parameters.AddWithValue("@id", id);
 
             var result = await cmd.ExecuteScalarAsync();
-            return result != null ? Convert.ToInt32(result) : -1;  // Tr? v? -1 n?u kh�ng t�m th?y ??u gi�
+            return result != null ? Convert.ToInt32(result) : -1;  
         }
 
+        //Phương thức lấy thông tin chi tiết của một cuộc đấu giá mà người dùng đã thắng, bao gồm biển số xe và tổng số tiền mà người dùng đã đặt 
         public async Task<(string licensePlateNumber, decimal totalAmount)> GetAuctionDetailsAndTotalAmount(int id)
         {
             using var conn = GetConnection();
@@ -162,14 +164,14 @@ namespace Server.Data
             string licensePlateNumber = null;
             decimal totalAmount = 0;
 
-            // Lay thong tin bien so cua cuoc duu gia ma nguoi dung da thang
+            // Lay thong tin bien so cua cuoc dau gia ma nguoi dung da thang
             using (var cmd = new MySqlCommand("SELECT license_plate_number FROM auctions WHERE winner_id = @id", conn))
             {
                 cmd.Parameters.AddWithValue("@id", id);
                 using var reader = await cmd.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
                 {
-                    // Ki?m tra xem gi� tr? c� ph?i l� DBNull kh�ng
+                    // Kiểm tra xem giá trị có phải là DBNull không
                     if (!reader.IsDBNull(reader.GetOrdinal("license_plate_number")))
                     {
                         licensePlateNumber = reader.GetString("license_plate_number");
@@ -177,17 +179,18 @@ namespace Server.Data
                 }
             }
 
-            // T�nh t?ng s? ti?n thanh to�n t? b?ng bids
+            // Tính tổng số tiền thanh toán 
             using (var cmd = new MySqlCommand("SELECT SUM(amount) FROM bids WHERE user_id = @id", conn))
             {
                 cmd.Parameters.AddWithValue("@id", id);
                 var result = await cmd.ExecuteScalarAsync();
-                // Ki?m tra xem gi� tr? c� ph?i l� DBNull kh�ng
+                // Kiểmm tra xem giá trị có phải là DBNull không
                 totalAmount = result != null && !Convert.IsDBNull(result) ? Convert.ToDecimal(result) : 0;
             }
 
             return (licensePlateNumber, totalAmount);
         }
+        //Lưu lại lịch sử thanh toán 
         public async Task SavePaymentHistory(string username, string licensePlateNumber, decimal amount, string paymentMethod, string status, int userId, int auctionId)
         {
             using var conn = GetConnection();
@@ -209,6 +212,7 @@ namespace Server.Data
 
             await cmd.ExecuteNonQueryAsync();
         }
+        //Phương thức lấy thông tin lịch sử thanh toán theo id người dùng để hiển thị lịch sử thanh toán 
 
         public async Task<DataTable> GetPaymentHistoryByUserId(int id)
         {
